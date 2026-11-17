@@ -78,7 +78,7 @@
         .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 50; }
         .modal-content { background: white; border-radius: 8px; width: 700px; max-width: 90%; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
         .modal-header { padding: 12px 16px; border-bottom: 1px solid #dadce0; display: flex; justify-content: space-between; align-items: center; background: #f1f3f4; font-weight: 500; }
-        .modal-body { background: black; padding: 16px; display: flex; justify-content: center; }
+        .modal-body { background: black; padding: 0; display: flex; justify-content: center; }
         .modal-body-text { background: white; padding: 20px; font-size: 14px; line-height: 1.6; color: #202124; max-height: 400px; overflow-y: auto; }
         .modal-footer { padding: 12px 16px; border-top: 1px solid #dadce0; display: flex; justify-content: flex-end; align-items: center; font-size: 12px; color: #5f6368; background: #f8f9fa; }
     </style>
@@ -157,9 +157,7 @@
                 </div>
             </div>
 
-            <!-- ========================================== -->
-            <!-- INFORMATICA                                -->
-            <!-- ========================================== -->
+            <!-- INFORMATICA -->
             <div id="view-informatica" class="view-section hidden">
                 <div class="banner-clase bg-informatica">
                     <div>
@@ -224,7 +222,8 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Python - Teoria Completa', '/home/whoami/Documentos/Code/Python/Curso COMPLETO de PYTHON desde CERO para PRINCIPIANTES.mp4')">
+                        <!-- AQUÍ ESTÁ TU LINK YA CONFIGURADO -->
+                        <div class="item-row" onclick="abrirVideo('Python - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: Desde Sintaxis hasta POO y Estructuras</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -263,7 +262,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Java - Teoria Completa', '/home/whoami/Documentos/Code/Java/Curso Completo de Java desde Cero para Principiantes.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Java - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: POO, Clases, Herencia, Polimorfismo y Colecciones</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -302,7 +301,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Bash - Teoria Completa', '/home/whoami/Documentos/Code/Bash/Curso COMPLETO de BASH y la Terminal： Aprende desde Cero.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Bash - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: Automatizacion, Linux CLI Scripting y Regex</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -341,7 +340,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Redes - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Redes - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: Modelo OSI, TCP/IP, Subnetting y Routing</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -364,10 +363,7 @@
                 </div>
             </div>
 
-
-            <!-- ========================================== -->
-            <!-- IDIOMAS                                    -->
-            <!-- ========================================== -->
+            <!-- IDIOMAS -->
             <div id="view-idiomas" class="view-section hidden">
                 <div class="banner-clase bg-idiomas">
                     <div>
@@ -409,7 +405,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Ingles - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Ingles - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Masterclass: Gramatica B2, Phrasal Verbs y Pronunciacion</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -448,7 +444,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Frances - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Frances - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Masterclass: Grammaire, Conjugaison et Vocabulaire Essentiel</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -487,7 +483,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Italiano - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Italiano - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Masterclass: Grammatica Italiana e Congiuntivo</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -510,10 +506,7 @@
                 </div>
             </div>
 
-
-            <!-- ========================================== -->
-            <!-- MATEMATICAS                                -->
-            <!-- ========================================== -->
+            <!-- MATEMATICAS -->
             <div id="view-matematicas" class="view-section hidden">
                 <div class="banner-clase bg-matematicas">
                     <div>
@@ -555,7 +548,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Aritmetica - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Aritmetica - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: Numeros Reales, Potenciacion, MCM/MCD y Razones</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -594,7 +587,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Algebra - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Algebra - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: Polinomios, Factorizacion, Ecuaciones y Matrices</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -633,7 +626,7 @@
                 <div class="rama-box">
                     <div class="rama-title">Teoria Unica</div>
                     <div class="rama-content">
-                        <div class="item-row" onclick="abrirVideo('Logica - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                        <div class="item-row" onclick="abrirVideo('Logica - Teoria Completa', 'https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s')">
                             <span>Video Dominio Completo: Tablas de Verdad, Arboles Logicos y Algebra Booleana</span>
                             <button class="btn-accion">Reproducir Video</button>
                         </div>
@@ -659,18 +652,15 @@
         </main>
     </div>
 
-    <!-- MODAL DE VIDEO -->
+    <!-- MODAL DE VIDEO (USA IFRAME PARA YOUTUBE) -->
     <div id="video-modal" class="modal hidden">
-        <div class="modal-content">
+        <div class="modal-content" style="width: 800px;">
             <div class="modal-header">
                 <span id="modal-title">Reproduciendo Video Teorico</span>
                 <button onclick="cerrarVideo()" style="background:none; border:none; font-size:18px; cursor:pointer;">✕</button>
             </div>
-            <div class="modal-body">
-                <video id="player" controls style="width: 100%; max-height: 380px; border-radius: 4px;">
-                    <source id="source-video" src="/home/usuario/documentos/videos/video.mp4" type="video/mp4">
-                    Tu navegador no soporta video local.
-                </video>
+            <div class="modal-body" style="background: #000; position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+                <iframe id="player-frame" src="" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             </div>
             <div class="modal-footer">
                 <button class="btn-accion" onclick="cerrarVideo()">Cerrar</button>
@@ -835,16 +825,29 @@
             mostrarVista('view-home');
         }
 
-        function abrirVideo(titulo, archivo) {
+        // FUNCIÓN JS AUTOMÁTICA QUE CONVIERTE CUALQUIER LINK DE YOUTUBE A FORMATO EMBED
+        function abrirVideo(titulo, urlVideo) {
+            let urlFinal = urlVideo;
+            
+            if (urlVideo.includes("watch?v=")) {
+                const partes = urlVideo.split("watch?v=")[1].split("&");
+                const videoId = partes[0];
+                const tiempo = partes.find(p => p.startsWith("t="));
+                urlFinal = `https://www.youtube.com/embed/${videoId}` + (tiempo ? `?start=${tiempo.replace("t=", "").replace("s", "")}` : "");
+            } else if (urlVideo.includes("youtu.be/")) {
+                const partes = urlVideo.split("youtu.be/")[1].split("?");
+                const videoId = partes[0];
+                const tiempo = partes[1] && partes[1].includes("t=") ? partes[1].replace("t=", "").replace("s", "") : null;
+                urlFinal = `https://www.youtube.com/embed/${videoId}` + (tiempo ? `?start=${tiempo}` : "");
+            }
+
             document.getElementById('modal-title').innerText = titulo;
-            document.getElementById('source-video').src = archivo;
-            document.getElementById('player').load();
+            document.getElementById('player-frame').src = urlFinal;
             document.getElementById('video-modal').classList.remove('hidden');
         }
 
         function cerrarVideo() {
-            const player = document.getElementById('player');
-            player.pause();
+            document.getElementById('player-frame').src = ""; 
             document.getElementById('video-modal').classList.add('hidden');
         }
 

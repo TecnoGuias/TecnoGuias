@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estudio by equipo dinamita</title>
+    <link rel="icon" type="image/png" href="./Designer.png">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Roboto', Arial, sans-serif; }
+        body { background-color: #ffffff; color: #3c4043; height: 100vh; display: flex; flex-direction: column; overflow: hidden; }
+        
+        header { height: 64px; border-bottom: 1px solid #dadce0; display: flex; align-items: center; justify-content: space-between; padding: 0 16px; background: white; z-index: 20; }
+        .header-left { display: flex; align-items: center; gap: 12px; }
+        .menu-btn { background: none; border: none; font-size: 24px; cursor: pointer; padding: 8px; border-radius: 50%; color: #5f6368; }
+        .menu-btn:hover { background-color: #f1f3f4; }
+        .logo-box { background-color: #f1f3f4; color: white; width: 36px; height: 36px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 18px; cursor: pointer; overflow: hidden; }
+        .logo-box img { width: 100%; height: 100%; object-fit: cover; }
+        .logo-title { font-size: 20px; font-weight: 500; color: #3c4043; cursor: pointer; }
+
+        .main-container { display: flex; flex: 1; overflow: hidden; }
+        
+        aside { width: 280px; border-right: 1px solid #dadce0; padding: 12px 8px; background: white; overflow-y: auto; }
+        .sidebar-item { display: flex; align-items: center; gap: 16px; padding: 12px 16px; border-radius: 0 24px 24px 0; text-decoration: none; color: #3c4043; font-size: 14px; font-weight: 500; margin-bottom: 4px; cursor: pointer; }
+        .sidebar-item.active { background-color: #e8f0fe; color: #1967d2; }
+        .sidebar-item:hover:not(.active) { background-color: #f1f3f4; }
+
+        main { flex: 1; background-color: #f8f9fa; overflow-y: auto; padding: 24px; }
+        
+        .classes-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+        
+        .class-card { background: white; border: 1px solid #dadce0; border-radius: 8px; overflow: hidden; cursor: pointer; transition: box-shadow 0.2s; }
+        .class-card:hover { box-shadow: 0 1px 3px 1px rgba(60,64,67,0.15); }
+        .card-header { padding: 16px; height: 110px; position: relative; display: flex; flex-direction: column; justify-content: space-between; color: white; }
+        .card-title { font-size: 18px; font-weight: 500; }
+        .card-subtitle { font-size: 12px; opacity: 0.9; }
+        .card-avatar { position: absolute; bottom: -16px; right: 16px; width: 48px; height: 48px; border-radius: 50%; border: 2px solid white; display: flex; align-items: center; justify-content: center; font-weight: bold; color: white; font-size: 18px; }
+        .card-body { padding: 24px 16px 16px 16px; font-size: 12px; color: #5f6368; }
+
+        /* Colores temáticos */
+        .bg-idiomas { background-color: #137333; }
+        .bg-informatica { background-color: #1967d2; }
+        .bg-matematicas { background-color: #b06000; }
+
+        .view-section { max-width: 850px; margin: 0 auto; display: flex; flex-direction: column; gap: 20px; }
+        .banner-clase { color: white; padding: 24px; border-radius: 8px; display: flex; justify-content: space-between; align-items: center; }
+        .btn-volver { background: rgba(255,255,255,0.2); border: none; color: white; padding: 8px 16px; border-radius: 4px; cursor: pointer; font-size: 14px; }
+        .btn-volver:hover { background: rgba(255,255,255,0.3); }
+
+        .breadcrumbs { font-size: 13px; color: #5f6368; margin-bottom: 8px; display: flex; gap: 6px; align-items: center; }
+        .breadcrumbs span { cursor: pointer; color: #1967d2; }
+        .breadcrumbs span:hover { text-decoration: underline; }
+
+        .folder-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; }
+        .folder-card { background: white; border: 1px solid #dadce0; border-radius: 8px; padding: 16px; display: flex; align-items: center; gap: 14px; cursor: pointer; transition: background 0.2s, box-shadow 0.2s; }
+        .folder-card:hover { background: #f8f9fa; box-shadow: 0 1px 3px rgba(60,64,67,0.1); }
+        .folder-name { font-size: 14px; font-weight: 500; color: #3c4043; }
+
+        .rama-box { background: white; border: 1px solid #dadce0; border-radius: 8px; overflow: hidden; margin-bottom: 16px; }
+        .rama-title { background: #f1f3f4; padding: 12px 16px; font-weight: 500; font-size: 14px; border-bottom: 1px solid #dadce0; display: flex; align-items: center; justify-content: space-between; }
+        .rama-content { padding: 12px; display: flex; flex-direction: column; gap: 8px; max-height: 400px; overflow-y: auto; }
+        
+        .item-row { display: flex; justify-content: space-between; align-items: center; background: #f8f9fa; padding: 10px 14px; border: 1px solid #dadce0; border-radius: 6px; font-size: 13px; cursor: pointer; transition: background 0.2s; }
+        .item-row:hover { background: #e8f0fe; border-color: #1967d2; }
+        .item-row.exam-row { background: #fce8e6; border-color: #fad2cf; }
+        .item-row.exam-row:hover { background: #fad2cf; }
+        
+        .btn-accion { background: #e6f4ea; color: #137333; border: 1px solid #ceead6; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; }
+        .btn-accion:hover { background: #ceead6; }
+        
+        .btn-exam { background: #d93025; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
+        .btn-exam:hover { background: #b31412; }
+
+        .badge-dificultad { font-size: 10px; padding: 2px 6px; border-radius: 10px; background: #e8eaed; color: #3c4043; margin-left: 8px; }
+
+        .hidden { display: none !important; }
+
+        /* MODALES */
+        .modal { position: fixed; inset: 0; background: rgba(0,0,0,0.6); display: flex; align-items: center; justify-content: center; z-index: 50; }
+        .modal-content { background: white; border-radius: 8px; width: 700px; max-width: 90%; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .modal-header { padding: 12px 16px; border-bottom: 1px solid #dadce0; display: flex; justify-content: space-between; align-items: center; background: #f1f3f4; font-weight: 500; }
+        .modal-body { background: black; padding: 16px; display: flex; justify-content: center; }
+        .modal-body-text { background: white; padding: 20px; font-size: 14px; line-height: 1.6; color: #202124; max-height: 400px; overflow-y: auto; }
+        .modal-footer { padding: 12px 16px; border-top: 1px solid #dadce0; display: flex; justify-content: flex-end; align-items: center; font-size: 12px; color: #5f6368; background: #f8f9fa; }
+    </style>
+</head>
+<body>
+
+    <!-- BARRA SUPERIOR -->
+    <header>
+        <div class="header-left">
+            <button class="menu-btn"></button>
+            <div class="logo-box" onclick="irInicio()">
+                <img src="./Designer.png" alt="Logo">
+            </div>
+            <span class="logo-title" onclick="irInicio()">Tecno Guías</span>
+        </div>
+        <div style="width: 32px; height: 32px; border-radius: 50%; background: #1967d2; color: white; display: flex; align-items: center; justify-content: center; font-weight: 500; font-size: 14px;">W</div>
+    </header>
+
+    <div class="main-container">
+        <!-- SIDEBAR -->
+        <aside>
+            <a class="sidebar-item active" onclick="irInicio(); return false;" id="side-home">Inicio</a>
+            <div style="font-size: 11px; font-weight: bold; color: #5f6368; padding: 12px 16px 4px 16px; text-transform: uppercase;">Clases</div>
+            <a class="sidebar-item" onclick="mostrarVista('view-idiomas'); return false;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #137333; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">Id</div>
+                <span>Idiomas</span>
+            </a>
+            <a class="sidebar-item" onclick="mostrarVista('view-informatica'); return false;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #1967d2; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">I</div>
+                <span>Informatica</span>
+            </a>
+            <a class="sidebar-item" onclick="mostrarVista('view-matematicas'); return false;">
+                <div style="width: 24px; height: 24px; border-radius: 50%; background: #b06000; color: white; display: flex; align-items: center; justify-content: center; font-size: 12px;">M</div>
+                <span>Matematicas</span>
+            </a>
+        </aside>
+
+        <!-- CONTENIDO CENTRAL -->
+        <main>
+            <!-- 1. VISTA INICIO -->
+            <div id="view-home" class="view-section">
+                <h2 style="font-size: 22px; font-weight: 400; margin-bottom: 20px; color: #3c4043;">Tus Clases</h2>
+                <div class="classes-grid">
+                    <div class="class-card" onclick="mostrarVista('view-idiomas')">
+                        <div class="card-header bg-idiomas">
+                            <div>
+                                <div class="card-title">Idiomas</div>
+                                <div class="card-subtitle">Ingles, Frances e Italiano</div>
+                            </div>
+                            <div class="card-avatar bg-idiomas">Id</div>
+                        </div>
+                        <div class="card-body">Prof. John</div>
+                    </div>
+
+                    <div class="class-card" onclick="mostrarVista('view-informatica')">
+                        <div class="card-header bg-informatica">
+                            <div>
+                                <div class="card-title">Informatica</div>
+                                <div class="card-subtitle">Bachillerato Tecnologico</div>
+                            </div>
+                            <div class="card-avatar bg-informatica">I</div>
+                        </div>
+                        <div class="card-body">Prof. John</div>
+                    </div>
+
+                    <div class="class-card" onclick="mostrarVista('view-matematicas')">
+                        <div class="card-header bg-matematicas">
+                            <div>
+                                <div class="card-title">Matematicas</div>
+                                <div class="card-subtitle">Aritmetica, Algebra y Logica</div>
+                            </div>
+                            <div class="card-avatar bg-matematicas">M</div>
+                        </div>
+                        <div class="card-body">Prof. John</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ========================================== -->
+            <!-- INFORMATICA                                -->
+            <!-- ========================================== -->
+            <div id="view-informatica" class="view-section hidden">
+                <div class="banner-clase bg-informatica">
+                    <div>
+                        <h1>Informatica</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Bachillerato Tecnologico</p>
+                    </div>
+                    <button class="btn-volver" onclick="irInicio()">Volver al Inicio</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span>Informatica</span>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 500; color: #3c4043; margin-top: 10px;">Carpetas de la materia</h3>
+                <div class="folder-grid">
+                    <div class="folder-card" onclick="mostrarVista('view-prog')">
+                        <div class="folder-name">Programacion</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-redes')">
+                        <div class="folder-name">Redes</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Programacion -> Lenguajes -->
+            <div id="view-prog" class="view-section hidden">
+                <div class="banner-clase bg-informatica">
+                    <div>
+                        <h1>Programacion</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Informatica &gt; Programacion</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-informatica')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-informatica')">Informatica</span> &gt; <span>Programacion</span>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 500; color: #3c4043; margin-top: 10px;">Lenguajes de Programacion</h3>
+                <div class="folder-grid">
+                    <div class="folder-card" onclick="mostrarVista('view-lenguaje-java')">
+                        <div class="folder-name">Java</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-lenguaje-python')">
+                        <div class="folder-name">Python</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-lenguaje-bash')">
+                        <div class="folder-name">Bash Shell</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo: Python -->
+            <div id="view-lenguaje-python" class="view-section hidden">
+                <div class="banner-clase bg-informatica">
+                    <div>
+                        <h1>Python</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Informatica &gt; Programacion &gt; Python</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-prog')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-informatica')">Informatica</span> &gt; <span onclick="mostrarVista('view-prog')">Programacion</span> &gt; <span>Python</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Python - Teoria Completa', '/home/whoami/Documentos/Code/Python/Curso COMPLETO de PYTHON desde CERO para PRINCIPIANTES.mp4')">
+                            <span>Video Dominio Completo: Desde Sintaxis hasta POO y Estructuras</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-python"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Python', 'Construye un juego funcional de Blackjack o Snake (El Gusanito).\n\nRequisitos del proyecto:\n1. Sistema de puntuacion y records guardado en archivo local.\n2. Logica limpia orientada a objetos (Clases para Tablero, Jugador, Sistema).\n3. Manejo estricto de excepciones (try/except) y validacion total de entradas.\n4. Interfaz interactiva fluida por consola (usando curses/sys) o mediante Pygame.')">
+                            <div><strong>PROYECTO COMPLETO: Juego del Gusanito (Snake) o Blackjack en Terminal/Pygame</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo: Java -->
+            <div id="view-lenguaje-java" class="view-section hidden">
+                <div class="banner-clase bg-informatica">
+                    <div>
+                        <h1>Java</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Informatica &gt; Programacion &gt; Java</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-prog')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-informatica')">Informatica</span> &gt; <span onclick="mostrarVista('view-prog')">Programacion</span> &gt; <span>Java</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Java - Teoria Completa', '/home/whoami/Documentos/Code/Java/Curso Completo de Java desde Cero para Principiantes.mp4')">
+                            <span>Video Dominio Completo: POO, Clases, Herencia, Polimorfismo y Colecciones</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-java"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Java', 'Desarrolla una aplicacion robusta en Java que implemente el juego de Blackjack o Snake (El Gusanito).\n\nRequisitos del proyecto:\n1. Arquitectura estricta orientada a objetos (Modelo, Vista, Controlador o Clases modularizadas).\n2. Uso avanzado de Colecciones (ArrayList, HashMap) y manejo de excepciones (try-catch).\n3. Persistencia de datos o records mediante serializacion o archivos de texto (.txt).\n4. Interfaz grafica con Swing / JavaFX o consola interactiva orientada a eventos.')">
+                            <div><strong>PROYECTO COMPLETO: Motor de Juego Blackjack o Snake en Java (POO Avanzado)</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo: Bash -->
+            <div id="view-lenguaje-bash" class="view-section hidden">
+                <div class="banner-clase bg-informatica">
+                    <div>
+                        <h1>Bash Shell Scripting</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Informatica &gt; Programacion &gt; Bash</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-prog')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-informatica')">Informatica</span> &gt; <span onclick="mostrarVista('view-prog')">Programacion</span> &gt; <span>Bash</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Bash - Teoria Completa', '/home/whoami/Documentos/Code/Bash/Curso COMPLETO de BASH y la Terminal： Aprende desde Cero.mp4')">
+                            <span>Video Dominio Completo: Automatizacion, Linux CLI Scripting y Regex</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-bash"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Bash', 'Crea una version interactiva de Blackjack o Snake escrita enteramente como un Script Bash executable.\n\nRequisitos:\n1. Uso de secuencias de escape ANSI para renderizado y colores en terminal.\n2. Captura de eventos de teclado en tiempo real sin presionar Enter (read -n1 -s).\n3. Parsing y almacenamiento de estadisticas mediante awk/sed en un archivo oculto del sistema.')">
+                            <div><strong>PROYECTO COMPLETO: CLI Game - El Gusanito (Snake) o Blackjack en Pure Bash Shell</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modulo: Redes -->
+            <div id="view-redes" class="view-section hidden">
+                <div class="banner-clase bg-informatica">
+                    <div>
+                        <h1>Redes de Computadoras</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Informatica &gt; Redes</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-informatica')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-informatica')">Informatica</span> &gt; <span>Redes</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Redes - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Dominio Completo: Modelo OSI, TCP/IP, Subnetting y Routing</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-redes"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Redes', 'Disena y documenta la arquitectura de red corporativa completa para una empresa de 4 departamentos.\n\nRequisitos:\n1. Calculo de direccionamiento mediante VLSM partiendo del bloque 192.168.1.0/24.\n2. Configuracion de VLANs, enlaces Troncales 802.1Q y Servidor DHCP dedicado.\n3. Configuracion de Enrutamiento Inter-VLAN y Tablas de Enrutamiento estatico/dinamico.\n4. Scripting o comandos Packet Tracer de auditoria de conexion (Ping, Traceroute, Nmap).')">
+                            <div><strong>PROYECTO COMPLETO: Diseno Integral de Infraestructura de Red VLANs + VLSM</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ========================================== -->
+            <!-- IDIOMAS                                    -->
+            <!-- ========================================== -->
+            <div id="view-idiomas" class="view-section hidden">
+                <div class="banner-clase bg-idiomas">
+                    <div>
+                        <h1>Idiomas</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Ingles, Frances e Italiano</p>
+                    </div>
+                    <button class="btn-volver" onclick="irInicio()">Volver al Inicio</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span>Idiomas</span>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 500; color: #3c4043; margin-top: 10px;">Selecciona el idioma</h3>
+                <div class="folder-grid">
+                    <div class="folder-card" onclick="mostrarVista('view-ingles')">
+                        <div class="folder-name">Ingles</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-frances')">
+                        <div class="folder-name">Frances</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-italiano')">
+                        <div class="folder-name">Italiano</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Ingles -->
+            <div id="view-ingles" class="view-section hidden">
+                <div class="banner-clase bg-idiomas">
+                    <div>
+                        <h1>Ingles Tecnico / General</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Idiomas &gt; Ingles</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-idiomas')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-idiomas')">Idiomas</span> &gt; <span>Ingles</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Ingles - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Masterclass: Gramatica B2, Phrasal Verbs y Pronunciacion</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-ingles"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Ingles', 'Proyecto de Evaluacion Integral:\n1. Escribir una propuesta tecnica de 400 palabras en ingles sobre Seguridad Informatica o Sistemas.\n2. Responder 10 preguntas de inferencia compleja basadas en un articulo avanzado.\n3. Transcripcion y analisis de errores gramaticales en textos avanzados.')">
+                            <div><strong>EXAMEN COMPLETO: Redaccion de Ensayos y Listening Avanzado B2/C1</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frances -->
+            <div id="view-frances" class="view-section hidden">
+                <div class="banner-clase bg-idiomas">
+                    <div>
+                        <h1>Frances</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Idiomas &gt; Frances</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-idiomas')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-idiomas')">Idiomas</span> &gt; <span>Frances</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Frances - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Masterclass: Grammaire, Conjugaison et Vocabulaire Essentiel</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-frances"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Frances', 'Evaluation Globale:\n1. Redaccion de carta formal (Lettre de motivation) en frances (250 palabras).\n2. Analisis sintactico de oraciones compuestas con passe compose y imparfait.\n3. Ejercicio de comprension lectora tecnica avanzada.')">
+                            <div><strong>EXAMEN COMPLETO: Epreuve Ecrite et Structuration DELF B1</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Italiano -->
+            <div id="view-italiano" class="view-section hidden">
+                <div class="banner-clase bg-idiomas">
+                    <div>
+                        <h1>Italiano</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Idiomas &gt; Italiano</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-idiomas')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-idiomas')">Idiomas</span> &gt; <span>Italiano</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Italiano - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Masterclass: Grammatica Italiana e Congiuntivo</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-italiano"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Italiano', 'Progetto di Valutazione:\n1. Scrittura di un saggio argomentativo in italiano usando il Congiuntivo presente e passato.\n2. Traduzione di un testo tecnico complesso.\n3. Analisi grammaticale ed esercizio di comprensione avanzata.')">
+                            <div><strong>EXAMEN COMPLETO: Esame di Produzione Scritta e Congiuntivo PLIDA B2</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- ========================================== -->
+            <!-- MATEMATICAS                                -->
+            <!-- ========================================== -->
+            <div id="view-matematicas" class="view-section hidden">
+                <div class="banner-clase bg-matematicas">
+                    <div>
+                        <h1>Matematicas</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Aritmetica, Algebra y Logica Matematica</p>
+                    </div>
+                    <button class="btn-volver" onclick="irInicio()">Volver al Inicio</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span>Matematicas</span>
+                </div>
+                <h3 style="font-size: 16px; font-weight: 500; color: #3c4043; margin-top: 10px;">Selecciona la rama</h3>
+                <div class="folder-grid">
+                    <div class="folder-card" onclick="mostrarVista('view-aritmetica')">
+                        <div class="folder-name">Aritmetica</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-algebra')">
+                        <div class="folder-name">Algebra</div>
+                    </div>
+                    <div class="folder-card" onclick="mostrarVista('view-logica')">
+                        <div class="folder-name">Logica Matematica</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Aritmetica -->
+            <div id="view-aritmetica" class="view-section hidden">
+                <div class="banner-clase bg-matematicas">
+                    <div>
+                        <h1>Aritmetica</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Matematicas &gt; Aritmetica</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-matematicas')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-matematicas')">Matematicas</span> &gt; <span>Aritmetica</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Aritmetica - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Dominio Completo: Numeros Reales, Potenciacion, MCM/MCD y Razones</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-aritmetica"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Aritmetica', 'Resolucion estricta de 5 problemas avanzados:\n1. Demostracion y aplicacion de divisibilidad mediante Criterios del Modulo.\n2. Problema de aplicacion real de MCD y MCM con mas de 4 variables.\n3. Operaciones combinadas complejas con fracciones continuas infinitas.')">
+                            <div><strong>EXAMEN COMPLETO: Desafios Aritmeticos Complejos y Teoria de Numeros</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Algebra -->
+            <div id="view-algebra" class="view-section hidden">
+                <div class="banner-clase bg-matematicas">
+                    <div>
+                        <h1>Algebra</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Matematicas &gt; Algebra</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-matematicas')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-matematicas')">Matematicas</span> &gt; <span>Algebra</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Algebra - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Dominio Completo: Polinomios, Factorizacion, Ecuaciones y Matrices</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-algebra"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Algebra', 'Resuelve el examen de alto nivel:\n1. Resolver un sistema 4x4 mediante Eliminacion Gaussiana o Gauss-Jordan.\n2. Factorizacion extrema de polinomios de grado 5 con raices complejas.\n3. Planteamiento y resolucion de problemas de optimizacion algebraica.')">
+                            <div><strong>EXAMEN COMPLETO: Sistemas NxN, Polinomios y Algebra Lineal Avanzada</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Logica Matematica -->
+            <div id="view-logica" class="view-section hidden">
+                <div class="banner-clase bg-matematicas">
+                    <div>
+                        <h1>Logica Matematica</h1>
+                        <p style="font-size: 13px; opacity: 0.9; margin-top: 4px;">Matematicas &gt; Logica Matematica</p>
+                    </div>
+                    <button class="btn-volver" onclick="mostrarVista('view-matematicas')">Atras</button>
+                </div>
+                <div class="breadcrumbs">
+                    <span onclick="irInicio()">Inicio</span> &gt; <span onclick="mostrarVista('view-matematicas')">Matematicas</span> &gt; <span>Logica Matematica</span>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">Teoria Unica</div>
+                    <div class="rama-content">
+                        <div class="item-row" onclick="abrirVideo('Logica - Teoria Completa', '/home/usuario/documentos/videos/video.mp4')">
+                            <span>Video Dominio Completo: Tablas de Verdad, Arboles Logicos y Algebra Booleana</span>
+                            <button class="btn-accion">Reproducir Video</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title">20 Ejercicios Practicos (Facil a Dificil)</div>
+                    <div class="rama-content" id="ejercicios-logica"></div>
+                </div>
+
+                <div class="rama-box">
+                    <div class="rama-title" style="background:#fce8e6; color:#c5221f;">Examen Practico / Proyecto Final</div>
+                    <div class="rama-content">
+                        <div class="item-row exam-row" onclick="abrirTexto('Examen Final: Logica', 'Demostracion logica avanzada:\n1. Simplificacion extrema de expresiones booleanas utilizando Mapas de Karnaugh de 4 variables.\n2. Demostracion formal por contradiccion / Reductio ad absurdum de un argumento de 6 premisas.\n3. Diseno de un circuito combinacional logico optimizado.')">
+                            <div><strong>EXAMEN COMPLETO: Simplificacion de Circuitos Logicos y Algebra Booleana</strong></div>
+                            <button class="btn-exam">Ver Proyecto Examen</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+    </div>
+
+    <!-- MODAL DE VIDEO -->
+    <div id="video-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="modal-title">Reproduciendo Video Teorico</span>
+                <button onclick="cerrarVideo()" style="background:none; border:none; font-size:18px; cursor:pointer;">✕</button>
+            </div>
+            <div class="modal-body">
+                <video id="player" controls style="width: 100%; max-height: 380px; border-radius: 4px;">
+                    <source id="source-video" src="/home/usuario/documentos/videos/video.mp4" type="video/mp4">
+                    Tu navegador no soporta video local.
+                </video>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-accion" onclick="cerrarVideo()">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL DE TEXTO (EJERCICIOS / EXAMEN) -->
+    <div id="text-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span id="text-modal-title">Consigna</span>
+                <button onclick="cerrarTexto()" style="background:none; border:none; font-size:18px; cursor:pointer;">✕</button>
+            </div>
+            <div class="modal-body-text" id="text-modal-body"></div>
+            <div class="modal-footer">
+                <button class="btn-accion" onclick="cerrarTexto()">Entendido</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const bancoEjercicios = {
+            python: [
+                "1. Hola Mundo y variables basicas", "2. Operaciones aritmeticas simples", "3. Condicional if/else de edad",
+                "4. Determinar par o impar", "5. Bucle for del 1 al 100", "6. Tabla de multiplicar dinamica",
+                "7. Bucle while con contador", "8. Manipulacion de cadenas y slicing", "9. Funcion que calcula el area de un circulo",
+                "10. Trabajar con Listas y metodos (.append, .pop)", "11. Buscar el numero mayor en una lista", "12. Eliminar duplicados de una lista con conjuntos",
+                "13. Diccionarios: Contar frecuencia de palabras", "14. Lectura de archivos .txt simples", "15. Escritura y append en archivos locales",
+                "16. Manejo de excepciones try/except", "17. Funciones Lambda y map/filter", "18. Programacion Orientada a Objetos: Clase Vehiculo",
+                "19. Algoritmo de ordenamiento Bubblesort manual", "20. Recursividad: Resolver la Torre de Hanoi"
+            ],
+            java: [
+                "1. Hola Mundo y estructura de clase Main en Java", "2. Declaracion de tipos primitivos y Scanner", "3. Condicionales if-else y operador ternario",
+                "4. Estructura switch-case para menus", "5. Bucle for tradicional y for-each", "6. Bucle while y do-while",
+                "7. Arreglos unidimensionales (Arrays) y recorrido", "8. Arreglos bidimensionales (Matrices)", "9. Creacion de metodos estaticos y paso de parametros",
+                "10. Programacion Orientada a Objetos: Creacion de Clases y Objetos", "11. Encapsulamiento (Getters y Setters)", "12. Constructores y sobrecarga de constructores",
+                "13. Herencia y superclases en Java", "14. Polimorfismo y sobreescritura de metodos (@Override)", "15. Clases abstractas e interfaces",
+                "16. Manejo de excepciones (try-catch-finally y throws)", "17. Uso de Colecciones (ArrayList y HashMap)", "18. Lectura y escritura de archivos con FileReader/FileWriter",
+                "19. Programacion funcional basica con Streams y Lambdas", "20. Estructura de datos avanzada: Implementacion de Lista Enlazada propia"
+            ],
+            bash: [
+                "1. Script basico con echo y variables", "2. Captura de argumentos ($1, $2)", "3. Condicional if que valida si un archivo existe",
+                "4. Validacion de permisos de lectura/escritura", "5. Bucle for sobre una lista de directorios", "6. Bucle while leedor de lineas",
+                "7. Renombrar multiples archivos en lote", "8. Uso de grep para buscar patrones en /etc/passwd", "9. Filtrado de texto con awk y cut",
+                "10. Creacion de un script de Backup comprimido con tar y date", "11. Uso de sed para reemplazar texto automaticamente", "12. Monitoreo de procesos activos con ps y kill",
+                "13. Script con menu interactivo usando select", "14. Automatizacion de limpieza de logs de mas de 30 dias", "15. Comprobar conectividad de IPs con ping en bucle",
+                "16. Descarga y extraccion automatizada con curl y tar", "17. Script ejecutable como servicio systemd", "18. Lectura e iteracion de JSON usando jq",
+                "19. Script de auditoria de seguridad del sistema", "20. Implementacion de una interfaz TUI usando dialog o whiptail"
+            ],
+            redes: [
+                "1. Identificar clases de direcciones IP (A, B, C)", "2. Mascaras por defecto y notacion CIDR", "3. Calculo de direccion de red y broadcast simples",
+                "4. Subnetting basico /24 a /26", "5. Comando ping y analisis de respuestas RTT", "6. Uso de traceroute/tracert para mapear saltos",
+                "7. Inspeccion de tabla ARP con arp -a", "8. Analisis de comandos ipconfig / ifconfig / ip a", "9. Subnetting medio /16 a /22",
+                "10. VLSM: Subneteo de red para 3 departamentos distintos", "11. Identificacion de puertos TCP/UDP comunes (22, 80, 443, 53)", "12. Captura basica de trafico con Wireshark",
+                "13. Configuracion manual de VLANs en Cisco CLI", "14. Configuracion de puertos de acceso y Trunk (802.1Q)", "15. Enrutamiento Estatico en Routers",
+                "16. Configuracion de Servidor y Relay DHCP", "17. Escaneo de red y puertos con Nmap", "18. Configuracion de Enrutamiento Dinamico (RIP v2 / OSPF)",
+                "19. Listas de Control de Acceso (ACLs) estandar y extendidas", "20. Analisis de paquetes TCP Three-Way Handshake en depuracion"
+            ],
+            ingles: [
+                "1. Verb To Be and basic greetings", "2. Present Simple vs Present Continuous", "3. Past Simple with regular verbs",
+                "4. Irregular verbs categorization", "5. Future with Will and Going to", "6. Comparative and Superlative adjectives",
+                "7. Modal verbs: Can, Could, Must, Should", "8. Countable and Uncountable nouns (Much/Many)", "9. Present Perfect with Just, Already, Yet",
+                "10. First and Second Conditionals", "11. Passive Voice: Present and Past", "12. Reported Speech basics",
+                "13. Relative Clauses (Who, Which, That)", "14. Phrasal Verbs in technical context", "15. Third Conditional and Mixed Conditionals",
+                "16. Advanced Connectors (Furthermore, Nevertheless)", "17. Inversion after negative adverbials", "18. Writing a formal professional email",
+                "19. Technical text translation and terminology analysis", "20. Essay writing: Argumentative synthesis"
+            ],
+            frances: [
+                "1. Les salutations et l'alphabet", "2. Les articles définis et indéfinis", "3. Les verbes Être et Avoir",
+                "4. Présent de l'indicatif (Verbes du 1er groupe -ER)", "5. La négation simple (Ne... pas)", "6. Les adjectifs possessifs",
+                "7. Le Futur Proche (Aller + Infinitif)", "8. Le Passé Composé avec Avoir", "9. Le Passé Composé avec Être (Accord)",
+                "10. L'Imparfait de l'indicatif", "11. Les pronoms COD et COI", "12. Le Conditionnel Présent",
+                "13. Les pronoms y et en", "14. Le Subjonctif Présent", "15. Le Plus-que-parfait",
+                "16. La voix passive en français", "17. Les propositions relatives (Qui, Que, Où, Dont)", "18. Expression d'hypotèse (Si + imparfait...)",
+                "19. Analyse d'un article technique en français", "20. Rédaction d'une lettre de motivation officielle"
+            ],
+            italiano: [
+                "1. Alfabeto e pronuncia", "2. Articoli determinativi e indeterminativi", "3. Presente indicativo: Essere e Avere",
+                "4. Verbi regolari in -are, -ere, -ire", "5. I sostantivi e il plurale", "6. Gli aggettivi possessivi",
+                "7. Preposizioni semplici e articolate", "8. Passato Prossimo con Avere e Essere", "9. I verbi modali (Dovere, Potere, Volere)",
+                "10. L'Imperfetto indicativo", "11. Pronomi diretti e indiretti", "12. Futuro semplice e composto",
+                "13. Il Condizionale presente", "14. Il Congiuntivo presente", "15. Il Congiuntivo imperfetto e trapassato",
+                "16. Periodo ipotetico della realtà e della possibilità", "17. La forma passiva e il si impersonale", "18. Pronomi combinati (Glielo, Ce l'ho)",
+                "19. Traduzione di documentazione tecnica in italiano", "20. Composizione di un saggio argomentativo articolato"
+            ],
+            aritmetica: [
+                "1. Sumas y restas de numeros enteros con signos", "2. Multiplicacion y division de enteros", "3. Jerarquia de operaciones basica",
+                "4. Fracciones equivalentes y simplificacion", "5. Suma y resta de fracciones con distinto denominador", "6. Multiplicacion y division de fracciones",
+                "7. Conversion de fracciones a decimales y viceversa", "8. Operaciones con decimales periodicos", "9. Leyes de los exponentes (Multiplicacion y division)",
+                "10. Potencias con exponente negativo y cero", "11. Radicacion y simplificacion de radicales", "12. Minimo Comun Multiplo (MCM)",
+                "13. Maximo Comun Divisor (MCD)", "14. Razones y Proporciones simples", "15. Regla de tres simple directa e inversa",
+                "16. Regla de tres compuesta", "17. Calculo de Porcentajes e interes simple", "18. Reparto proporcional",
+                "19. Problemas de aplicacion con MCM y MCD", "20. Fracciones continuas y criterios avanzados de divisibilidad"
+            ],
+            algebra: [
+                "1. Lenguaje algebraico y reduccion de terminos semejantes", "2. Suma y resta de polinomios", "3. Multiplicacion de monomios y polinomios",
+                "4. Productos notables: Binomio al cuadrado", "5. Productos notables: Binomios conjugados", "6. Factorizacion por factor comun",
+                "7. Factorizacion de diferencia de cuadrados", "8. Factorizacion de trinomios x^2 + bx + c", "9. Factorizacion de trinomios ax^2 + bx + c",
+                "10. Despeje de variables e inecuaciones de 1er grado", "11. Ecuaciones de primer grado con 1 incognita", "12. Sistemas de ecuaciones 2x2 (Sustitucion/Reduccion)",
+                "13. Ecuaciones de 2do grado por formula general", "14. Simplificacion de fracciones algebraicas", "15. Suma y resta de fracciones algebraicas",
+                "16. Sistemas de ecuaciones 3x3 por determinantes (Cramer)", "17. Logaritmos y sus propiedades", "18. Ecuaciones exponenciales y logaritmicas",
+                "19. Divisibilidad de polinomios y Teorema del Residuo", "20. Eliminacion de Gauss-Jordan para matrices NxN"
+            ],
+            logica: [
+                "1. Definicion de Proposiciones y conectivos logicos", "2. Tablas de verdad: Conjuncion (AND) y Disjuncion (OR)", "3. Tablas de verdad: Condicional (IF) y Bicondicional",
+                "4. Determinacion de Tautologia, Contradiccion y Contingencia", "5. Negacion de proposiciones compuestas", "6. Leyes de De Morgan",
+                "7. Equivalencias logicas fundamentales", "8. Modus Ponens y Modus Tollens", "9. Silogismo Hipotetico y Disyuntivo",
+                "10. Formalizacion del lenguaje natural al simbolico", "11. Cuantificadores: Universal (forall) y Existencial (exists)", "12. Negacion de cuantificadores",
+                "13. Arboles de decision logica", "14. Algebra de Boole: Operaciones basicas", "15. Simplificacion de expresiones booleanas con identidades",
+                "16. Representacion de puertas logicas (AND, OR, NOT, NAND, NOR)", "17. Mapas de Karnaugh para 3 variables", "18. Mapas de Karnaugh para 4 variables",
+                "19. Demostracion formal mediante deduccion natural", "20. Demostracion por contradiccion (Reductio ad absurdum)"
+            ]
+        };
+
+        function generarEjerciciosUI(idContenedor, lista) {
+            const container = document.getElementById(idContenedor);
+            if (!container) return;
+            container.innerHTML = "";
+            lista.forEach((ej, index) => {
+                const diffLevel = index < 6 ? "Facil" : (index < 14 ? "Medio" : "Dificil");
+                const colorBadge = index < 6 ? "#e6f4ea; color:#137333" : (index < 14 ? "#fef7e0; color:#b06000" : "#fce8e6; color:#c5221f");
+                
+                const div = document.createElement("div");
+                div.className = "item-row";
+                div.onclick = () => abrirTexto(`Ejercicio ${index + 1}`, `Consigna y objetivo:\n\nDemuestra tus conocimientos resolviendo la consigna del ${ej}.\n\nAsegurate de validar la respuesta y comprobar el resultado paso a paso.`);
+                div.innerHTML = `
+                    <div>
+                        <span><strong>Ejercicio ${index + 1}:</strong> ${ej.split(". ")[1] || ej}</span>
+                        <span class="badge-dificultad" style="background:${colorBadge}">${diffLevel}</span>
+                    </div>
+                    <span style="font-size: 12px; color: #1967d2; font-weight: 500;">Ver Práctica &rarr;</span>
+                `;
+                container.appendChild(div);
+            });
+        }
+
+        window.addEventListener("DOMContentLoaded", () => {
+            generarEjerciciosUI("ejercicios-python", bancoEjercicios.python);
+            generarEjerciciosUI("ejercicios-java", bancoEjercicios.java);
+            generarEjerciciosUI("ejercicios-bash", bancoEjercicios.bash);
+            generarEjerciciosUI("ejercicios-redes", bancoEjercicios.redes);
+            generarEjerciciosUI("ejercicios-ingles", bancoEjercicios.ingles);
+            generarEjerciciosUI("ejercicios-frances", bancoEjercicios.frances);
+            generarEjerciciosUI("ejercicios-italiano", bancoEjercicios.italiano);
+            generarEjerciciosUI("ejercicios-aritmetica", bancoEjercicios.aritmetica);
+            generarEjerciciosUI("ejercicios-algebra", bancoEjercicios.algebra);
+            generarEjerciciosUI("ejercicios-logica", bancoEjercicios.logica);
+        });
+
+        function ocultarTodo() {
+            const vistas = document.querySelectorAll('.view-section');
+            vistas.forEach(v => v.classList.add('hidden'));
+        }
+
+        function mostrarVista(idVista) {
+            ocultarTodo();
+            document.getElementById(idVista).classList.remove('hidden');
+        }
+
+        function irInicio() {
+            mostrarVista('view-home');
+        }
+
+        function abrirVideo(titulo, archivo) {
+            document.getElementById('modal-title').innerText = titulo;
+            document.getElementById('source-video').src = archivo;
+            document.getElementById('player').load();
+            document.getElementById('video-modal').classList.remove('hidden');
+        }
+
+        function cerrarVideo() {
+            const player = document.getElementById('player');
+            player.pause();
+            document.getElementById('video-modal').classList.add('hidden');
+        }
+
+        function abrirTexto(titulo, contenido) {
+            document.getElementById('text-modal-title').innerText = titulo;
+            document.getElementById('text-modal-body').innerText = contenido;
+            document.getElementById('text-modal').classList.remove('hidden');
+        }
+
+        function cerrarTexto() {
+            document.getElementById('text-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>

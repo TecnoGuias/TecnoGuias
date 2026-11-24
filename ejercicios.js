@@ -1,4 +1,4 @@
-    // Video base de "Teoría Única" por materia
+// Video base de "Teoría Única" por materia
 const VIDEOS_TEORIA = {
     python: "https://www.youtube.com/watch?v=Kp4Mvapo5kc&t=5985s",
     java: "https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s",
@@ -425,621 +425,627 @@ const bancoEjerciciosInformatica = {
             seg: 2823
         }
     ]
-ingles: [
+};
+
+// Bloque: Idiomas (ingles, frances, italiano) para ejercicios.js
+const bancoEjerciciosIdiomas = {
+    ingles: [
         {
-            titulo: "Verb To Be and basic greetings",
-            explicacion: "El verbo To Be (am, is, are) se utiliza para identidad, origen, edad y estados, invirtiendo el orden sujeto-verbo para formar preguntas.\n\n• I am / You are / He-She-It is / We-They are.\n\nPráctica: Escribe 4 oraciones presentándote, indicando tu ocupación o estudios y formulando dos preguntas básicas.",
-            seg: null
+            titulo: "Sonidos de vocales, consonantes, dígrafos y estrés silábico",
+            explicacion: "El inglés no es fonético y cuenta con sonidos vocálicos, consonánticos y dígrafos (ch, sh, th, ph), además del estrés en distintas sílabas.\n\nPráctica: Practica la diferencia entre sonidos vocálicos y consonánticos y el estrés silábico en palabras como understand, comfortable e information.",
+            seg: 58
         },
         {
-            titulo: "Present Simple vs Present Continuous",
-            explicacion: "Present Simple expresa hábitos, rutinas y verdades generales (I work, she works); Present Continuous expresa acciones en progreso ahora mismo o temporales (am/is/are + -ing).\n\nPráctica: Escribe tres pares de oraciones contrastando una rutina habitual con una acción que ocurre en este momento.",
-            seg: null
+            titulo: "Reglas de escucha, lectura acompañada e imitación",
+            explicacion: "Dominar la pronunciación requiere escuchar a diario, acompañar la lectura con audio e imitar lo escuchado en lugar de leer con sonidos del español.\n\nPráctica: Escucha una frase o texto corto en inglés mientras lees y repítelo imitando los sonidos que oíste.",
+            seg: 480
         },
         {
-            titulo: "Past Simple with regular verbs",
-            explicacion: "Los verbos regulares forman el pasado afirmativo añadiendo -ed (worked, studied), mientras que en negativas y preguntas se usa did / didn't + verbo en forma base.\n\nPráctica: Describe cuatro actividades que completaste ayer usando verbos regulares en afirmativo y negativo.",
-            seg: null
+            titulo: "Pronombres personales y uso neutro de 'it'",
+            explicacion: "Los pronombres incluyen I, you, he, she, it, we, you/you guys y they, usando 'it' para objetos, animales, ideas o el clima.\n\nPráctica: Elige el pronombre adecuado (I, you, he, she, it, we, they) para referirte a una persona, a ti mismo y a un objeto o animal.",
+            seg: 3641
         },
         {
-            titulo: "Irregular verbs categorization",
-            explicacion: "Los verbos irregulares no siguen la regla -ed y cambian su raíz en pasado simple y participio pasado (ej. go - went - gone, write - wrote - written).\n\nPráctica: Agrupa 9 verbos irregulares según su patrón de cambio (sin cambio, 2 formas iguales, 3 formas distintas) y escribe 3 oraciones.",
-            seg: null
+            titulo: "Artículos indefinidos (a/an), definido (the) y 'some'",
+            explicacion: "Se usa 'a' antes de sonido consonante, 'an' antes de sonido vocálico, 'the' para definido y 'some' para plurales indefinidos.\n\nPráctica: Completa frases usando a, an, the o some según el sonido inicial y si el sustantivo es singular o plural.",
+            seg: 787
         },
         {
-            titulo: "Future with Will and Going to",
-            explicacion: "Usa 'be going to' para planes previos o predicciones con evidencia visible; usa 'will' para decisiones espontáneas, promesas u opiniones sobre el futuro.\n\nPráctica: Redacta dos planes con going to y dos decisiones espontáneas o predicciones con will.",
-            seg: null
+            titulo: "Demostrativos this, that, these y those",
+            explicacion: "'This' y 'these' señalan lo cercano (singular y plural), mientras 'that' y 'those' señalan lo lejano (singular y plural).\n\nPráctica: Formula oraciones con this, that, these y those para describir objetos cercanos o lejanos.",
+            seg: 980
         },
         {
-            titulo: "Comparative and Superlative adjectives",
-            explicacion: "Los adjetivos cortos añaden -er / the -est (faster, the fastest); los adjetivos largos usan more / the most (more reliable, the most reliable).\n\nPráctica: Compara dos sistemas operativos o lenguajes de programación usando al menos dos comparativos y dos superlativos.",
-            seg: null
+            titulo: "Verbos en tiempo presente y forma base con 'to'",
+            explicacion: "Los verbos en forma base llevan 'to' (to drink, to speak, to go), y en presente afirmativo se usa la forma base o se añade -s/-es con he, she, it.\n\nPráctica: Escribe oraciones en presente con verbos como drink, speak y go para distintos pronombres.",
+            seg: 1146
         },
         {
-            titulo: "Modal verbs: Can, Could, Must, Should",
-            explicacion: "Los verbos modales van seguidos de verbo en forma base sin 'to': can/could (habilidad o posibilidad), must (obligación fuerte), should (consejo o recomendación).\n\nPráctica: Escribe una regla de seguridad con must, una recomendación de estudio con should y dos habilidades con can/could.",
-            seg: null
+            titulo: "Verbos en tiempo pasado (regulares e irregulares)",
+            explicacion: "En pasado muchos verbos son irregulares y mantienen una forma común para todos los pronombres (como drank, spoke, went).\n\nPráctica: Transforma oraciones del presente al pasado usando formas como drank, spoke o went.",
+            seg: 1351
         },
         {
-            titulo: "Countable and Uncountable nouns (Much/Many)",
-            explicacion: "Los sustantivos contables tienen singular y plural (many, a few); los incontables representan masas o conceptos abstractos tratados en singular (much, a little, information, traffic).\n\nPráctica: Redacta cuatro oraciones usando much, many, a few y a little con vocabulario técnico o cotidiano.",
-            seg: null
+            titulo: "Preguntas en presente con auxiliares do y does",
+            explicacion: "Las preguntas en presente se forman con do (I, you, we, they) o does (he, she, it) manteniendo el verbo principal en forma base.\n\nPráctica: Convierte oraciones afirmativas en preguntas usando do o does al inicio.",
+            seg: 1673
         },
         {
-            titulo: "Present Perfect with Just, Already, Yet",
-            explicacion: "Se forma con have/has + past participle para conectar acciones pasadas con el presente:\n\n• just (acaba de ocurrir), already (ya ocurrió), yet (todavía no, en negativas y preguntas).\n\nPráctica: Escribe tres oraciones sobre avances en un proyecto utilizando just, already y yet.",
-            seg: null
+            titulo: "Preguntas negativas y negaciones con don't y doesn't",
+            explicacion: "Se emplean don't (do not) y doesn't (does not) para negar o hacer preguntas negativas manteniendo el verbo principal sin conjugar.\n\nPráctica: Formula una oración negativa y una pregunta negativa usando don't y doesn't.",
+            seg: 2163
         },
         {
-            titulo: "First and Second Conditionals",
-            explicacion: "First Conditional (If + Present Simple, will + verb) expresa consecuencias reales o probables; Second Conditional (If + Past Simple, would + verb) expresa situaciones hipotéticas.\n\nPráctica: Escribe dos oraciones en First Conditional y dos en Second Conditional.",
-            seg: null
+            titulo: "Preguntas y negaciones en pasado con did y didn't",
+            explicacion: "En pasado (fuera del verbo to be) se usa did para preguntar y didn't para negar, dejando el verbo principal en forma base.\n\nPráctica: Haz una pregunta con did y una respuesta corta o negativa con didn't.",
+            seg: 2472
         },
         {
-            titulo: "Passive Voice: Present and Past",
-            explicacion: "La voz pasiva (am/is/are/was/were + past participle) enfatiza la acción o el objeto afectado en lugar de quién la realiza.\n\nPráctica: Transforma tres oraciones activas (ej. 'The admin updated the server') a voz pasiva.",
-            seg: null
+            titulo: "Verbo 'to be' en presente: afirmativo, preguntas y negaciones",
+            explicacion: "'To be' (ser o estar) se conjuga en presente como am, are e is, invierte sujeto y verbo para preguntar y añade not/contracciones para negar.\n\nPráctica: Escribe una afirmación, una pregunta y una negación en presente usando am, are o is.",
+            seg: 2702
         },
         {
-            titulo: "Reported Speech basics",
-            explicacion: "El estilo indirecto reporta lo que alguien dijo, retrocediendo generalmente un tiempo verbal cuando el verbo introductor está en pasado (said, told).\n\nPráctica: Convierte tres citas directas (en presente, pasado y con will/can) a Reported Speech.",
-            seg: null
+            titulo: "Verbo 'to be' en pasado: was y were",
+            explicacion: "En pasado, 'to be' usa was para I/he/she/it y were para you/we/they, tanto en afirmaciones como en preguntas y negaciones.\n\nPráctica: Escribe oraciones y preguntas en pasado usando was y were.",
+            seg: 3622
         },
         {
-            titulo: "Relative Clauses (Who, Which, That)",
-            explicacion: "Las cláusulas relativas unen ideas aportando información sobre un sustantivo: who para personas, which para cosas y that para ambos en cláusulas especificativas.\n\nPráctica: Une tres pares de oraciones simples en una sola oración usando who, which y that.",
-            seg: null
+            titulo: "Adjetivos posesivos: my, your, his, her, its, our, their",
+            explicacion: "Los posesivos indican pertenencia según el poseedor (my, your, his, her, its, our, their) y no cambian entre singular y plural.\n\nPráctica: Completa frases indicando posesión con my, your, his, her, its, our y their.",
+            seg: 3859
         },
         {
-            titulo: "Phrasal Verbs in technical context",
-            explicacion: "Los phrasal verbs combinan un verbo con una partícula cambiando su significado literal (ej. set up = configurar, back up = respaldar, figure out = resolver).\n\nPráctica: Escribe cuatro oraciones en contexto informático utilizando set up, back up, shut down y look into.",
-            seg: null
+            titulo: "Verbo 'to have' como tener y 'have to' (tener que)",
+            explicacion: "'Have' (has en tercera persona singular) significa tener y forma 'have to' para expresar obligación, con preguntas usando do/does/did.\n\nPráctica: Redacta una frase con have/has, otra con have to y una pregunta con do/does/did + have.",
+            seg: 4478
         },
         {
-            titulo: "Third Conditional and Mixed Conditionals",
-            explicacion: "Third Conditional (If + had + past participle, would have + past participle) expresa hipótesis imposibles sobre hechos pasados que ya no pueden cambiarse.\n\nPráctica: Redacta dos reflexiones sobre situaciones pasadas alternativas usando Third Conditional.",
-            seg: null
+            titulo: "Verbo 'to have' como haber (presente perfecto)",
+            explicacion: "Con el sentido de haber, have/has + participio se usa para acciones vinculadas al pasado y al presente (como have studied o have been).\n\nPráctica: Formula oraciones en presente perfecto con have/has y un participio.",
+            seg: 4796
         },
         {
-            titulo: "Advanced Connectors (Furthermore, Nevertheless)",
-            explicacion: "Los conectores formales estructuran ensayos y reportes: furthermore / moreover añaden argumentos; nevertheless / however introducen contraste.\n\nPráctica: Escribe un párrafo breve de 4 líneas conectando ideas con furthermore, however y consequently.",
-            seg: null
+            titulo: "Verbos 'to want' y 'to need' en oraciones y preguntas",
+            explicacion: "'To want' (querer) y 'to need' (necesitar) permiten expresar deseos y necesidades en presente y pasado, apoyándose en do/does/did al preguntar.\n\nPráctica: Escribe oraciones y preguntas usando want y need en presente o pasado.",
+            seg: 5190
         },
         {
-            titulo: "Inversion after negative adverbials",
-            explicacion: "Para dar énfasis formal, colocar adverbios negativos al inicio (Never, Rarely, Not only) invierte el auxiliar y el sujeto como en una pregunta.\n\nPráctica: Reescribe dos oraciones comenzando con 'Never before...' y 'Not only...'.",
-            seg: null
+            titulo: "Palabras interrogativas WH- (what, when, where, why, who, which, how)",
+            explicacion: "Las preguntas con what, when, where, why, who, which y how colocan la palabra WH- al inicio seguida del auxiliar o del verbo correspondiente.\n\nPráctica: Elabora preguntas distintas usando what, when, where, why, who, which y how.",
+            seg: 5522
         },
         {
-            titulo: "Writing a formal professional email",
-            explicacion: "Un correo profesional requiere asunto claro, saludo formal (Dear...), propósito directo en el primer párrafo, llamada a la acción y despedida cordial (Sincerely / Best regards).\n\nPráctica: Redacta un correo formal solicitando soporte técnico o información sobre una vacante.",
-            seg: null
+            titulo: "Cómo consolidar lo aprendido mediante práctica en contexto",
+            explicacion: "Para pasar del vocabulario pasivo al uso real se recomienda practicar leyendo y escuchando el idioma en historias y conversaciones en contexto.\n\nPráctica: Define un plan corto para aplicar las estructuras vistas en historias o conversaciones reales en inglés.",
+            seg: 5878
         },
         {
-            titulo: "Technical text translation and terminology analysis",
-            explicacion: "Traducir documentación técnica exige conservar la precisión conceptual y respetar anglicismos estándar de la industria sin caer en traducciones literales forzadas.\n\nPráctica: Traduce un fragmento técnico de 5 líneas sobre redes o programación e identifica 5 términos clave.",
-            seg: null
+            titulo: "Contracciones y distinción entre homófonos en inglés",
+            explicacion: "En el habla cotidiana se usan contracciones (como I'm, don't, doesn't, didn't) y conviene distinguir palabras de sonido similar como your/you're, its/it's y their/they're.\n\nPráctica: Escribe dos pares de oraciones mostrando la diferencia de significado entre una contracción y su forma posesiva/similar.",
+            seg: 2923
         },
         {
-            titulo: "Essay writing: Argumentative synthesis",
-            explicacion: "Un ensayo argumentativo sólido presenta una tesis clara, argumentos respaldados por evidencia, consideración de un contraargumento y una conclusión sintética.\n\nPráctica: Redacta una síntesis argumentativa de 150 palabras sobre software libre vs. software propietario.",
-            seg: null
+            titulo: "Repaso integral de estructuras básicas en inglés",
+            explicacion: "Integra pronombres, artículos, demostrativos, presente/pasado, to be, to have, want/need y preguntas WH- en frases cotidianas.\n\nPráctica: Redacta un breve diálogo o conjunto de frases combinando to be, have/want/need y una pregunta WH-.",
+            seg: 5522
         }
     ],
 
     frances: [
         {
-            titulo: "Les salutations et l'alphabet",
-            explicacion: "En francés se distingue el registro formal (Bonjour, Monsieur/Madame, Comment allez-vous ?) del informal (Salut, Ça va ?), además de vocales acentuadas (é, è, ê, à, ù, ç).\n\nPráctica: Escribe un breve diálogo de saludo y presentación en registro formal e informal.",
-            seg: null
+            titulo: "Alfabeto francés y sonidos de diptongos",
+            explicacion: "El alfabeto incluye letras como ç, e con acentos, h muda, r gutural y s intervocálica sonora, además de combinaciones vocálicas/nasales (diptongos).\n\nPráctica: Practica la pronunciación del alfabeto y de combinaciones como au/eau, ou, oi, ai/ei y nasales.",
+            seg: 111
         },
         {
-            titulo: "Les articles définis et indéfinis",
-            explicacion: "Los artículos concuerdan en género y número con el sustantivo:\n\n• Definidos: le (masc.), la (fem.), l' (ante vocal/h), les (plural).\n• Indefinidos: un, une, des.\n\nPráctica: Coloca el artículo definido e indefinido correcto delante de 6 sustantivos franceses.",
-            seg: null
+            titulo: "Pronombres personales y uso de 'on'",
+            explicacion: "Los pronombres personales son je, tu, il, elle, on, nous, vous, ils y elles, donde 'on' se usa de forma oral/informal equivalente a 'nous'.\n\nPráctica: Conjuga o arma frases sencillas con je, tu, il, elle, on, nous, vous, ils y elles.",
+            seg: 500
         },
         {
-            titulo: "Les verbes Être et Avoir",
-            explicacion: "Être (ser/estar) y Avoir (tener/haber) son verbos irregulares esenciales que también funcionan como auxiliares en tiempos compuestos.\n\nPráctica: Conjuga ambos verbos en presente y escribe 4 oraciones combinándolos.",
-            seg: null
+            titulo: "Verbos 'être' y 'avoir' en presente",
+            explicacion: "'Être' y 'avoir' son verbos irregulares esenciales en presente (je suis, tu es, il/elle est... y j'ai, tu as, il/elle a...).\n\nPráctica: Escribe frases presentándote o indicando edad usando être y avoir en presente.",
+            seg: 638
         },
         {
-            titulo: "Présent de l'indicatif (Verbes du 1er groupe -ER)",
-            explicacion: "Los verbos regulares terminados en -er (parler, travailler, étudier) sustituyen -er por las terminaciones -e, -es, -e, -ons, -ez, -ent.\n\nPráctica: Conjuga 'travailler' y 'étudier' en todas las personas y redacta dos oraciones.",
-            seg: null
+            titulo: "Artículos definidos e indefinidos en singular y plural",
+            explicacion: "Los definidos son le, la, l' y les; los indefinidos son un, une y des, adaptándose al género y número.\n\nPráctica: Acompaña sustantivos en singular y plural con le, la, l', les, un, une o des.",
+            seg: 951
         },
         {
-            titulo: "La négation simple (Ne... pas)",
-            explicacion: "La negación estándar rodea al verbo conjugado con ne ... pas (o n' ... pas delante de vocal o h muda).\n\nPráctica: Pasa cuatro oraciones afirmativas en presente a su forma negativa correcta.",
-            seg: null
+            titulo: "Vocabulario de la familia y números del 0 al 10",
+            explicacion: "Se abordan términos familiares (mère, père, parents, fille, fils, enfants, grands-parents, sœur, frère) y los números de 0 a 10.\n\nPráctica: Enumera del 0 al 10 y nombra miembros de la familia en francés.",
+            seg: 1051
         },
         {
-            titulo: "Les adjectifs possessifs",
-            explicacion: "Los posesivos concuerdan con el objeto poseído, no con el poseedor (mon/ma/mes, ton/ta/tes, son/sa/ses, notre/nos, votre/vos, leur/leurs).\n\nPráctica: Escribe cuatro oraciones indicando pertenencia en singular y plural.",
-            seg: null
+            titulo: "Grupos verbales y presente de verbos del primer grupo (-er)",
+            explicacion: "Los verbos se agrupan en 1.º (-er regulares), 2.º (-ir regulares) y 3.º (irregulares); en 1.º grupo se toma el radical y se añaden -e, -es, -e, -ons, -ez, -ent.\n\nPráctica: Conjuga un verbo regular terminado en -er (como chanter o aimer) en presente.",
+            seg: 1261
         },
         {
-            titulo: "Le Futur Proche (Aller + Infinitif)",
-            explicacion: "Expresa una acción futura cercana o planeada conjugando el verbo aller en presente + el verbo principal en infinitivo (Je vais étudier).\n\nPráctica: Escribe tres planes que vas a realizar hoy o este fin de semana usando Futur Proche.",
-            seg: null
+            titulo: "Vocabulario de colores en francés",
+            explicacion: "Se revisan colores básicos como noir, blanc, jaune, orange, vert, rouge, bleu, violet, rose y gris.\n\nPráctica: Describe objetos o prendas mencionando al menos cuatro colores en francés.",
+            seg: 1590
         },
         {
-            titulo: "Le Passé Composé avec Avoir",
-            explicacion: "Se forma con avoir en presente + participio pasado (-er → -é, -ir → -i, -re → -u) para expresar acciones pasadas puntuales y concluidas.\n\nPráctica: Redacta tres oraciones contando acciones que realizaste ayer usando el auxiliar avoir.",
-            seg: null
+            titulo: "Presente de verbos del segundo grupo (-ir)",
+            explicacion: "Los verbos regulares del 2.º grupo terminan en -ir y toman -is, -is, -it, -issons, -issez, -issent sobre el radical.\n\nPráctica: Conjuga un verbo del segundo grupo (como finir o choisir) en presente.",
+            seg: 1685
         },
         {
-            titulo: "Le Passé Composé avec Être (Accord)",
-            explicacion: "Los verbos de movimiento/cambio de estado (aller, venir, arriver, partir, rester...) y los pronominales usan être, y su participio concuerda en género y número con el sujeto.\n\nPráctica: Escribe tres oraciones en Passé Composé con être aplicando concordancia femenina (-e) y plural (-s).",
-            seg: null
+            titulo: "Números del 11 al 20 y cómo decir la hora",
+            explicacion: "Incluye los números 11–20 y la expresión de la hora con 'il est ... heure(s)', minutos, et quart, et demie y moins le quart.\n\nPráctica: Escribe tres horas distintas (incluyendo y cuarto, y media o menos cuarto) usando números del 11 al 20.",
+            seg: 1867
         },
         {
-            titulo: "L'Imparfait de l'indicatif",
-            explicacion: "Describe hábitos pasados, estados o escenarios continuos. Se forma con la raíz de 'nous' en presente + -ais, -ais, -ait, -ions, -iez, -aient.\n\nPráctica: Describe cómo era tu rutina diaria o tu escuela hace unos años usando el Imparfait.",
-            seg: null
+            titulo: "Verbo reflexivo 's'appeler' y futuro simple",
+            explicacion: "'S'appeler' permite decir cómo te llamas (je m'appelle...), y el futuro simple suele formarse sobre el infinitivo más -ai, -as, -a, -ons, -ez, -ont.\n\nPráctica: Di cómo te llamas con s'appeler y escribe dos frases en futuro simple.",
+            seg: 2321
         },
         {
-            titulo: "Les pronoms COD et COI",
-            explicacion: "Los pronombres COD (le, la, l', les) sustituyen al objeto directo; los COI (lui, leur) sustituyen al objeto indirecto introducido por 'à' + persona.\n\nPráctica: Reescribe tres oraciones reemplazando el complemento por el pronombre COD o COI adecuado.",
-            seg: null
+            titulo: "La negación: ne... pas y expresiones negativas",
+            explicacion: "La negación clásica coloca 'ne' (o n') antes del verbo y 'pas' después, junto con variantes como ne... plus, ne... rien, ne... personne, ne... jamais o ne... ni... ni.\n\nPráctica: Transforma oraciones afirmativas en negativas con ne... pas y prueba otra forma como ne... plus o ne... jamais.",
+            seg: 2638
         },
         {
-            titulo: "Le Conditionnel Présent",
-            explicacion: "Sirve para expresar cortesía, deseos o hipótesis (raíz del futuro simple + terminaciones del imparfait: -ais, -ais, -ait, -ions, -iez, -aient).\n\nPráctica: Formula dos peticiones corteses y dos deseos utilizando el Conditionnel Présent.",
-            seg: null
+            titulo: "Verbos irregulares 'aller' y 'dire' en presente",
+            explicacion: "'Aller' (ir: je vais, tu vas, il/elle va, nous allons, vous allez, ils/elles vont) y 'dire' (decir: je dis, tu dis, il/elle dit, nous disons, vous dites, ils/elles disent) son irregulares.\n\nPráctica: Redacta frases de movimiento o expresión usando aller y dire en presente.",
+            seg: 2934
         },
         {
-            titulo: "Les pronoms y et en",
-            explicacion: "'y' reemplaza lugares o complementos introducidos por 'à'; 'en' reemplaza cantidades o complementos introducidos por 'de'.\n\nPráctica: Responde brevemente a cuatro preguntas sustituyendo el complemento con 'y' o con 'en'.",
-            seg: null
+            titulo: "Saludos, presentación, nacionalidad, origen, edad y profesión",
+            explicacion: "Cubre saludos formales e informales (bonjour, bonsoir, salut), cómo preguntar/decir nombre y cómo presentarse con nacionalidad, ciudad/origen, edad y profesión.\n\nPráctica: Redacta una breve presentación personal con saludo, nombre, nacionalidad/origen, edad y profesión.",
+            seg: 3081
         },
         {
-            titulo: "Le Subjonctif Présent",
-            explicacion: "Se emplea en subordinadas introducidas por 'que' tras expresiones de obligación, deseo, duda o emoción (Il faut que..., Je veux que...).\n\nPráctica: Redacta tres oraciones usando 'Il faut que...' y 'Je souhaite que...' en subjuntivo.",
-            seg: null
+            titulo: "Números del 20 al 100",
+            explicacion: "Explica las decenas hasta 100, incluyendo las estructuras compuestas de 70–79, 80–99 y 100 (cent).\n\nPráctica: Escribe con palabras los números 21, 35, 74, 80 y 92 en francés.",
+            seg: 3856
         },
         {
-            titulo: "Le Plus-que-parfait",
-            explicacion: "Expresa una acción pasada anterior a otra acción también pasada: avoir o être en imparfait + participio pasado.\n\nPráctica: Combina dos hechos pasados mostrando cuál ocurrió primero mediante el Plus-que-parfait.",
-            seg: null
+            titulo: "El 'passé composé': auxiliares être/avoir, concordancia y participios",
+            explicacion: "Se forma con el presente de être o avoir más el participio pasado, aplicando concordancia según el auxiliar y las reglas de participios de 1.º, 2.º y 3.º grupo.\n\nPráctica: Escribe dos oraciones en passé composé, una con avoir y otra con être.",
+            seg: 4215
         },
         {
-            titulo: "La voix passive en français",
-            explicacion: "Se construye con être conjugado en el tiempo correspondiente + participio pasado concordado con el sujeto + 'par' + agente.\n\nPráctica: Transforma dos oraciones activas simples a voz pasiva cuidando la concordancia del participio.",
-            seg: null
+            titulo: "Días de la semana y meses del año",
+            explicacion: "Revisa los días de la semana (lundi a dimanche) y los meses del año (janvier a décembre).\n\nPráctica: Escribe una frase indicando un día de la semana y un mes del año.",
+            seg: 5216
         },
         {
-            titulo: "Les propositions relatives (Qui, Que, Où, Dont)",
-            explicacion: "Los pronombres relativos enlazan cláusulas evitando repeticiones: qui (sujeto), que (objeto directo), où (lugar o tiempo) y dont (complemento con 'de').\n\nPráctica: Completa o redacta cuatro oraciones utilizando qui, que, où y dont.",
-            seg: null
+            titulo: "Cómo hacer preguntas en francés (entonación, est-ce que e inversión)",
+            explicacion: "Las preguntas pueden hacerse con entonación, con 'est-ce que', mediante partículas interrogativas (comment, où, quand, pourquoi, quel, qui, que) o invirtiendo sujeto y verbo.\n\nPráctica: Formula una misma pregunta de dos maneras distintas o usa una partícula interrogativa con est-ce que.",
+            seg: 5390
         },
         {
-            titulo: "Expression d'hypotèse (Si + imparfait...)",
-            explicacion: "La estructura condicional hipotética en presente sigue la regla fija: Si + Imparfait, Conditionnel Présent.\n\nPráctica: Escribe tres oraciones hipotéticas completas siguiendo esta estructura.",
-            seg: null
+            titulo: "Adjetivos demostrativos: ce, cet, cette y ces",
+            explicacion: "Se usa 'ce' ante consonante masculina singular, 'cet' ante vocal o h muda masculina singular, 'cette' en femenino singular y 'ces' en plural.\n\nPráctica: Elige ce, cet, cette o ces frente a distintos sustantivos en singular y plural.",
+            seg: 5786
         },
         {
-            titulo: "Analyse d'un article technique en français",
-            explicacion: "La lectura analítica busca identificar la tesis central, los conectores lógicos y el vocabulario especializado dentro de un texto informativo.\n\nPráctica: Lee un párrafo técnico en francés y resume sus 3 ideas principales.",
-            seg: null
+            titulo: "Concordancia y tiempos compuestos en francés básico",
+            explicacion: "La concordancia en género y número afecta a adjetivos/nacionalidades, demostrativos y participios en passé composé según las reglas del idioma.\n\nPráctica: Revisa el género y número en una frase con adjetivo demostrativo y otra con passé composé.",
+            seg: 4642
         },
         {
-            titulo: "Rédaction d'une lettre de motivation officielle",
-            explicacion: "Una carta formal francesa incluye encabezado con datos, objeto, saludo (Madame, Monsieur,), exposición de motivación, disponibilidad y fórmula final de cortesía.\n\nPráctica: Redacta una carta de motivación breve (120-150 palabras) para una estancia o puesto técnico.",
-            seg: null
+            titulo: "Repaso integral de comunicación básica en francés (A1)",
+            explicacion: "Combina saludos, presentación, verbos en presente/futuro/passé composé, negación y preguntas para sostener intercambios básicos.\n\nPráctica: Escribe un breve saludo y pregunta en francés aplicando lo aprendido en el curso.",
+            seg: 3081
         }
     ],
 
     italiano: [
         {
-            titulo: "Alfabeto e pronuncia",
-            explicacion: "En italiano las consonantes c y g tienen sonido suave delante de e/i (ciao, gelato) y sonido duro delante de a/o/u o h (casa, che, ghiaccio); además destacan gn, gl y sc.\n\nPráctica: Escribe dos palabras de ejemplo para cada combinación fonética (ce/ci, che/chi, ge/gi, ghe/ghi, gn, gl).",
-            seg: null
+            titulo: "Adjetivos y expresiones de valoración (facile, importante, difficile, possibile, impossibile)",
+            explicacion: "Permite construir frases básicas como 'è facile', 'è importante', 'è difficile', 'è possibile' y 'non è impossibile'.\n\nPráctica: Forma cuatro frases cortas combinando 'è' o 'non è' con facile, importante, difficile, possibile o impossibile.",
+            seg: 28
         },
         {
-            titulo: "Articoli determinativi e indeterminativi",
-            explicacion: "Los artículos varían según género, número y sonido inicial (il/lo/l'/i/gli para masculino; la/l'/le para femenino; un/uno/una/un' para indefinidos).\n\nPráctica: Antepón el artículo determinado e indeterminado correcto a 6 sustantivos italianos.",
-            seg: null
+            titulo: "Tiempo, lugar y conectores básicos (oggi, adesso/ora, qui, domani, più tardi, perché, per me/te, così, davvero, ma/però)",
+            explicacion: "Integra marcadores y conectores frecuentes como oggi, adesso/ora, qui, domani, più tardi, perché, per me/te, così, davvero y ma/però.\n\nPráctica: Completa o redacta frases situando una acción en 'oggi', 'qui' o 'domani' y conectándola con 'perché' o 'ma/però'.",
+            seg: 186
         },
         {
-            titulo: "Presente indicativo: Essere e Avere",
-            explicacion: "Essere (sono, sei, è, siamo, siete, sono) y Avere (ho, hai, ha, abbiamo, avete, hanno) son irregulares fundamentales y auxiliares de tiempos compuestos.\n\nPráctica: Redacta cuatro oraciones presentándote y describiendo pertenencias o estados con essere y avere.",
-            seg: null
+            titulo: "Expresiones de valoración adicional (perfetto, molto, necessario, fantastico, normale, bello, tutto)",
+            explicacion: "Amplía las descripciones con perfetto, molto, necessario, fantastico, normale, bello y tutto.\n\nPráctica: Escribe tres frases usando 'molto', 'perfetto', 'necessario', 'fantastico', 'normale', 'bello' o 'tutto'.",
+            seg: 472
         },
         {
-            titulo: "Verbi regolari in -are, -ere, -ire",
-            explicacion: "Las tres conjugaciones regulares siguen patrones definidos al presente (parlare, scrivere, dormire), y un grupo de verbos en -ire intercala -isc- (capire → capisco).\n\nPráctica: Conjuga un verbo regular de cada grupo (-are, -ere, -ire y -ire con -isc-).",
-            seg: null
+            titulo: "Verbo 'essere' y ubicación en 'qui'",
+            explicacion: "Con 'essere' y expresiones como 'qui' y 'oggi' se forman oraciones como 'è importante essere qui oggi' o 'è molto difficile essere qui oggi'.\n\nPráctica: Construye dos frases con 'essere qui' acompañadas de un adjetivo o indicador de tiempo.",
+            seg: 890
         },
         {
-            titulo: "I sostantivi e il plurale",
-            explicacion: "Por regla general, los sustantivos masculinos en -o/-e pasan a -i en plural, mientras que los femeninos en -a pasan a -e y los femeninos en -e pasan a -i.\n\nPráctica: Convierte 8 sustantivos del singular al plural incluyendo casos terminados en -ca/-ga o invariables.",
-            seg: null
+            titulo: "Verbo 'fare' y la forma 'farlo'",
+            explicacion: "Permite expresar acciones como 'fare' y 'farlo' en frases como 'è importante farlo' o 'è impossibile farlo'.\n\nPráctica: Redacta dos oraciones usando 'farlo' junto con 'è importante' o 'è impossibile'.",
+            seg: 1035
         },
         {
-            titulo: "Gli aggettivi possessivi",
-            explicacion: "Concuerdan en género y número con lo poseído y llevan artículo delante (il mio, la mia, i miei, le mie), excepto con nombres de parentela en singular (mio padre).\n\nPráctica: Escribe cuatro oraciones usando posesivos con objetos y con miembros de la familia.",
-            seg: null
+            titulo: "Expresión 'avere bisogno di' (ho bisogno di) y su negación",
+            explicacion: "Se usa 'ho bisogno di' + infinitivo para indicar necesidad y 'non ho bisogno di' para negarla (por ejemplo, 'ho bisogno di farlo oggi').\n\nPráctica: Escribe una frase con 'ho bisogno di' y su forma negativa con 'non ho bisogno di'.",
+            seg: 1106
         },
         {
-            titulo: "Preposizioni semplici e articolate",
-            explicacion: "Las preposiciones simples (di, a, da, in, con, su, per, tra/fra) se fusionan con el artículo determinado formando preposiciones articuladas (del, alla, nel, sullo...).\n\nPráctica: Completa cinco oraciones eligiendo entre preposición simple o articulada según corresponda.",
-            seg: null
+            titulo: "Verbo 'sapere' y cláusulas con 'se è possibile'",
+            explicacion: "Combina 'sapere' con 'se è possibile' para preguntar o expresar duda/condición (como 'ho bisogno di sapere se è possibile farlo oggi').\n\nPráctica: Formula una frase usando 'sapere' y 'se è possibile'.",
+            seg: 1596
         },
         {
-            titulo: "Passato Prossimo con Avere e Essere",
-            explicacion: "Se forma con presente de avere o essere + participio passato (-ato, -uto, -ito). Con essere el participio concuerda en género y número con el sujeto.\n\nPráctica: Escribe dos oraciones con avere y dos con essere narrando actividades pasadas.",
-            seg: null
+            titulo: "Verbo 'volere' (voglio / non voglio)",
+            explicacion: "Expresa deseos o intenciones con 'voglio' y su negación 'non voglio' (por ejemplo, 'voglio farlo oggi' o 'non voglio farlo così').\n\nPráctica: Escribe una oración afirmativa con 'voglio' y otra negativa con 'non voglio'.",
+            seg: 1852
         },
         {
-            titulo: "I verbi modali (Dovere, Potere, Volere)",
-            explicacion: "Los verbos modales acompañan a un infinitivo y, en tiempos compuestos, adoptan el auxiliar que exige el verbo en infinitivo.\n\nPráctica: Redacta tres oraciones usando dovere, potere y volere en presente y una en passato prossimo.",
-            seg: null
+            titulo: "Verbo 'dovere' (devo / non devo)",
+            explicacion: "Expresa obligación o necesidad con 'devo' y su negación 'non devo' (como 'devo uscire oggi' o 'devo farlo questa notte').\n\nPráctica: Redacta dos frases usando 'devo' o 'non devo' seguidas de un verbo en infinitivo.",
+            seg: 2235
         },
         {
-            titulo: "L'Imperfetto indicativo",
-            explicacion: "Expresa acciones habituales en el pasado, descripciones o acciones paralelas mediante las terminaciones -vo, -vi, -va, -vamo, -vate, -vano.\n\nPráctica: Describe una rutina o recuerdo de tu infancia en cuatro oraciones usando el Imperfetto.",
-            seg: null
+            titulo: "Verbo 'uscire' en frases cotidianas",
+            explicacion: "Se emplea 'uscire' junto a expresiones como 'oggi', 'ora/adesso', 'più tardi' o 'questa notte/stanotte'.\n\nPráctica: Escribe dos frases con 'uscire' indicando cuándo ocurre la acción.",
+            seg: 2138
         },
         {
-            titulo: "Pronomi diretti e indiretti",
-            explicacion: "Los pronombres directos (mi, ti, lo, la, ci, vi, li, le) sustituyen al objeto directo; los indirectos (mi, ti, gli, le, ci, vi, gli) responden a 'a chi?'.\n\nPráctica: Reescribe cuatro oraciones sustituyendo el complemento por el pronombre directo o indirecto.",
-            seg: null
+            titulo: "Verbo 'potere' (posso / non posso)",
+            explicacion: "Indica posibilidad o capacidad con 'posso' y 'non posso' (como 'posso farlo più tardi' o 'non posso essere qui domani').\n\nPráctica: Escribe una frase con 'posso' y otra con 'non posso' sobre hacer algo hoy, mañana o más tarde.",
+            seg: 2625
         },
         {
-            titulo: "Futuro semplice e composto",
-            explicacion: "El futuro semplice expresa planes o suposiciones futuras; el futuro composto (avere/essere en futuro + participio) indica una acción futura anterior a otra.\n\nPráctica: Escribe dos oraciones en futuro semplice y una combinando futuro composto y semplice.",
-            seg: null
+            titulo: "Expresiones de gusto: 'mi piace' y 'mi piacerebbe'",
+            explicacion: "Distingue entre 'mi piace' / 'non mi piace' y 'mi piacerebbe' para expresar gustos o deseos.\n\nPráctica: Redacta una frase con 'mi piace' (o 'non mi piace') y otra con 'mi piacerebbe'.",
+            seg: 2770
         },
         {
-            titulo: "Il Condizionale presente",
-            explicacion: "Se emplea para expresar deseos, consejos o peticiones amables (-erei, -eresti, -erebbe, -eremmo, -ereste, -erebbero).\n\nPráctica: Formula una petición cortés y dos deseos utilizando el Condizionale presente.",
-            seg: null
+            titulo: "Verbo 'leggere' y frecuencia con 'ogni giorno'",
+            explicacion: "Practica 'leggere' en expresiones como 'mi piace leggere ogni giorno' o 'non mi piace leggere'.\n\nPráctica: Escribe dos oraciones con 'leggere', una con 'ogni giorno' y otra en forma negativa.",
+            seg: 2790
         },
         {
-            titulo: "Il Congiuntivo presente",
-            explicacion: "Expresa opinión personal, duda, deseo o necesidad en oraciones subordinadas introducidas por 'che' (Penso che..., Bisogna che...).\n\nPráctica: Completa cuatro oraciones subordinadas utilizando el Congiuntivo presente.",
-            seg: null
+            titulo: "Verbo 'nuotare' en frases de gusto y deseo",
+            explicacion: "Utiliza 'nuotare' en construcciones como 'mi piace nuotare ogni giorno' o 'mi piacerebbe nuotare ogni giorno'.\n\nPráctica: Formula una frase con 'mi piace nuotare' y otra con 'mi piacerebbe nuotare'.",
+            seg: 2877
         },
         {
-            titulo: "Il Congiuntivo imperfetto e trapassato",
-            explicacion: "Se utilizan en subordinadas dependientes de verbos en pasado o para formular hipótesis irreales y deseos no cumplidos.\n\nPráctica: Redacta dos oraciones empleando el Congiuntivo imperfetto.",
-            seg: null
+            titulo: "Verbo 'mangiare' en contexto de lugar y tiempo",
+            explicacion: "Combina 'mangiare' con 'mi piacerebbe', 'qui' y 'questa notte/stanotte' (como 'mi piacerebbe mangiare qui questa notte').\n\nPráctica: Escribe una oración con 'mangiare' indicando dónde o cuándo.",
+            seg: 2954
         },
         {
-            titulo: "Periodo ipotetico della realtà e della possibilità",
-            explicacion: "El periodo de la realidad usa indicativo (Se piove, resto a casa); el de la posibilidad usa congiuntivo imperfetto + condizionale presente (Se avessi tempo, studierei di più).\n\nPráctica: Escribe dos ejemplos para el tipo de la realidad y dos para el de la posibilidad.",
-            seg: null
+            titulo: "Verbo 'parlare' con 'con te' y 'con lei'",
+            explicacion: "Practica 'parlare' en estructuras como 'mi piacerebbe parlare con te' o 'mi piacerebbe parlare con lei'.\n\nPráctica: Redacta dos frases con 'parlare' dirigidas a 'con te' y a 'con lei'.",
+            seg: 3113
         },
         {
-            titulo: "La forma passiva e il si impersonale",
-            explicacion: "La voz pasiva se forma con essere o venire + participio passato; el 'si impersonale' generaliza una acción sin especificar sujeto (In Italia si mangia bene).\n\nPráctica: Redacta dos oraciones en forma pasiva y dos con 'si impersonale'.",
-            seg: null
+            titulo: "Verbo 'lavorare' en frases con contraste y motivo",
+            explicacion: "Integra 'lavorare' en frases compuestas con 'però/ma' y 'perché devo' (como 'mi piacerebbe essere qui ma non posso perché devo lavorare').\n\nPráctica: Escribe una frase conectando 'non posso' y 'perché devo lavorare'.",
+            seg: 3481
         },
         {
-            titulo: "Pronomi combinati (Glielo, Ce l'ho)",
-            explicacion: "Unen un pronombre indirecto (mi, ti, gli, ci, vi → me, te, glie-, ce, ve) con un pronombre directo (lo, la, li, le) o con 'ne'.\n\nPráctica: Transforma tres oraciones con doble complemento utilizando pronombres combinados.",
-            seg: null
+            titulo: "Verbo 'studiare' con 'bisogno di', 'voglio', 'devo' y 'posso'",
+            explicacion: "Conjuga 'studiare' con distintos verbos modales y expresiones ('ho bisogno di studiare', 'voglio studiare', 'devo studiare', 'posso studiare').\n\nPráctica: Escribe tres frases distintas usando 'studiare' con voglio, devo y posso.",
+            seg: 4945
         },
         {
-            titulo: "Traduzione di documentazione tecnica in italiano",
-            explicacion: "Traducir textos técnicos requiere respetar la terminología sectorial italiana y mantener una sintaxis clara y directa.\n\nPráctica: Traduce un breve párrafo técnico sobre informática o redes identificando 5 términos clave.",
-            seg: null
+            titulo: "Expresiones con 'tutto' y 'questo è tutto'",
+            explicacion: "Trabaja frases como 'questo è tutto', 'questo è tutto per me', 'questo è tutto per oggi', 'tutto è importante' y 'tutto è possibile qui'.\n\nPráctica: Redacta tres oraciones usando 'tutto' o 'questo è tutto'.",
+            seg: 4460
         },
         {
-            titulo: "Composizione di un saggio argomentativo articolato",
-            explicacion: "Un ensayo argumentativo organiza tesis, desarrollo con conectores lógicos (innanzitutto, inoltre, tuttavia, infine) y una conclusión sólida.\n\nPráctica: Redacta un texto argumentativo de 150 palabras sobre el impacto de la automatización.",
-            seg: null
+            titulo: "Combinación de frases con 'ma/però' y 'perché'",
+            explicacion: "Une deseos, posibilidades y motivos en frases conversacionales (como 'voglio farlo ma è impossibile perché non posso essere qui oggi').\n\nPráctica: Construye una frase conversacional que enlace un deseo o dificultad con 'ma/però' y 'perché'.",
+            seg: 4845
         }
-    ],
-
+    ]
+};
+// Bloque: Matemáticas y lógica (aritmetica, algebra, logica) para ejercicios.js
+const bancoEjerciciosMatematicas = {
     aritmetica: [
         {
-            titulo: "Sumas y restas de numeros enteros con signos",
-            explicacion: "Al sumar enteros: signos iguales se suman y conservan su signo; signos distintos se restan y toman el signo del número con mayor valor absoluto. Restar equivale a sumar el opuesto.\n\nPráctica: Resuelve paso a paso: -14 + 9, -6 - 11, 23 - (-8) y -15 + 27 - 12.",
-            seg: null
+            titulo: "Identificación de números enteros positivos, negativos y cero",
+            explicacion: "Los números enteros incluyen los naturales (1, 2, 3...), el cero y los enteros negativos (-1, -2, -3...).\n\nPráctica: Ordena de menor a mayor los enteros: -5, 3, 0, -1, 7, -12.",
+            seg: 31
         },
         {
-            titulo: "Multiplicacion y division de enteros",
-            explicacion: "Ley de signos para producto y cociente:\n\n• (+) · (+) = (+) y (-) · (-) = (+)\n• (+) · (-) = (-) y (-) · (+) = (-)\n\nPráctica: Calcula (-7)(-5), (-48) ÷ 6, 84 ÷ (-4) y (-3)(-4)(-2).",
-            seg: null
+            titulo: "Suma y resta secuencial de números enteros",
+            explicacion: "Puedes interpretar sumas y restas sucesivas como desplazamientos (subir y bajar plantas o ganar y quitar unidades), operando paso a paso.\n\nPráctica: Calcula el resultado de 7 - 3 - 5 y de -4 + 9 - 8.",
+            seg: 240
         },
         {
-            titulo: "Jerarquia de operaciones basica",
-            explicacion: "Orden estricto de evaluación:\n\n1. Paréntesis y signos de agrupación (de adentro hacia afuera)\n2. Potencias y raíces\n3. Multiplicaciones y divisiones (de izquierda a derecha)\n4. Sumas y restas (de izquierda a derecha)\n\nPráctica: Evalúa 18 + 6 ÷ 3 × 2 - (4 + 5) y 3 × [12 - (2 + 4)² ÷ 6].",
-            seg: null
+            titulo: "Regla de los signos en sumas y restas con paréntesis",
+            explicacion: "Al eliminar paréntesis precedidos de signo, más por menos da menos (por ejemplo, 7 + (-1) equivale a 7 - 1).\n\nPráctica: Simplifica los paréntesis y resuelve: 4 + (-2) + (-5) y 7 + (-1).",
+            seg: 272
         },
         {
-            titulo: "Fracciones equivalentes y simplificacion",
-            explicacion: "Dos fracciones son equivalentes si representan la misma razón (a/b = c/d ⇔ a·d = b·c). Simplificar consiste en dividir numerador y denominador entre su MCD hasta hacerla irreducible.\n\nPráctica: Simplifica 36/48 y 84/126 a su mínima expresión y obtén dos fracciones equivalentes a 3/5.",
-            seg: null
+            titulo: "Jerarquía de operaciones: multiplicación antes que suma o resta",
+            explicacion: "En expresiones combinadas como 5 - 3 × 2, primero se resuelve la multiplicación y después la suma o resta.\n\nPráctica: Resuelve respetando la jerarquía de operaciones: 5 - 3 × 2 y 8 - 2 × 5.",
+            seg: 565
         },
         {
-            titulo: "Suma y resta de fracciones con distinto denominador",
-            explicacion: "Se determina el mínimo común denominador (MCM de los denominadores), se amplifica cada fracción equivalente y se operan los numeradores.\n\nPráctica: Calcula 3/4 + 5/6 - 1/2 y 7/8 - 2/3 + 1/4 simplificando el resultado.",
-            seg: null
+            titulo: "Multiplicación de números enteros positivos y negativos",
+            explicacion: "Un número positivo por uno negativo da resultado negativo, y signos iguales dan positivo.\n\nPráctica: Calcula 3 × (-1), (-4) × (-6) y 4 × (-1) + 2 × (-6).",
+            seg: 666
         },
         {
-            titulo: "Multiplicacion y division de fracciones",
-            explicacion: "La multiplicación se realiza de forma directa (numerador por numerador y denominador por denominador); la división multiplica la primera fracción por el inverso multiplicativo de la segunda.\n\nPráctica: Resuelve (2/5) × (15/8) y (3/7) ÷ (9/14) simplificando antes o después de operar.",
-            seg: null
+            titulo: "División de números enteros y regla de los signos",
+            explicacion: "Al dividir dos enteros negativos el cociente es positivo, mientras que dividir signos distintos da negativo.\n\nPráctica: Calcula (-121) ÷ (-11), (-10) ÷ (-2) y (-36) ÷ 6.",
+            seg: 1209
         },
         {
-            titulo: "Conversion de fracciones a decimales y viceversa",
-            explicacion: "Una fracción se convierte a decimal dividiendo numerador entre denominador; un decimal exacto se escribe sobre la potencia de 10 correspondiente y se simplifica.\n\nPráctica: Convierte 7/8 y 5/16 a decimal, y expresa 0.75 y 0.125 como fracciones irreducibles.",
-            seg: null
+            titulo: "Operaciones combinadas con números enteros",
+            explicacion: "Combina sumas, restas, multiplicaciones y divisiones de enteros aplicando signos y orden de operaciones.\n\nPráctica: Resuelve: [(-121) ÷ (-11)] × [(-10) ÷ (-2)] - 10.",
+            seg: 1209
         },
         {
-            titulo: "Operaciones con decimales periodicos",
-            explicacion: "Un decimal periódico puro (0.333...) o mixto (0.1666...) tiene una fracción generatriz exacta usando nueves y ceros en el denominador.\n\nPráctica: Convierte 0.333... y 0.666... a fracción y calcula 0.333... + 1/6.",
-            seg: null
+            titulo: "Simplificación de fracciones mediante factores primos",
+            explicacion: "Para simplificar una fracción se descomponen numerador y denominador en factores y se cancelan los comunes; si no los hay, la fracción es irreducible.\n\nPráctica: Verifica si 12/5 puede simplificarse y simplifica completamente 18/24.",
+            seg: 1884
         },
         {
-            titulo: "Leyes de los exponentes (Multiplicacion y division)",
-            explicacion: "Para bases iguales (a ≠ 0):\n\n• Producto: a^m · a^n = a^(m+n)\n• Cociente: a^m / a^n = a^(m-n)\n• Potencia de potencia: (a^m)^n = a^(m·n)\n\nPráctica: Simplifica (2⁴ × 2³) / 2⁵ y (3²)³ / 3⁴.",
-            seg: null
+            titulo: "Suma de fracciones con distinto denominador",
+            explicacion: "Para sumar fracciones como 1/2 + 3/5 se busca un denominador común y se suman los numeradores equivalentes.\n\nPráctica: Calcula 1/2 + 3/5 y 2/3 + 1/4.",
+            seg: 1964
         },
         {
-            titulo: "Potencias con exponente negativo y cero",
-            explicacion: "Para todo número real a ≠ 0: a⁰ = 1 y a^(-n) = 1 / a^n (un exponente negativo invierte la base).\n\nPráctica: Evalúa 5⁰ + 2^(-3) y expresa (3/4)^(-2) como fracción positiva.",
-            seg: null
+            titulo: "Resta de fracciones con distinto denominador",
+            explicacion: "Al restar fracciones con denominadores distintos se expresan con denominador común antes de restar.\n\nPráctica: Calcula 3/4 - 2/5 y 5/6 - 1/3.",
+            seg: 1964
         },
         {
-            titulo: "Radicacion y simplificacion de radicales",
-            explicacion: "Simplificar un radical consiste en factorizar el radicando en factores primos y extraer aquellos cuyo exponente sea múltiplo del índice de la raíz.\n\nPráctica: Simplifica √72, √98 y ³√54.",
-            seg: null
+            titulo: "Multiplicación y división de fracciones",
+            explicacion: "Las fracciones se multiplican en línea (numerador por numerador y denominador por denominador) y se simplifican cuando es posible.\n\nPráctica: Resuelve (3/5) × (4/9) y (2/3) ÷ (4/5), simplificando el resultado.",
+            seg: 1884
         },
         {
-            titulo: "Minimo Comun Multiplo (MCM)",
-            explicacion: "El MCM es el menor múltiplo positivo común a dos o más enteros; se calcula multiplicando todos los factores primos (comunes y no comunes) elevados a su mayor exponente.\n\nPráctica: Calcula el MCM de (12, 18, 30) y de (15, 25, 40).",
-            seg: null
+            titulo: "Potencias de base entera y leyes de exponentes",
+            explicacion: "Una potencia indica multiplicar la base por sí misma tantas veces como señala el exponente; al elevar una potencia a otra se multiplican los exponentes.\n\nPráctica: Calcula (2^3)^2 y (3^2)^2 aplicando propiedades de potencias.",
+            seg: 10408
         },
         {
-            titulo: "Maximo Comun Divisor (MCD)",
-            explicacion: "El MCD es el mayor entero positivo que divide exactamente a todos los números dados; se obtiene multiplicando únicamente los factores primos comunes con su menor exponente.\n\nPráctica: Calcula el MCD de (48, 60, 84) y de (54, 90).",
-            seg: null
+            titulo: "Conversión entre radicales y exponentes fraccionarios",
+            explicacion: "Un radical puede escribirse como potencia de exponente fraccionario: por ejemplo, la raíz cúbica de 2 es 2^(1/3) y la raíz cuadrada de 3 es 3^(1/2).\n\nPráctica: Escribe en forma de potencia con exponente fraccionario la raíz cúbica de 2 y la raíz cuadrada de 3.",
+            seg: 10508
         },
         {
-            titulo: "Razones y Proporciones simples",
-            explicacion: "Una razón compara dos cantidades mediante cociente (a/b); una proporción es la igualdad de dos razones (a/b = c/d) donde el producto de medios iguala al producto de extremos.\n\nPráctica: Si la razón entre aprobados y reprobados es 5:2 y aprobaron 35 estudiantes, ¿cuántos reprobaron?",
-            seg: null
+            titulo: "Potencia de un radical mediante exponentes fraccionarios",
+            explicacion: "Al elevar un radical a una potencia se multiplican los exponentes: [2^(1/3)]^2 = 2^(2/3) y [3^(1/2)]^2 = 3.\n\nPráctica: Simplifica (√3)^2 y expresa (∛2)^2 tanto en potencia como en forma de radical.",
+            seg: 10508
         },
         {
-            titulo: "Regla de tres simple directa e inversa",
-            explicacion: "En proporcionalidad directa ambas magnitudes crecen o decrecen juntas; en proporcionalidad inversa, al aumentar una magnitud la otra disminuye en la misma proporción.\n\nPráctica: Resuelve: (a) Si 6 cuadernos cuestan $150, ¿cuánto cuestan 15? (b) Si 4 obreros tardan 12 días, ¿cuánto tardarán 6 obreros?",
-            seg: null
+            titulo: "Producto notable: binomio al cuadrado (a - b)²",
+            explicacion: "El desarrollo de (a - b)² es el cuadrado del primero menos el doble del primero por el segundo más el cuadrado del segundo: a² - 2ab + b².\n\nPráctica: Desarrolla (a - b)² y aplícalo a una diferencia de dos términos.",
+            seg: 10408
         },
         {
-            titulo: "Regla de tres compuesta",
-            explicacion: "Relaciona tres o más magnitudes comparando cada variable de forma independiente (directa o inversa) respecto a la magnitud desconocida.\n\nPráctica: Si 4 máquinas fabrican 120 piezas en 6 horas, ¿cuántas piezas fabricarán 6 máquinas trabajando 8 horas?",
-            seg: null
+            titulo: "Aplicación de binomio al cuadrado con radicales",
+            explicacion: "Al desarrollar (∛2 - √3)² se aplica a² - 2ab + b², obteniendo ∛(2²) - 2·∛2·√3 + 3.\n\nPráctica: Desarrolla paso a paso (∛2 - √3)² simplificando cada término posible.",
+            seg: 10408
         },
         {
-            titulo: "Calculo de Porcentajes e interes simple",
-            explicacion: "El porcentaje representa partes de cada 100 (p% = p/100); el interés simple se calcula mediante I = C · i · t, manteniendo tasa y tiempo en la misma unidad.\n\nPráctica: Calcula el 18% de 450 y el interés simple generado por $2,000 al 5% anual durante 3 años.",
-            seg: null
+            titulo: "Identificación de productos de radicales con distinta base y exponente",
+            explicacion: "En productos como 2^(1/3) · 3^(1/2), al no coincidir ni la base ni el exponente de forma directa, se deja indicado sin agrupar incorrectamente.\n\nPráctica: Explica por qué 2^(1/3) · 3^(1/2) no se puede reducir directamente sumando exponentes ni multiplicando bases.",
+            seg: 10678
         },
         {
-            titulo: "Reparto proporcional",
-            explicacion: "Consiste en dividir una cantidad total en partes directamente proporcionales a ciertos índices calculando primero la constante de proporcionalidad k = Total / Suma_indices.\n\nPráctica: Reparte $1,200 de forma directamente proporcional a las edades 2, 3 y 5.",
-            seg: null
+            titulo: "Expresiones combinadas con enteros y paréntesis",
+            explicacion: "Resolver expresiones con signos positivos y negativos requiere cuidado al quitar paréntesis y agrupar términos.\n\nPráctica: Calcula -6 + (-3) - (-8) + 2.",
+            seg: 272
         },
         {
-            titulo: "Problemas de aplicacion con MCM y MCD",
-            explicacion: "El MCM resuelve problemas de coincidencia temporal o ciclos repetitivos; el MCD resuelve problemas de partición exacta en bloques o grupos máximos iguales.\n\nPráctica: Dos luces parpadean cada 12 s y 18 s; si coinciden ahora, ¿en cuántos segundos volverán a coincidir?",
-            seg: null
+            titulo: "Operaciones mixtas con fracciones y simplificación",
+            explicacion: "Después de sumar o restar fracciones con distinto denominador, siempre conviene verificar si el resultado es irreducible.\n\nPráctica: Resuelve 1/2 + 3/5 - 1/10 y simplifica la fracción resultante.",
+            seg: 1964
         },
         {
-            titulo: "Fracciones continuas y criterios avanzados de divisibilidad",
-            explicacion: "Las fracciones continuas finitas se evalúan de abajo hacia arriba reduciendo cada nivel; los criterios modulares permiten verificar divisibilidad sin realizar la división larga.\n\nPráctica: Evalúa 1 + 1 / (2 + 1/3) y comprueba si 4,532 es divisible entre 11.",
-            seg: null
+            titulo: "Repaso integral de aritmética: enteros, fracciones y radicales",
+            explicacion: "Reúne reglas de signos en enteros, operaciones con fracciones y manejo de potencias/radicales con productos notables.\n\nPráctica: Resuelve: a) 5 - 3 × (-2), b) 1/2 + 3/5, y c) simplifica (√3)^2.",
+            seg: 31
         }
     ],
 
     algebra: [
         {
-            titulo: "Lenguaje algebraico y reduccion de terminos semejantes",
-            explicacion: "Dos o más términos son semejantes si poseen exactamente las mismas variables elevadas a los mismos exponentes, pudiendo sumarse o restarse sus coeficientes.\n\nPráctica: Traduce 'el triple de un número aumentado en el doble de otro' y simplifica 5x + 3y - 2x + 7y - x.",
-            seg: null
+            titulo: "Lenguaje algebraico y traducción de enunciados",
+            explicacion: "El álgebra representa cantidades desconocidas mediante letras (variables) y traduce relaciones verbales a expresiones algebraicas.\n\nPráctica: Traduce a expresión algebraica: 'el doble de un número aumentado en 5' y 'la tercera parte de un número menos 4'.",
+            seg: 0
+        },
+        {
+            titulo: "Identificación de términos algebraicos: coeficiente, literal y grado",
+            explicacion: "Un término algebraico consta de signo, coeficiente numérico, parte literal (variables) y exponentes que determinan su grado.\n\nPráctica: Indica signo, coeficiente, parte literal y grado de los términos -7x³ y 4a²b.",
+            seg: 0
+        },
+        {
+            titulo: "Reducción de términos semejantes",
+            explicacion: "Dos o más términos son semejantes si tienen exactamente las mismas variables con los mismos exponentes; se reducen sumando o restando sus coeficientes.\n\nPráctica: Simplifica: 5x + 3y - 2x + 7y - x.",
+            seg: 0
+        },
+        {
+            titulo: "Valor numérico de una expresión algebraica",
+            explicacion: "El valor numérico se obtiene sustituyendo cada variable por el número asignado y realizando las operaciones indicadas.\n\nPráctica: Calcula el valor de 3x² - 2x + 4 cuando x = -2.",
+            seg: 0
         },
         {
             titulo: "Suma y resta de polinomios",
-            explicacion: "Al restar un polinomio, el signo menos delante del paréntesis cambia el signo de todos los términos interiores antes de agrupar términos semejantes.\n\nPráctica: Efectúa (3x² - 4x + 1) + (2x² + 6x - 5) y (5x² - 2x + 4) - (3x² + 4x - 2).",
-            seg: null
+            explicacion: "Para sumar o restar polinomios se eliminan paréntesis (cambiando signos si hay un menos delante) y se reducen términos semejantes.\n\nPráctica: Resuelve: (4x² - 3x + 5) - (2x² + x - 3).",
+            seg: 0
         },
         {
-            titulo: "Multiplicacion de monomios y polinomios",
-            explicacion: "Se multiplican los coeficientes y se suman los exponentes de bases iguales aplicando la propiedad distributiva término a término.\n\nPráctica: Desarrolla 2x(3x² - 5x + 4) y (x + 3)(2x - 5).",
-            seg: null
+            titulo: "Leyes de los exponentes en expresiones algebraicas",
+            explicacion: "Al multiplicar potencias de igual base se suman exponentes, al dividir se restan y en potencia de potencia se multiplican.\n\nPráctica: Simplifica: (x⁴ · x³) / x² y (2a³)².",
+            seg: 0
         },
         {
-            titulo: "Productos notables: Binomio al cuadrado",
-            explicacion: "Permite expandir cuadrados sin multiplicar término a término:\n\n• (a + b)² = a² + 2ab + b²\n• (a - b)² = a² - 2ab + b²\n\nPráctica: Desarrolla (x + 5)² y (2a - 3b)².",
-            seg: null
+            titulo: "Multiplicación de monomios y polinomios",
+            explicacion: "Se aplica la propiedad distributiva multiplicando coeficientes entre sí y sumando exponentes de bases iguales.\n\nPráctica: Desarrolla: 3x(2x² - 4x + 1) y (x + 3)(x - 5).",
+            seg: 0
         },
         {
-            titulo: "Productos notables: Binomios conjugados",
-            explicacion: "El producto de la suma por la diferencia de dos términos iguales produce siempre una diferencia de cuadrados: (a + b)(a - b) = a² - b².\n\nPráctica: Calcula directamente (x + 7)(x - 7) y (3x + 2y)(3x - 2y).",
-            seg: null
+            titulo: "División de un polinomio entre un monomio",
+            explicacion: "Se divide cada término del polinomio entre el monomio divisor aplicando ley de signos y resta de exponentes.\n\nPráctica: Resuelve: (12x⁴ - 8x³ + 4x²) ÷ (4x²).",
+            seg: 0
         },
         {
-            titulo: "Factorizacion por factor comun",
-            explicacion: "Consiste en extraer el MCD de los coeficientes junto con las variables comunes elevadas a su menor exponente.\n\nPráctica: Factoriza completamente 12x³ - 18x² + 6x y 8a²b - 12ab².",
-            seg: null
+            titulo: "Productos notables: binomio al cuadrado",
+            explicacion: "Se cumple que (a ± b)² = a² ± 2ab + b², permitiendo desarrollar rápidamente sin multiplicar término a término.\n\nPráctica: Desarrolla: (2x + 3)² y (x - 5)².",
+            seg: 0
         },
         {
-            titulo: "Factorizacion de diferencia de cuadrados",
-            explicacion: "Toda expresión de la forma a² - b² se descompone en el producto de dos binomios conjugados: (a + b)(a - b).\n\nPráctica: Factoriza x² - 49, 16y² - 25 y 9m⁴ - 1.",
-            seg: null
+            titulo: "Productos notables: binomios conjugados (diferencia de cuadrados)",
+            explicacion: "El producto de dos binomios conjugados sigue la regla (a + b)(a - b) = a² - b².\n\nPráctica: Calcula: (x + 7)(x - 7) y (3m - 2n)(3m + 2n).",
+            seg: 0
         },
         {
-            titulo: "Factorizacion de trinomios x^2 + bx + c",
-            explicacion: "Se buscan dos números m y n tales que m + n = b y m · n = c para escribir el trinomio como (x + m)(x + n).\n\nPráctica: Factoriza x² + 7x + 12 y x² - 2x - 15.",
-            seg: null
+            titulo: "Factorización por factor común",
+            explicacion: "Consiste en extraer el máximo factor numérico y literal que se repite en todos los términos de la expresión.\n\nPráctica: Factoriza: 6x³ + 9x² - 3x.",
+            seg: 0
         },
         {
-            titulo: "Factorizacion de trinomios ax^2 + bx + c",
-            explicacion: "Cuando el coeficiente principal a ≠ 1, se busca descomponer el término central (o usar método de aspa/agrupación) para obtener dos binomios lineales.\n\nPráctica: Factoriza 2x² + 7x + 3 y 3x² - 5x - 2.",
-            seg: null
+            titulo: "Factorización de diferencia de cuadrados",
+            explicacion: "Una expresión de la forma a² - b² se factoriza como el producto de binomios conjugados (a + b)(a - b).\n\nPráctica: Factoriza: x² - 36 y 16a² - 25b².",
+            seg: 0
         },
         {
-            titulo: "Despeje de variables e inecuaciones de 1er grado",
-            explicacion: "Al resolver desigualdades lineales, multiplicar o dividir ambos miembros por un número negativo invierte el sentido del signo (< pasa a >).\n\nPráctica: Despeja t en d = v · t + d₀ y resuelve la inecuación -3x + 5 > 14.",
-            seg: null
+            titulo: "Factorización de trinomios de la forma x² + bx + c",
+            explicacion: "Se buscan dos números que multiplicados den c y sumados den b para escribir (x + p)(x + q).\n\nPráctica: Factoriza: x² + 7x + 12 y x² - 2x - 15.",
+            seg: 0
         },
         {
-            titulo: "Ecuaciones de primer grado con 1 incognita",
-            explicacion: "Se eliminan paréntesis y denominadores, se agrupan términos con incógnita en un miembro y constantes en el otro, y se despeja la variable.\n\nPráctica: Resuelve 4(x - 2) + 3 = 2x + 7 y comprueba sustituyendo el valor hallado.",
-            seg: null
+            titulo: "Simplificación de fracciones algebraicas",
+            explicacion: "Se factorizan numerador y denominador para cancelar factores comunes distintos de cero.\n\nPráctica: Simplifica: (x² - 9) / (x² + 6x + 9).",
+            seg: 0
         },
         {
-            titulo: "Sistemas de ecuaciones 2x2 (Sustitucion/Reduccion)",
-            explicacion: "Un sistema lineal 2x2 puede resolverse eliminando una variable mediante suma/resta (reducción) o despejando una variable y sustituyéndola en la otra ecuación.\n\nPráctica: Resuelve el sistema: { x + y = 10 ; 2x - y = 5 }.",
-            seg: null
+            titulo: "Ecuaciones lineales de primer grado con una incógnita",
+            explicacion: "Para despejar la incógnita se agrupan términos con variable de un lado y constantes del otro manteniendo la igualdad.\n\nPráctica: Resuelve: 5x - 8 = 2x + 10.",
+            seg: 0
         },
         {
-            titulo: "Ecuaciones de 2do grado por formula general",
-            explicacion: "Toda ecuación cuadrática ax² + bx + c = 0 (a ≠ 0) se resuelve con x = [-b ± √(b² - 4ac)] / (2a), donde Δ = b² - 4ac indica la naturaleza de las raíces.\n\nPráctica: Resuelve x² - 5x + 6 = 0 y 2x² + 3x - 2 = 0 mediante la fórmula general.",
-            seg: null
+            titulo: "Ecuaciones lineales con paréntesis y denominadores",
+            explicacion: "Primero se eliminan paréntesis o denominadores multiplicando por el mínimo común múltiplo y luego se despeja x.\n\nPráctica: Resuelve: 3(x - 2) + 4 = 2(x + 5).",
+            seg: 0
         },
         {
-            titulo: "Simplificacion de fracciones algebraicas",
-            explicacion: "Se factorizan completamente numerador y denominador antes de cancelar factores comunes, indicando los valores que anulan el denominador.\n\nPráctica: Simplifica (x² - 9) / (x² + 6x + 9) para x ≠ -3.",
-            seg: null
+            titulo: "Despeje de variables en fórmulas",
+            explicacion: "Despejar una variable consiste en aislarla en un miembro de la ecuación usando operaciones inversas.\n\nPráctica: Despeja t en v = d / t y despeja r en P = 2πr.",
+            seg: 0
         },
         {
-            titulo: "Suma y resta de fracciones algebraicas",
-            explicacion: "Se calcula el MCM de los denominadores polinómicos, se ajustan los numeradores y se reducen términos semejantes en el numerador resultante.\n\nPráctica: Efectúa 2/(x - 1) + 3/(x + 1).",
-            seg: null
+            titulo: "Sistemas de ecuaciones lineales 2×2",
+            explicacion: "Un sistema 2×2 busca los valores de (x, y) que satisfacen simultáneamente ambas ecuaciones mediante sustitución, igualación o reducción.\n\nPráctica: Resuelve el sistema: x + y = 10 y x - y = 4.",
+            seg: 0
         },
         {
-            titulo: "Sistemas de ecuaciones 3x3 por determinantes (Cramer)",
-            explicacion: "La regla de Cramer calcula cada incógnita como el cociente entre el determinante de la matriz con la columna sustituida y el determinante principal (Δ ≠ 0).\n\nPráctica: Calcula el determinante principal Δ y el valor de x para un sistema 3x3 dado.",
-            seg: null
+            titulo: "Ecuaciones cuadráticas incompletas y por factorización",
+            explicacion: "Una ecuación cuadrática ax² + bx + c = 0 puede resolverse factorizando e igualando cada factor a cero.\n\nPráctica: Resuelve: x² - 5x + 6 = 0 y x² - 49 = 0.",
+            seg: 0
         },
         {
-            titulo: "Logaritmos y sus propiedades",
-            explicacion: "Por definición, log_b(x) = y ⇔ b^y = x (con b > 0, b ≠ 1, x > 0). Cumple log(A·B) = log A + log B, log(A/B) = log A - log B y log(A^n) = n·log A.\n\nPráctica: Evalúa log₂(32) y expande log(x² · y / z).",
-            seg: null
-        },
-        {
-            titulo: "Ecuaciones exponenciales y logaritmicas",
-            explicacion: "Las ecuaciones exponenciales se resuelven igualando bases o aplicando logaritmos; las logarítmicas aplicando la definición exponencial y verificando que los argumentos sean positivos.\n\nPráctica: Resuelve 2^(x+1) = 16 y log₃(2x - 1) = 2.",
-            seg: null
-        },
-        {
-            titulo: "Divisibilidad de polinomios y Teorema del Residuo",
-            explicacion: "El Teorema del Residuo establece que el residuo de dividir un polinomio P(x) entre (x - a) es igual a P(a).\n\nPráctica: Calcula el residuo de dividir P(x) = x³ - 4x + 6 entre (x - 2) sin hacer la división larga.",
-            seg: null
-        },
-        {
-            titulo: "Eliminacion de Gauss-Jordan para matrices NxN",
-            explicacion: "Mediante operaciones elementales de fila (intercambiar filas, multiplicar por escalar no nulo, sumar múltiplo de otra fila) se lleva la matriz aumentada a la forma escalonada reducida.\n\nPráctica: Aplica eliminación gaussiana a una matriz aumentada 3x4 para hallar la solución del sistema.",
-            seg: null
+            titulo: "Ecuaciones cuadráticas mediante fórmula general",
+            explicacion: "Para ax² + bx + c = 0 (con a ≠ 0), las soluciones se obtienen con x = [-b ± √(b² - 4ac)] / (2a).\n\nPráctica: Resuelve usando la fórmula general: 2x² - 5x - 3 = 0.",
+            seg: 0
         }
     ],
 
     logica: [
         {
-            titulo: "Definicion de Proposiciones y conectivos logicos",
-            explicacion: "Una proposición es un enunciado declarativo al que se le puede asignar un único valor de verdad (V o F). Los conectivos básicos son: negación (~), conjunción (^), disyunción (v), condicional (->) y bicondicional (<->).\n\nPráctica: Distingue qué frases son proposiciones lógicas y formaliza 'Si estudio y practico, entonces apruebo'.",
-            seg: null
+            titulo: "Identificación de proposiciones lógicas frente a enunciados no proposicionales",
+            explicacion: "Una proposición lógica es una oración a la que se le puede asignar indiscutiblemente el valor de verdadero o falso (no preguntas, órdenes ni expresiones abiertas sin valor asignado).\n\nPráctica: Indica cuáles son proposiciones lógicas: '3 + 7 = 10', 'Cierra la puerta', 'x + 2 = 5', '¿Qué hora es?'.",
+            seg: 40
         },
         {
-            titulo: "Tablas de verdad: Conjuncion (AND) y Disjuncion (OR)",
-            explicacion: "La conjunción (p ^ q) es verdadera únicamente cuando ambas proposiciones son verdaderas. La disyunción inclusiva (p v q) es falsa únicamente cuando ambas son falsas.\n\nPráctica: Construye las tablas de verdad completas (4 filas) para p ^ q y p v q.",
-            seg: null
+            titulo: "Determinación del valor de verdad de proposiciones simples",
+            explicacion: "Toda proposición lógica tiene un único valor de verdad: verdadera (V) o falsa (F).\n\nPráctica: Determina si es verdadera o falsa cada proposición: '5 < 8', '12 es múltiplo de 5', '3² = 9', '√16 = 5'.",
+            seg: 402
         },
         {
-            titulo: "Tablas de verdad: Condicional (IF) y Bicondicional",
-            explicacion: "El condicional (p -> q) solo es falso cuando el antecedente p es verdadero y el consecuente q es falso. El bicondicional (p <-> q) es verdadero cuando p y q tienen el mismo valor de verdad.\n\nPráctica: Completa las tablas de verdad de p -> q y p <-> q.",
-            seg: null
+            titulo: "Negación de proposiciones simples y desigualdades",
+            explicacion: "La negación (¬p) invierte el valor de verdad de p; por ejemplo, la negación de '7 > 3' es '7 ≤ 3' (y no '7 < 3').\n\nPráctica: Niega correctamente las proposiciones: 'Hoy está lloviendo', '7 > 3' y el predicado 'x ≥ 4'.",
+            seg: 776
         },
         {
-            titulo: "Determinacion de Tautologia, Contradiccion y Contingencia",
-            explicacion: "Según su columna resultado final en la tabla de verdad:\n\n• Tautología: todos los valores son V.\n• Contradicción: todos los valores son F.\n• Contingencia: contiene al menos un V y un F.\n\nPráctica: Evalúa (p -> q) <-> (~p v q) y determina si es tautología, contradicción o contingencia.",
-            seg: null
+            titulo: "Negación de proposiciones con cuantificadores ('todos' y 'algún')",
+            explicacion: "La negación de 'Todos los estudiantes aprobaron' es 'No todos los estudiantes aprobaron' (o 'Algún estudiante suspendió'), y la de 'Algún número par es primo' es 'Ningún número par es primo'.\n\nPráctica: Escribe la negación lógica de 'Todos los estudiantes aprobaron' y de 'Algún número par es primo'.",
+            seg: 900
         },
         {
-            titulo: "Negacion de proposiciones compuestas",
-            explicacion: "Negar una proposición compuesta requiere transformar tanto los valores de verdad como los conectivos principales:\n\n• ~(p -> q) equivale a p ^ ~q.\n\nPráctica: Escribe la negación lógica de 'Si llueve, llevo paraguas' y de 'Es lunes o es martes'.",
-            seg: null
+            titulo: "Conjunción lógica (p ∧ q) y su criterio de verdad",
+            explicacion: "La conjunción 'p y q' (p ∧ q) es verdadera únicamente cuando ambas proposiciones son verdaderas; si al menos una es falsa, la conjunción es falsa.\n\nPráctica: Evalúa el valor de verdad de: '3 + 2 = 5 y 4 < 10' y de '6 es par y 6 es primo'.",
+            seg: 1396
         },
         {
-            titulo: "Leyes de De Morgan",
-            explicacion: "Las leyes de De Morgan distribuyen la negación intercambiando conjunción por disyunción y viceversa:\n\n• ~(p ^ q) <=> (~p v ~q)\n• ~(p v q) <=> (~p ^ ~q)\n\nPráctica: Aplica De Morgan para negar ~(x > 0 ^ y > 0) y ~(A v ~B).",
-            seg: null
+            titulo: "Disyunción inclusiva (p ∨ q) y su criterio de verdad",
+            explicacion: "La disyunción 'p o q' (p ∨ q) es falsa únicamente cuando ambas proposiciones son falsas; basta con que una sea verdadera para que sea verdadera.\n\nPráctica: Evalúa el valor de verdad de: '3 < 8 o 10 < 5' y de '4 > 9 o 2 > 4'.",
+            seg: 1920
         },
         {
-            titulo: "Equivalencias logicas fundamentales",
-            explicacion: "Dos fórmulas son lógicamente equivalentes (<=>) si poseen idéntica tabla de verdad (ej. contrapositiva: p -> q <=> ~q -> ~p; doble negación: ~~p <=> p).\n\nPráctica: Comprueba mediante tabla de verdad la equivalencia entre p -> q y su contrapositiva ~q -> ~p.",
-            seg: null
+            titulo: "El condicional (p → q): antecedente, consecuente y caso falso",
+            explicacion: "El condicional 'si p entonces q' (p → q) solo es falso cuando el antecedente p es verdadero y el consecuente q es falso; en todos los demás casos es verdadero.\n\nPráctica: Determina el valor de verdad de: 'Si 5 es par entonces 5 es divisible por 2' y 'Si 6 > 2 entonces 6 > 10'.",
+            seg: 2383
         },
         {
-            titulo: "Modus Ponens y Modus Tollens",
-            explicacion: "Reglas básicas de inferencia deductiva válida:\n\n• Modus Ponens: [ (p -> q) ^ p ] => q\n• Modus Tollens: [ (p -> q) ^ ~q ] => ~p\n\nPráctica: Construye un argumento cotidiano válido aplicando Modus Ponens y otro aplicando Modus Tollens.",
-            seg: null
+            titulo: "El bicondicional (p ↔ q) y diferencia frente al condicional",
+            explicacion: "El bicondicional 'p si y solo si q' (p ↔ q) es verdadero cuando p y q tienen el mismo valor de verdad (ambas V o ambas F), expresando equivalencia en ambos sentidos.\n\nPráctica: Evalúa '9 es par si y solo si 9 es divisible por 3' y explica en qué se diferencia p → q de p ↔ q.",
+            seg: 2867
         },
         {
-            titulo: "Silogismo Hipotetico y Disyuntivo",
-            explicacion: "El silogismo hipotético encadena implicaciones: [ (p -> q) ^ (q -> r) ] => (p -> r). El silogismo disyuntivo descarta una alternativa: [ (p v q) ^ ~p ] => q.\n\nPráctica: Deriva la conclusión válida de: 'Si hay red, hay acceso; si hay acceso, descargo el archivo; hay red'.",
-            seg: null
+            titulo: "Formalización de enunciados compuestos al lenguaje lógico",
+            explicacion: "Los enunciados cotidianos con conectores ('y', 'o', 'si... entonces', 'si y solo si') se traducen asignando letras proposicionales y conectivos.\n\nPráctica: Formaliza: 'Si el alumno entrega el trabajo (p) y aprueba el examen (q), entonces obtiene el certificado (r)'.",
+            seg: 3580
         },
         {
-            titulo: "Formalizacion del lenguaje natural al simbolico",
-            explicacion: "Formalizar consiste en asignar letras proposicionales (p, q, r) a enunciados atómicos y traducir expresiones como 'a menos que' (v), 'solo si' (->) y 'ni... ni...' (~p ^ ~q).\n\nPráctica: Formaliza simbolizando cada proposición: 'No saldré a menos que deje de llover y termine mi tarea'.",
-            seg: null
+            titulo: "Tablas de verdad de conectivos básicos (¬, ∧, ∨, →, ↔)",
+            explicacion: "Las tablas de verdad enumeran todas las combinaciones posibles de V y F para determinar el valor de verdad de una proposición compuesta.\n\nPráctica: Construye las tablas de verdad de ¬p, p ∧ q, p ∨ q, p → q y p ↔ q.",
+            seg: 3379
         },
         {
-            titulo: "Cuantificadores: Universal (forall) y Existencial (exists)",
-            explicacion: "En lógica de predicados, el cuantificador universal (∀x) afirma que la propiedad se cumple para todos los elementos del dominio, y el existencial (∃x) afirma que se cumple para al menos uno.\n\nPráctica: Simboliza 'Todos los números primos mayores que 2 son impares' y 'Existe un número entero cuyo cuadrado es 9'.",
-            seg: null
+            titulo: "Tabla de verdad de proposiciones compuestas con tres variables",
+            explicacion: "Con tres proposiciones (p, q, r) la tabla tiene 2³ = 8 filas para analizar fórmulas como (p ∧ q) → r.\n\nPráctica: Construye la tabla de verdad de (p ∧ q) → r e identifica la única fila donde resulta falsa.",
+            seg: 3745
         },
         {
-            titulo: "Negacion de cuantificadores",
-            explicacion: "Al negar un cuantificador, este cambia al cuantificador dual y se niega el predicado:\n\n• ~(∀x P(x)) <=> ∃x ~P(x)\n• ~(∃x P(x)) <=> ∀x ~P(x)\n\nPráctica: Niega formalmente 'Todos los servidores están actualizados' y 'Algún paquete se perdió'.",
-            seg: null
+            titulo: "Primera ley de De Morgan: ¬(p ∧ q) ≡ ¬p ∨ ¬q",
+            explicacion: "Negar una conjunción equivale a la disyunción de las negaciones: ¬(p ∧ q) ≡ ¬p ∨ ¬q.\n\nPráctica: Comprueba mediante tabla de verdad que ¬(p ∧ q) y ¬p ∨ ¬q tienen exactamente la misma columna de verdad.",
+            seg: 4227
         },
         {
-            titulo: "Arboles de decision logica",
-            explicacion: "Los árboles semánticos o de decisión ramifican asignaciones de verdad (V/F) para verificar sistemáticamente si una fórmula es satisfacible o válida.\n\nPráctica: Construye el árbol de evaluación para (p ^ q) -> r explorando sus ramas.",
-            seg: null
+            titulo: "Segunda ley de De Morgan: ¬(p ∨ q) ≡ ¬p ∧ ¬q",
+            explicacion: "Negar una disyunción equivale a la conjunción de las negaciones: ¬(p ∨ q) ≡ ¬p ∧ ¬q.\n\nPráctica: Comprueba mediante tabla de verdad la equivalencia ¬(p ∨ q) ≡ ¬p ∧ ¬q y pon un ejemplo cotidiano.",
+            seg: 4299
         },
         {
-            titulo: "Algebra de Boole: Operaciones basicas",
-            explicacion: "Opera sobre el conjunto binario {0, 1} con suma lógica OR (+), producto lógico AND (·) y complemento NOT (').\n\nPráctica: Evalúa F = A · (B + C') + B' para la combinación A = 1, B = 0, C = 1.",
-            seg: null
+            titulo: "Ley de doble negación: ¬(¬p) ≡ p",
+            explicacion: "Negar dos veces una proposición recupera su valor de verdad original: ¬(¬p) ≡ p.\n\nPráctica: Demuestra con una tabla de verdad de dos filas que ¬(¬p) es lógicamente equivalente a p.",
+            seg: 4400
         },
         {
-            titulo: "Simplificacion de expresiones booleanas con identidades",
-            explicacion: "Identidades como identidad (A+0=A, A·1=A), complemento (A+A'=1, A·A'=0) y absorción (A + A·B = A) permiten reducir circuitos lógicos.\n\nPráctica: Simplifica paso a paso F = A·B + A·B' + A'·B.",
-            seg: null
+            titulo: "Equivalencia del condicional: (p → q) ≡ (¬p ∨ q)",
+            explicacion: "Todo condicional p → q es lógicamente equivalente a la disyunción ¬p ∨ q.\n\nPráctica: Verifica mediante tabla de verdad que p → q y ¬p ∨ q son lógicamente equivalentes.",
+            seg: 4471
         },
         {
-            titulo: "Representacion de puertas logicas (AND, OR, NOT, NAND, NOR)",
-            explicacion: "Cada operación booleana corresponde a una compuerta física; NAND y NOR se consideran compuertas universales porque permiten construir cualquier otra función.\n\nPráctica: Escribe la tabla de verdad de 2 entradas para las compuertas NAND y NOR.",
-            seg: null
+            titulo: "Aplicación cotidiana de las leyes de De Morgan",
+            explicacion: "Decir 'no es cierto que tenga boli y cuaderno' equivale lógicamente a 'no tengo boli o no tengo cuaderno'.\n\nPráctica: Aplica la primera ley de De Morgan para reescribir la negación de 'Tengo llave y cartera'.",
+            seg: 4591
         },
         {
-            titulo: "Mapas de Karnaugh para 3 variables",
-            explicacion: "Organiza los 8 minitérminos usando código Gray (00, 01, 11, 10) para agrupar '1's adyacentes en potencias de 2 (grupos de 1, 2, 4 u 8) eliminando variables que cambian.\n\nPráctica: Simplifica F(A,B,C) = Σm(0, 2, 4, 6) usando un mapa de Karnaugh de 3 variables.",
-            seg: null
+            titulo: "Formalización con cuantificador universal (∀) y existencial (∃)",
+            explicacion: "El cuantificador universal ∀ significa 'para todo/todos' y el existencial ∃ significa 'existe al menos uno'.\n\nPráctica: Escribe con cuantificadores: 'Todos los números pares son divisibles entre 2' y 'Existe un número natural mayor que 100'.",
+            seg: 4746
         },
         {
-            titulo: "Mapas de Karnaugh para 4 variables",
-            explicacion: "Extiende la tabla a 16 celdas donde los bordes superior/inferior e izquierdo/derecho son adyacentes entre sí.\n\nPráctica: Agrupa los unos de F(A,B,C,D) = Σm(0, 1, 4, 5, 10, 11, 14, 15) y escribe la expresión mínima.",
-            seg: null
+            titulo: "Negación formal de proposiciones cuantificadas",
+            explicacion: "Al negar un cuantificador universal aparece uno existencial con el predicado negado: ¬(∀x P(x)) ≡ ∃x ¬P(x), y viceversa: ¬(∃x P(x)) ≡ ∀x ¬P(x).\n\nPráctica: Niega formalmente ∀x A(x) ('Todos aprobaron') y ∃n ∈ ℕ (n > 100).",
+            seg: 4960
         },
         {
-            titulo: "Demostracion formal mediante deduccion natural",
-            explicacion: "Consiste en derivar una conclusión paso a paso desde un conjunto de premisas justificando cada línea con una regla de inferencia o equivalencia.\n\nPráctica: Demuestra r a partir de las premisas: 1) p -> q, 2) q -> r, 3) ~r -> ~p, 4) p.",
-            seg: null
+            titulo: "Razonamiento deductivo válido: Modus Ponens",
+            explicacion: "En el Modus Ponens, dadas las premisas p → q y p, se concluye válidamente q (por ejemplo: todos los humanos son mortales, Sócrates es humano, luego Sócrates es mortal).\n\nPráctica: Formaliza las premisas y la conclusión del razonamiento de Sócrates y justifica por qué es válido.",
+            seg: 5312
         },
         {
-            titulo: "Demostracion por contradiccion (Reductio ad absurdum)",
-            explicacion: "Para demostrar una conclusión C, se asume temporalmente ~C como premisa adicional y se deduce una contradicción (X ^ ~X), probando que C debe ser verdadera.\n\nPráctica: Aplica reducción al absurdo para demostrar que de (p -> q) y (p -> ~q) se concluye ~p.",
-            seg: null
+            titulo: "Identificación de falacias: afirmación del consecuente",
+            explicacion: "De 'Si llueve entonces el suelo se moja' (p → q) y 'El suelo está mojado' (q) NO es válido concluir 'Ha llovido' (p); este error se llama falacia de afirmación del consecuente.\n\nPráctica: Explica por qué 'Si llueve el suelo se moja; el suelo está mojado; luego ha llovido' es un razonamiento inválido.",
+            seg: 5505
         }
     ]
 };

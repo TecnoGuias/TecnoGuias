@@ -66,6 +66,9 @@
         
         .btn-accion { background: #e6f4ea; color: #137333; border: 1px solid #ceead6; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; }
         .btn-accion:hover { background: #ceead6; }
+
+        .btn-video-tema { background: #1967d2; color: white; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 500; }
+        .btn-video-tema:hover { background: #1557b0; }
         
         .btn-exam { background: #d93025; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: bold; }
         .btn-exam:hover { background: #b31412; }
@@ -79,8 +82,8 @@
         .modal-content { background: white; border-radius: 8px; width: 700px; max-width: 90%; overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
         .modal-header { padding: 12px 16px; border-bottom: 1px solid #dadce0; display: flex; justify-content: space-between; align-items: center; background: #f1f3f4; font-weight: 500; }
         .modal-body { background: black; padding: 0; display: flex; justify-content: center; }
-        .modal-body-text { background: white; padding: 20px; font-size: 14px; line-height: 1.6; color: #202124; max-height: 400px; overflow-y: auto; }
-        .modal-footer { padding: 12px 16px; border-top: 1px solid #dadce0; display: flex; justify-content: flex-end; align-items: center; font-size: 12px; color: #5f6368; background: #f8f9fa; }
+        .modal-body-text { background: white; padding: 20px; font-size: 14px; line-height: 1.6; color: #202124; max-height: 400px; overflow-y: auto; white-space: pre-line; }
+        .modal-footer { padding: 12px 16px; border-top: 1px solid #dadce0; display: flex; justify-content: flex-end; gap: 8px; align-items: center; font-size: 12px; color: #5f6368; background: #f8f9fa; }
     </style>
 </head>
 <body>
@@ -676,119 +679,68 @@
             </div>
             <div class="modal-body-text" id="text-modal-body"></div>
             <div class="modal-footer">
+                <button id="btn-ver-video-ejercicio" class="btn-video-tema hidden">Ver video</button>
                 <button class="btn-accion" onclick="cerrarTexto()">Entendido</button>
             </div>
         </div>
     </div>
 
+    <script src="./ejercicios.js"></script>
     <script>
-        const bancoEjercicios = {
-            python: [
-                "1. Hola Mundo y variables basicas", "2. Operaciones aritmeticas simples", "3. Condicional if/else de edad",
-                "4. Determinar par o impar", "5. Bucle for del 1 al 100", "6. Tabla de multiplicar dinamica",
-                "7. Bucle while con contador", "8. Manipulacion de cadenas y slicing", "9. Funcion que calcula el area de un circulo",
-                "10. Trabajar con Listas y metodos (.append, .pop)", "11. Buscar el numero mayor en una lista", "12. Eliminar duplicados de una lista con conjuntos",
-                "13. Diccionarios: Contar frecuencia de palabras", "14. Lectura de archivos .txt simples", "15. Escritura y append en archivos locales",
-                "16. Manejo de excepciones try/except", "17. Funciones Lambda y map/filter", "18. Programacion Orientada a Objetos: Clase Vehiculo",
-                "19. Algoritmo de ordenamiento Bubblesort manual", "20. Recursividad: Resolver la Torre de Hanoi"
-            ],
-            java: [
-                "1. Hola Mundo y estructura de clase Main en Java", "2. Declaracion de tipos primitivos y Scanner", "3. Condicionales if-else y operador ternario",
-                "4. Estructura switch-case para menus", "5. Bucle for tradicional y for-each", "6. Bucle while y do-while",
-                "7. Arreglos unidimensionales (Arrays) y recorrido", "8. Arreglos bidimensionales (Matrices)", "9. Creacion de metodos estaticos y paso de parametros",
-                "10. Programacion Orientada a Objetos: Creacion de Clases y Objetos", "11. Encapsulamiento (Getters y Setters)", "12. Constructores y sobrecarga de constructores",
-                "13. Herencia y superclases en Java", "14. Polimorfismo y sobreescritura de metodos (@Override)", "15. Clases abstractas e interfaces",
-                "16. Manejo de excepciones (try-catch-finally y throws)", "17. Uso de Colecciones (ArrayList y HashMap)", "18. Lectura y escritura de archivos con FileReader/FileWriter",
-                "19. Programacion funcional basica con Streams y Lambdas", "20. Estructura de datos avanzada: Implementacion de Lista Enlazada propia"
-            ],
-            bash: [
-                "1. Script basico con echo y variables", "2. Captura de argumentos ($1, $2)", "3. Condicional if que valida si un archivo existe",
-                "4. Validacion de permisos de lectura/escritura", "5. Bucle for sobre una lista de directorios", "6. Bucle while leedor de lineas",
-                "7. Renombrar multiples archivos en lote", "8. Uso de grep para buscar patrones en /etc/passwd", "9. Filtrado de texto con awk y cut",
-                "10. Creacion de un script de Backup comprimido con tar y date", "11. Uso de sed para reemplazar texto automaticamente", "12. Monitoreo de procesos activos con ps y kill",
-                "13. Script con menu interactivo usando select", "14. Automatizacion de limpieza de logs de mas de 30 dias", "15. Comprobar conectividad de IPs con ping en bucle",
-                "16. Descarga y extraccion automatizada con curl y tar", "17. Script ejecutable como servicio systemd", "18. Lectura e iteracion de JSON usando jq",
-                "19. Script de auditoria de seguridad del sistema", "20. Implementacion de una interfaz TUI usando dialog o whiptail"
-            ],
-            redes: [
-                "1. Identificar clases de direcciones IP (A, B, C)", "2. Mascaras por defecto y notacion CIDR", "3. Calculo de direccion de red y broadcast simples",
-                "4. Subnetting basico /24 a /26", "5. Comando ping y analisis de respuestas RTT", "6. Uso de traceroute/tracert para mapear saltos",
-                "7. Inspeccion de tabla ARP con arp -a", "8. Analisis de comandos ipconfig / ifconfig / ip a", "9. Subnetting medio /16 a /22",
-                "10. VLSM: Subneteo de red para 3 departamentos distintos", "11. Identificacion de puertos TCP/UDP comunes (22, 80, 443, 53)", "12. Captura basica de trafico con Wireshark",
-                "13. Configuracion manual de VLANs en Cisco CLI", "14. Configuracion de puertos de acceso y Trunk (802.1Q)", "15. Enrutamiento Estatico en Routers",
-                "16. Configuracion de Servidor y Relay DHCP", "17. Escaneo de red y puertos con Nmap", "18. Configuracion de Enrutamiento Dinamico (RIP v2 / OSPF)",
-                "19. Listas de Control de Acceso (ACLs) estandar y extendidas", "20. Analisis de paquetes TCP Three-Way Handshake en depuracion"
-            ],
-            ingles: [
-                "1. Verb To Be and basic greetings", "2. Present Simple vs Present Continuous", "3. Past Simple with regular verbs",
-                "4. Irregular verbs categorization", "5. Future with Will and Going to", "6. Comparative and Superlative adjectives",
-                "7. Modal verbs: Can, Could, Must, Should", "8. Countable and Uncountable nouns (Much/Many)", "9. Present Perfect with Just, Already, Yet",
-                "10. First and Second Conditionals", "11. Passive Voice: Present and Past", "12. Reported Speech basics",
-                "13. Relative Clauses (Who, Which, That)", "14. Phrasal Verbs in technical context", "15. Third Conditional and Mixed Conditionals",
-                "16. Advanced Connectors (Furthermore, Nevertheless)", "17. Inversion after negative adverbials", "18. Writing a formal professional email",
-                "19. Technical text translation and terminology analysis", "20. Essay writing: Argumentative synthesis"
-            ],
-            frances: [
-                "1. Les salutations et l'alphabet", "2. Les articles définis et indéfinis", "3. Les verbes Être et Avoir",
-                "4. Présent de l'indicatif (Verbes du 1er groupe -ER)", "5. La négation simple (Ne... pas)", "6. Les adjectifs possessifs",
-                "7. Le Futur Proche (Aller + Infinitif)", "8. Le Passé Composé avec Avoir", "9. Le Passé Composé avec Être (Accord)",
-                "10. L'Imparfait de l'indicatif", "11. Les pronoms COD et COI", "12. Le Conditionnel Présent",
-                "13. Les pronoms y et en", "14. Le Subjonctif Présent", "15. Le Plus-que-parfait",
-                "16. La voix passive en français", "17. Les propositions relatives (Qui, Que, Où, Dont)", "18. Expression d'hypotèse (Si + imparfait...)",
-                "19. Analyse d'un article technique en français", "20. Rédaction d'une lettre de motivation officielle"
-            ],
-            italiano: [
-                "1. Alfabeto e pronuncia", "2. Articoli determinativi e indeterminativi", "3. Presente indicativo: Essere e Avere",
-                "4. Verbi regolari in -are, -ere, -ire", "5. I sostantivi e il plurale", "6. Gli aggettivi possessivi",
-                "7. Preposizioni semplici e articolate", "8. Passato Prossimo con Avere e Essere", "9. I verbi modali (Dovere, Potere, Volere)",
-                "10. L'Imperfetto indicativo", "11. Pronomi diretti e indiretti", "12. Futuro semplice e composto",
-                "13. Il Condizionale presente", "14. Il Congiuntivo presente", "15. Il Congiuntivo imperfetto e trapassato",
-                "16. Periodo ipotetico della realtà e della possibilità", "17. La forma passiva e il si impersonale", "18. Pronomi combinati (Glielo, Ce l'ho)",
-                "19. Traduzione di documentazione tecnica in italiano", "20. Composizione di un saggio argomentativo articolato"
-            ],
-            aritmetica: [
-                "1. Sumas y restas de numeros enteros con signos", "2. Multiplicacion y division de enteros", "3. Jerarquia de operaciones basica",
-                "4. Fracciones equivalentes y simplificacion", "5. Suma y resta de fracciones con distinto denominador", "6. Multiplicacion y division de fracciones",
-                "7. Conversion de fracciones a decimales y viceversa", "8. Operaciones con decimales periodicos", "9. Leyes de los exponentes (Multiplicacion y division)",
-                "10. Potencias con exponente negativo y cero", "11. Radicacion y simplificacion de radicales", "12. Minimo Comun Multiplo (MCM)",
-                "13. Maximo Comun Divisor (MCD)", "14. Razones y Proporciones simples", "15. Regla de tres simple directa e inversa",
-                "16. Regla de tres compuesta", "17. Calculo de Porcentajes e interes simple", "18. Reparto proporcional",
-                "19. Problemas de aplicacion con MCM y MCD", "20. Fracciones continuas y criterios avanzados de divisibilidad"
-            ],
-            algebra: [
-                "1. Lenguaje algebraico y reduccion de terminos semejantes", "2. Suma y resta de polinomios", "3. Multiplicacion de monomios y polinomios",
-                "4. Productos notables: Binomio al cuadrado", "5. Productos notables: Binomios conjugados", "6. Factorizacion por factor comun",
-                "7. Factorizacion de diferencia de cuadrados", "8. Factorizacion de trinomios x^2 + bx + c", "9. Factorizacion de trinomios ax^2 + bx + c",
-                "10. Despeje de variables e inecuaciones de 1er grado", "11. Ecuaciones de primer grado con 1 incognita", "12. Sistemas de ecuaciones 2x2 (Sustitucion/Reduccion)",
-                "13. Ecuaciones de 2do grado por formula general", "14. Simplificacion de fracciones algebraicas", "15. Suma y resta de fracciones algebraicas",
-                "16. Sistemas de ecuaciones 3x3 por determinantes (Cramer)", "17. Logaritmos y sus propiedades", "18. Ecuaciones exponenciales y logaritmicas",
-                "19. Divisibilidad de polinomios y Teorema del Residuo", "20. Eliminacion de Gauss-Jordan para matrices NxN"
-            ],
-            logica: [
-                "1. Definicion de Proposiciones y conectivos logicos", "2. Tablas de verdad: Conjuncion (AND) y Disjuncion (OR)", "3. Tablas de verdad: Condicional (IF) y Bicondicional",
-                "4. Determinacion de Tautologia, Contradiccion y Contingencia", "5. Negacion de proposiciones compuestas", "6. Leyes de De Morgan",
-                "7. Equivalencias logicas fundamentales", "8. Modus Ponens y Modus Tollens", "9. Silogismo Hipotetico y Disyuntivo",
-                "10. Formalizacion del lenguaje natural al simbolico", "11. Cuantificadores: Universal (forall) y Existencial (exists)", "12. Negacion de cuantificadores",
-                "13. Arboles de decision logica", "14. Algebra de Boole: Operaciones basicas", "15. Simplificacion de expresiones booleanas con identidades",
-                "16. Representacion de puertas logicas (AND, OR, NOT, NAND, NOR)", "17. Mapas de Karnaugh para 3 variables", "18. Mapas de Karnaugh para 4 variables",
-                "19. Demostracion formal mediante deduccion natural", "20. Demostracion por contradiccion (Reductio ad absurdum)"
-            ]
-        };
+        function construirUrlConSegundo(urlBase, segundoExacto) {
+            if (!urlBase) return "";
+            let videoId = "";
+            let tiempoBase = null;
 
-        function generarEjerciciosUI(idContenedor, lista) {
+            if (urlBase.includes("watch?v=")) {
+                const partes = urlBase.split("watch?v=")[1].split("&");
+                videoId = partes[0];
+                const tParam = partes.find(p => p.startsWith("t="));
+                if (tParam) tiempoBase = tParam.replace("t=", "").replace("s", "");
+            } else if (urlBase.includes("youtu.be/")) {
+                const partes = urlBase.split("youtu.be/")[1].split("?");
+                videoId = partes[0];
+                if (partes[1] && partes[1].includes("t=")) {
+                    tiempoBase = partes[1].split("&").find(p => p.startsWith("t=")).replace("t=", "").replace("s", "");
+                }
+            }
+
+            if (!videoId) return urlBase;
+            const segundoFinal = (typeof segundoExacto === "number" && !Number.isNaN(segundoExacto))
+                ? segundoExacto
+                : tiempoBase;
+
+            return `https://www.youtube.com/embed/${videoId}` + (segundoFinal ? `?start=${segundoFinal}&autoplay=1` : "");
+        }
+
+        function generarEjerciciosUI(idContenedor, materiaKey) {
             const container = document.getElementById(idContenedor);
-            if (!container) return;
+            const lista = bancoEjercicios[materiaKey];
+            if (!container || !lista) return;
+
             container.innerHTML = "";
+            const urlTeoria = VIDEOS_TEORIA[materiaKey] || "";
+
             lista.forEach((ej, index) => {
                 const diffLevel = index < 6 ? "Facil" : (index < 14 ? "Medio" : "Dificil");
                 const colorBadge = index < 6 ? "#e6f4ea; color:#137333" : (index < 14 ? "#fef7e0; color:#b06000" : "#fce8e6; color:#c5221f");
-                
+
                 const div = document.createElement("div");
                 div.className = "item-row";
-                div.onclick = () => abrirTexto(`Ejercicio ${index + 1}`, `Consigna y objetivo:\n\nDemuestra tus conocimientos resolviendo la consigna del ${ej}.\n\nAsegurate de validar la respuesta y comprobar el resultado paso a paso.`);
+                div.onclick = () => {
+                    abrirTexto(
+                        `Ejercicio ${index + 1}: ${ej.titulo}`,
+                        ej.explicacion,
+                        {
+                            tituloVideo: `${materiaKey.toUpperCase()} - ${ej.titulo}`,
+                            urlBase: urlTeoria,
+                            segundo: ej.seg
+                        }
+                    );
+                };
                 div.innerHTML = `
                     <div>
-                        <span><strong>Ejercicio ${index + 1}:</strong> ${ej.split(". ")[1] || ej}</span>
+                        <span><strong>Ejercicio ${index + 1}:</strong> ${ej.titulo}</span>
                         <span class="badge-dificultad" style="background:${colorBadge}">${diffLevel}</span>
                     </div>
                     <span style="font-size: 12px; color: #1967d2; font-weight: 500;">Ver Práctica &rarr;</span>
@@ -798,16 +750,9 @@
         }
 
         window.addEventListener("DOMContentLoaded", () => {
-            generarEjerciciosUI("ejercicios-python", bancoEjercicios.python);
-            generarEjerciciosUI("ejercicios-java", bancoEjercicios.java);
-            generarEjerciciosUI("ejercicios-bash", bancoEjercicios.bash);
-            generarEjerciciosUI("ejercicios-redes", bancoEjercicios.redes);
-            generarEjerciciosUI("ejercicios-ingles", bancoEjercicios.ingles);
-            generarEjerciciosUI("ejercicios-frances", bancoEjercicios.frances);
-            generarEjerciciosUI("ejercicios-italiano", bancoEjercicios.italiano);
-            generarEjerciciosUI("ejercicios-aritmetica", bancoEjercicios.aritmetica);
-            generarEjerciciosUI("ejercicios-algebra", bancoEjercicios.algebra);
-            generarEjerciciosUI("ejercicios-logica", bancoEjercicios.logica);
+            Object.keys(bancoEjercicios).forEach((materia) => {
+                generarEjerciciosUI(`ejercicios-${materia}`, materia);
+            });
         });
 
         function ocultarTodo() {
@@ -824,35 +769,34 @@
             mostrarVista('view-home');
         }
 
-        // FUNCIÓN JS AUTOMÁTICA QUE CONVIERTE CUALQUIER LINK DE YOUTUBE A FORMATO EMBED
-        function abrirVideo(titulo, urlVideo) {
-            let urlFinal = urlVideo;
-            
-            if (urlVideo.includes("watch?v=")) {
-                const partes = urlVideo.split("watch?v=")[1].split("&");
-                const videoId = partes[0];
-                const tiempo = partes.find(p => p.startsWith("t="));
-                urlFinal = `https://www.youtube.com/embed/${videoId}` + (tiempo ? `?start=${tiempo.replace("t=", "").replace("s", "")}` : "");
-            } else if (urlVideo.includes("youtu.be/")) {
-                const partes = urlVideo.split("youtu.be/")[1].split("?");
-                const videoId = partes[0];
-                const tiempo = partes[1] && partes[1].includes("t=") ? partes[1].replace("t=", "").replace("s", "") : null;
-                urlFinal = `https://www.youtube.com/embed/${videoId}` + (tiempo ? `?start=${tiempo}` : "");
-            }
-
+        function abrirVideo(titulo, urlVideo, segundoExacto = null) {
+            const urlFinal = construirUrlConSegundo(urlVideo, segundoExacto);
             document.getElementById('modal-title').innerText = titulo;
             document.getElementById('player-frame').src = urlFinal;
             document.getElementById('video-modal').classList.remove('hidden');
         }
 
         function cerrarVideo() {
-            document.getElementById('player-frame').src = ""; 
+            document.getElementById('player-frame').src = "";
             document.getElementById('video-modal').classList.add('hidden');
         }
 
-        function abrirTexto(titulo, contenido) {
+        function abrirTexto(titulo, contenido, videoInfo = null) {
             document.getElementById('text-modal-title').innerText = titulo;
             document.getElementById('text-modal-body').innerText = contenido;
+
+            const btnVideo = document.getElementById('btn-ver-video-ejercicio');
+            if (videoInfo && videoInfo.urlBase) {
+                btnVideo.classList.remove('hidden');
+                btnVideo.onclick = () => {
+                    cerrarTexto();
+                    abrirVideo(videoInfo.tituloVideo, videoInfo.urlBase, videoInfo.segundo);
+                };
+            } else {
+                btnVideo.classList.add('hidden');
+                btnVideo.onclick = null;
+            }
+
             document.getElementById('text-modal').classList.remove('hidden');
         }
 

@@ -1,4 +1,4 @@
-// Video base de "Teoría Única" por materia
+    // Video base de "Teoría Única" por materia
 const VIDEOS_TEORIA = {
     python: "https://www.youtube.com/watch?v=Kp4Mvapo5kc&t=5985s",
     java: "https://www.youtube.com/watch?v=JOAqpdM36wI&t=7352s",
@@ -12,422 +12,420 @@ const VIDEOS_TEORIA = {
     logica: "https://www.youtube.com/watch?v=bgugRWRArL8"
 };
 
-// Estructura de cada ejercicio:
-// { titulo, explicacion, seg } --> "seg" es el segundo exacto dentro del video de Teoría Única (ej. 920)
-const bancoEjercicios = {
+// Bloque: Informática (redes, python, java, bash) para ejercicios.js
+const bancoEjerciciosInformatica = {
     redes: [
         {
-            titulo: "Identificar clases de direcciones IP (A, B, C)",
-            explicacion: "En el direccionamiento IPv4 por clases, el primer octeto (en decimal) permite identificar la clase y su máscara por defecto:\n\n• Clase A: 1 a 126 → Máscara por defecto /8 (255.0.0.0)\n• Clase B: 128 a 191 → Máscara por defecto /16 (255.255.0.0)\n• Clase C: 192 a 223 → Máscara por defecto /24 (255.255.255.0)\n\nPráctica: Clasifica las siguientes IPs e indica su máscara por defecto: 10.20.30.1, 172.16.5.10, 192.168.1.50 y 128.10.0.1.",
-            seg: 701
+            titulo: "Nodos, medios, dispositivos (router/switch/AP) y protocolos",
+            explicacion: "Una red conecta nodos (endpoints) mediante medios de transmisión y dispositivos de red como router, switch y Access Point (AP), comunicándose bajo protocolos.\n\nPráctica: Identifica el rol de un router, un switch y un Access Point y explica qué es un nodo y un protocolo de red.",
+            seg: 171
         },
         {
-            titulo: "Mascaras por defecto y notacion CIDR",
-            explicacion: "La notación CIDR (/n) indica cuántos bits consecutivos en '1' forman la porción de red dentro de los 32 bits de una dirección IPv4:\n\n• /8 = 255.0.0.0\n• /16 = 255.255.0.0\n• /24 = 255.255.255.0\n\nPráctica: Convierte las máscaras 255.255.255.0, 255.255.0.0 y 255.0.0.0 a notación CIDR, y obtén la máscara decimal equivalente para /28 y /20.",
-            seg: null
+            titulo: "Arquitecturas cliente-servidor y peer-to-peer (P2P)",
+            explicacion: "En la arquitectura cliente-servidor un cliente solicita recursos o servicios a un servidor, mientras que en P2P los nodos participan de forma distribuida sin depender de un servidor central.\n\nPráctica: Explica la diferencia entre cliente-servidor y P2P y menciona un ejemplo de uso de cada modelo.",
+            seg: 171
         },
         {
-            titulo: "Calculo de direccion de red y broadcast simples",
-            explicacion: "En una red /24 (255.255.255.0), los primeros 3 octetos identifican la red y el último octeto identifica los hosts. La primera IP del bloque es la dirección de red (bits de host en 0) y la última es la dirección de broadcast (bits de host en 1).\n\nPráctica: Dada la IP 192.168.10.45/24, calcula la dirección de red, la dirección de broadcast y el rango de IPs utilizables para hosts.",
-            seg: null
+            titulo: "Modelo OSI y modelo TCP/IP",
+            explicacion: "El modelo OSI organiza la comunicación en 7 capas de referencia y el modelo TCP/IP agrupa funciones en 4 capas prácticas utilizadas en redes actuales.\n\nPráctica: Compara las capas del modelo OSI con las del modelo TCP/IP y ubica en qué capa operan el enrutamiento y los protocolos de aplicación.",
+            seg: 936
         },
         {
-            titulo: "Subnetting basico /24 a /26",
-            explicacion: "Al pasar de /24 a /26 tomas prestados 2 bits de host para crear subredes (2² = 4 subredes) y conservas 6 bits de host (2⁶ - 2 = 62 hosts utilizables por subred), con saltos de 64 direcciones en el último octeto.\n\nPráctica: Divide 192.168.5.0/24 en subredes /26 y anota red, primer host, último host y broadcast de cada subred.",
-            seg: null
+            titulo: "Puertos y protocolos de red comunes",
+            explicacion: "Los servicios de red se asocian a puertos y protocolos como FTP, SSH, Telnet, SMTP, POP3/IMAP, HTTP/HTTPS, SMB, DNS y servicios de bases de datos.\n\nPráctica: Relaciona cada protocolo (FTP, SSH, Telnet, SMTP, POP3/IMAP, HTTP/HTTPS, SMB, DNS, bases de datos) con su función principal.",
+            seg: 2694
         },
         {
-            titulo: "Comando ping y analisis de respuestas RTT",
-            explicacion: "El comando ping envía peticiones ICMP Echo Request y mide el RTT (Round-Trip Time) o tiempo de ida y vuelta en milisegundos (ms), además de mostrar pérdida de paquetes y el valor TTL (Time To Live).\n\nPráctica: Ejecuta ping hacia tu puerta de enlace y hacia 8.8.8.8; compara los tiempos RTT, verifica si hay pérdida y analiza el valor de TTL.",
-            seg: null
+            titulo: "Diferencia entre SSH y Telnet en administración remota",
+            explicacion: "Tanto SSH como Telnet permiten administración remota, pero SSH cifra la comunicación mientras Telnet transmite en texto plano.\n\nPráctica: Explica por qué se prefiere SSH frente a Telnet al administrar un equipo remotamente.",
+            seg: 2694
         },
         {
-            titulo: "Uso de traceroute/tracert para mapear saltos",
-            explicacion: "traceroute (Linux/macOS) y tracert (Windows) descubren la ruta entre origen y destino enviando paquetes con TTL = 1, 2, 3... para que cada router intermedio responda con 'Time Exceeded'.\n\nPráctica: Traza la ruta hacia una IP o dominio público, anota cada salto (hop) y observa en qué tramos sube la latencia o aparecen asteriscos (*).",
-            seg: null
+            titulo: "HTTP frente a HTTPS y resolución con DNS",
+            explicacion: "HTTP y HTTPS corresponden al tráfico web (con cifrado en HTTPS), mientras que DNS traduce nombres de dominio a direcciones IP.\n\nPráctica: Describe qué ocurre desde que escribes un dominio hasta que carga el sitio web usando DNS y HTTP/HTTPS.",
+            seg: 2694
         },
         {
-            titulo: "Inspeccion de tabla ARP con arp -a",
-            explicacion: "El protocolo ARP (Address Resolution Protocol) resuelve direcciones IPv4 locales a direcciones físicas MAC para poder encapsular tramas en Ethernet dentro de la LAN.\n\nPráctica: Revisa tu tabla ARP con arp -a (o ip neigh) e identifica qué dirección MAC corresponde a tu puerta de enlace predeterminada.",
-            seg: null
+            titulo: "Protocolos de correo (SMTP, POP3/IMAP) y acceso/archivos (FTP, SMB)",
+            explicacion: "SMTP se usa para envío de correo, POP3/IMAP para gestión/lectura de correo, y FTP o SMB para transferencia y compartición de archivos.\n\nPráctica: Clasifica SMTP, POP3/IMAP, FTP y SMB según si corresponden a correo o a archivos.",
+            seg: 2694
         },
         {
-            titulo: "Analisis de comandos ipconfig / ifconfig / ip a",
-            explicacion: "Estos comandos permiten inspeccionar la configuración de red del sistema: interfaces activas (UP/DOWN), direcciones IPv4/IPv6, máscaras de subred y direcciones físicas MAC.\n\nPráctica: Revisa tu interfaz principal con ip a, ifconfig o ipconfig y diferencia claramente entre tu dirección IP local y tu dirección MAC.",
-            seg: null
+            titulo: "IPv4 e IPv6 y direcciones públicas frente a privadas",
+            explicacion: "Existen versiones de direccionamiento como IPv4 e IPv6, y distinciones entre direcciones IP privadas (red local) y públicas (salida a internet).\n\nPráctica: Explica la diferencia entre una dirección IP privada y una IP pública y por qué coexisten IPv4 e IPv6.",
+            seg: 3141
         },
         {
-            titulo: "Subnetting medio /16 a /22",
-            explicacion: "Cuando trabajas con prefijos entre /16 y /22, el límite entre red y host cae dentro del tercer octeto, modificando el tamaño de bloque (salto) en ese octeto.\n\nPráctica: A partir de 172.20.0.0/16, calcula cuántas subredes /22 se generan y cuántos hosts válidos soporta cada una.",
-            seg: null
+            titulo: "Funcionamiento de NAT y DHCP en una red",
+            explicacion: "NAT traduce direcciones entre redes privadas y públicas, mientras DHCP asigna configuración de red de forma dinámica a los dispositivos.\n\nPráctica: Explica cómo ayudan DHCP y NAT a conectar múltiples dispositivos de una red local a internet.",
+            seg: 3141
         },
         {
-            titulo: "VLSM: Subneteo de red para 3 departamentos distintos",
-            explicacion: "VLSM (Variable Length Subnet Mask) consiste en dividir un bloque IP en subredes de distintos tamaños según la demanda real de cada segmento, asignando siempre primero los bloques más grandes.\n\nPráctica: Partiendo de 192.168.100.0/24, asigna direccionamiento para 100 hosts, 50 hosts y 20 hosts indicando red, máscara y broadcast de cada bloque.",
-            seg: null
+            titulo: "Dirección física MAC y su relación con la IP",
+            explicacion: "La dirección MAC identifica la interfaz a nivel de enlace, complementando a la dirección IP que identifica al dispositivo en la red.\n\nPráctica: Explica en qué se diferencian una dirección MAC y una dirección IP.",
+            seg: 3141
         },
         {
-            titulo: "Identificacion de puertos TCP/UDP comunes (22, 80, 443, 53)",
-            explicacion: "Los puertos dirigen el tráfico hacia servicios específicos en un equipo:\n\n• 22/TCP: SSH (administración remota segura)\n• 53/UDP y TCP: DNS (resolución de nombres)\n• 80/TCP: HTTP (tráfico web sin cifrar)\n• 443/TCP: HTTPS (tráfico web cifrado con TLS)\n\nPráctica: Indica qué protocolo usa cada puerto y explica por qué conviene usar 443 y 22 frente a alternativas sin cifrar.",
-            seg: null
+            titulo: "Montaje de laboratorio con VirtualBox, Kali Linux y Metasploitable 2",
+            explicacion: "El laboratorio virtualiza máquinas en VirtualBox—como Kali Linux y Metasploitable 2—para practicar redes en un entorno aislado.\n\nPráctica: Describe el propósito de usar Kali Linux junto a Metasploitable 2 en VirtualBox dentro de un laboratorio de redes.",
+            seg: 4003
         },
         {
-            titulo: "Captura basica de trafico con Wireshark",
-            explicacion: "Wireshark captura paquetes de la red en tiempo real y permite aislar conversaciones mediante filtros de visualización (como icmp, dns, tcp.port == 80 o ip.addr == ...).\n\nPráctica: Captura tráfico mientras haces una consulta o ping, filtra los paquetes y revisa las capas Ethernet, IP y TCP/UDP de un paquete.",
-            seg: null
+            titulo: "Verificación de conectividad con ping",
+            explicacion: "El comando ping permite comprobar si un host responde a través de la red y observar la comunicación entre máquinas del laboratorio.\n\nPráctica: Explica qué indica una respuesta exitosa o sin respuesta al ejecutar ping hacia otra máquina.",
+            seg: 4003
         },
         {
-            titulo: "Configuracion manual de VLANs en Cisco CLI",
-            explicacion: "Las VLANs (IEEE 802.1Q) separan dominios de broadcast en capa 2 dentro de una infraestructura conmutada, mejorando el orden, la segmentación y el control del tráfico.\n\nPráctica: Escribe los comandos en Cisco CLI para crear la VLAN 10 con nombre Ventas y la VLAN 20 con nombre Sistemas.",
-            seg: null
+            titulo: "Captura y análisis de tráfico con Wireshark",
+            explicacion: "Wireshark captura paquetes en la red para inspeccionar el tráfico que circula entre los equipos del laboratorio.\n\nPráctica: Explica qué información puedes observar en Wireshark al generar tráfico entre dos máquinas.",
+            seg: 4003
         },
         {
-            titulo: "Configuracion de puertos de acceso y Trunk (802.1Q)",
-            explicacion: "Un puerto en modo access pertenece a una sola VLAN sin etiqueta 802.1Q; un puerto en modo trunk transporta tráfico de varias VLANs etiquetadas entre switches o hacia un router.\n\nPráctica: Configura una interfaz en modo access para VLAN 10 y otra en modo trunk permitiendo el paso de las VLANs 10 y 20.",
-            seg: null
+            titulo: "Escaneo de hosts y puertos con nmap",
+            explicacion: "nmap permite explorar una máquina o red en el laboratorio para detectar puertos abiertos y servicios expuestos.\n\nPráctica: Explica para qué se utiliza nmap sobre un objetivo de laboratorio como Metasploitable 2.",
+            seg: 4003
         },
         {
-            titulo: "Enrutamiento Estatico en Routers",
-            explicacion: "En el enrutamiento estático, el administrador configura manualmente las rutas hacia redes no conectadas directamente indicando red destino, máscara y siguiente salto (next-hop) o interfaz de salida.\n\nPráctica: Escribe la ruta estática para alcanzar 10.10.20.0/24 enviando el tráfico al siguiente salto 192.168.1.2.",
-            seg: null
+            titulo: "Comparación de tráfico y conexiones con SSH y Telnet",
+            explicacion: "Al probar conexiones SSH y Telnet en el laboratorio se evidencia la diferencia de seguridad entre ambos protocolos al inspeccionar el tráfico.\n\nPráctica: Explica qué ventaja de seguridad se observa en SSH respecto a Telnet al analizar el tráfico de red.",
+            seg: 4003
         },
         {
-            titulo: "Configuracion de Servidor y Relay DHCP",
-            explicacion: "DHCP automatiza la entrega de dirección IP, máscara, puerta de enlace y DNS; cuando el servidor DHCP está en otra red, se configura DHCP Relay (ip helper-address) para reenviar los broadcasts.\n\nPráctica: Define los parámetros de un pool DHCP (red, máscara, default-router, dns-server y direcciones excluidas) y explica cuándo usar relay.",
-            seg: null
+            titulo: "Encapsulación de protocolos en modelo TCP/IP",
+            explicacion: "En la comunicación en red, los protocolos de aplicación, transporte y red trabajan de forma coordinada sobre el modelo TCP/IP.\n\nPráctica: Explica cómo colaboran las capas de red, transporte y aplicación al establecer una conexión hacia un servicio.",
+            seg: 936
         },
         {
-            titulo: "Escaneo de red y puertos con Nmap",
-            explicacion: "Nmap permite verificar hosts activos y detectar qué puertos están abiertos, cerrados o filtrados, así como identificar servicios en ejecución.\n\nPráctica: Explica la diferencia entre un descubrimiento de hosts (-sn), un escaneo de puertos y la detección de versiones de servicio (-sV) en un entorno autorizado.",
-            seg: null
+            titulo: "Identificación de dispositivos intermedios y finales en una LAN",
+            explicacion: "Una red combina nodos finales y dispositivos intermedios (router, switch, AP) sobre medios de conexión para compartir recursos.\n\nPráctica: Clasifica los elementos de una red doméstica o de laboratorio en nodos finales, medios y dispositivos de red.",
+            seg: 171
         },
         {
-            titulo: "Configuracion de Enrutamiento Dinamico (RIP v2 / OSPF)",
-            explicacion: "Los protocolos de enrutamiento dinámico actualizan las tablas de rutas automáticamente: RIP v2 utiliza conteo de saltos (máximo 15), mientras que OSPF utiliza costo basado en el ancho de banda.\n\nPráctica: Compara RIP v2 y OSPF según su métrica, convergencia y tamaño de red recomendado, y plantea un ejemplo básico de anuncio de redes.",
-            seg: null
+            titulo: "Puertos de servicios de bases de datos en servidores",
+            explicacion: "Los servicios de bases de datos también operan mediante puertos y protocolos de red para atender conexiones de clientes.\n\nPráctica: Explica el rol de los puertos de red cuando un cliente se conecta a un servicio de base de datos.",
+            seg: 2694
         },
         {
-            titulo: "Listas de Control de Acceso (ACLs) estandar y extendidas",
-            explicacion: "Las ACLs evalúan paquetes de arriba abajo con reglas permit o deny: las estándar filtran principalmente por IP de origen; las extendidas permiten filtrar por origen, destino, protocolo y puerto.\n\nPráctica: Diseña una regla para bloquear el tráfico HTTP (puerto 80) de una subred hacia un servidor específico permitiendo el resto del tráfico.",
-            seg: null
+            titulo: "Diagnóstico básico de red en entorno virtualizado",
+            explicacion: "Combinar ping, nmap y Wireshark en VirtualBox permite verificar alcance, puertos y tráfico entre Kali Linux y Metasploitable 2.\n\nPráctica: Ordena los pasos básicos para comprobar conectividad, escanear servicios y observar el tráfico en el laboratorio.",
+            seg: 4003
         },
         {
-            titulo: "Analisis de paquetes TCP Three-Way Handshake en depuracion",
-            explicacion: "TCP establece una conexión confiable en tres pasos antes de transmitir datos:\n\n1. SYN (cliente solicita sincronización)\n2. SYN-ACK (servidor acepta y sincroniza)\n3. ACK (cliente confirma recepción)\n\nPráctica: Describe qué ocurre en cada uno de los 3 pasos del handshake y qué indica ver múltiples SYN sin respuesta SYN-ACK.",
-            seg: null
+            titulo: "Repaso integral de direccionamiento y protocolos",
+            explicacion: "IPv4/IPv6, públicas/privadas, NAT, DHCP y MAC permiten ubicar y configurar dispositivos que se comunican mediante protocolos TCP/IP.\n\nPráctica: Resume en tus palabras cómo se identifican y comunican dos equipos dentro y fuera de su red local.",
+            seg: 3141
         }
     ],
 
     python: [
         {
-            titulo: "Hola Mundo y variables basicas",
-            explicacion: "En Python las variables se crean al asignarles un valor (=) sin declarar el tipo de dato explícitamente, y print() permite mostrar texto y variables formateadas (f-strings).\n\n• Tipos básicos: str (texto), int (entero), float (decimal), bool (booleano).\n\nPráctica: Crea variables para nombre, edad y lenguaje favorito, e imprímelas en una sola frase usando f\"...\".",
-            seg: 5985
+            titulo: "Entorno y extensión de Python en VS Code",
+            explicacion: "Configurar el entorno e instalar la extensión de Python en VS Code prepara el editor para ejecutar y trabajar con código Python.\n\nPráctica: Configura la extensión de Python en VS Code y verifica que tu entorno ejecuta código sin errores.",
+            seg: 1433
         },
         {
-            titulo: "Operaciones aritmeticas simples",
-            explicacion: "Python soporta los operadores aritméticos estándar y operadores específicos para división:\n\n• + (suma), - (resta), * (multiplicación), ** (potencia)\n• / (división real), // (división entera), % (módulo o residuo)\n\nPráctica: Solicita dos números con input(), conviértelos a float o int y muestra su suma, división entera y residuo.",
-            seg: null
+            titulo: "Creación y ejecución de archivos .py",
+            explicacion: "Los programas en Python se escriben en archivos con extensión .py y se ejecutan desde el editor o la terminal.\n\nPráctica: Crea un archivo hola.py y ejecútalo para comprobar la salida del programa.",
+            seg: 1889
         },
         {
-            titulo: "Condicional if/else de edad",
-            explicacion: "Las estructuras condicionales evalúan expresiones booleanas (<, <=, >, >=, ==, !=) y ejecutan bloques indentados con 4 espacios mediante if, elif y else.\n\nPráctica: Pide la edad de un usuario y clasifícalo en menor de edad (< 18), adulto (18 a 64) o adulto mayor (65 o más).",
-            seg: null
+            titulo: "Variables y tipos básicos (str, int, bool, None)",
+            explicacion: "En Python las variables almacenan valores sin declaración de tipo explícita, incluyendo str, int, bool y None.\n\nPráctica: Crea variables de tipo str, int, bool y None y asígnales valores de ejemplo.",
+            seg: 3390
         },
         {
-            titulo: "Determinar par o impar",
-            explicacion: "El operador módulo (%) devuelve el residuo de una división entera. Un número entero es par si al dividirlo entre 2 su residuo es cero (n % 2 == 0).\n\nPráctica: Escribe un programa que reciba un número entero y determine si es par, impar o cero.",
-            seg: null
+            titulo: "Impresión con print() y consulta de tipo con type()",
+            explicacion: "La función print() muestra valores en pantalla y type() permite consultar el tipo de dato de una variable o expresión.\n\nPráctica: Imprime distintas variables con print() y muestra el resultado de type() para cada una.",
+            seg: 3663
         },
         {
-            titulo: "Bucle for del 1 al 100",
-            explicacion: "El bucle for recorre iterables; combinado con range(inicio, fin_exclusivo) permite generar secuencias numéricas controladas.\n\nPráctica: Imprime los números del 1 al 100 usando range(1, 101) y acumula la suma únicamente de los múltiplos de 5.",
-            seg: null
+            titulo: "Inspección de tipos str y int con print y type",
+            explicacion: "Combinar print() y type() ayuda a distinguir cadenas de texto (str) de números enteros (int) durante las primeras pruebas.\n\nPráctica: Declara un texto y un entero e imprime ambos junto con su tipo usando type().",
+            seg: 3663
         },
         {
-            titulo: "Tabla de multiplicar dinamica",
-            explicacion: "Combinar entrada de usuario con un ciclo for permite generar tablas dinámicas para cualquier número base y rango deseado.\n\nPráctica: Pide un número entero N y muestra su tabla de multiplicar desde N x 1 hasta N x 12 con formato limpio.",
-            seg: null
+            titulo: "Uso de valores booleanos (bool) y ausencia de valor (None)",
+            explicacion: "Los tipos bool representan valores lógicos y None representa la ausencia de valor en una variable.\n\nPráctica: Crea una variable booleana y otra con valor None, y comprueba sus tipos con type().",
+            seg: 3390
         },
         {
-            titulo: "Bucle while con contador",
-            explicacion: "El ciclo while repite un bloque mientras su condición sea verdadera (True). Es fundamental actualizar la variable de control dentro del ciclo para evitar bucles infinitos.\n\nPráctica: Implementa un contador regresivo desde 10 hasta 0 que imprima 'Despegue' al terminar.",
-            seg: null
+            titulo: "Organización de scripts en archivos .py",
+            explicacion: "Separar pruebas en archivos .py ordenados facilita mantener y ejecutar tus prácticas iniciales en VS Code.\n\nPráctica: Crea un archivo variables.py que defina variables básicas y las imprima en consola.",
+            seg: 1889
         },
         {
-            titulo: "Manipulacion de cadenas y slicing",
-            explicacion: "Las cadenas (str) son secuencias inmutables indexadas desde 0 y permiten rebanado con la sintaxis cadena[inicio:fin:paso].\n\n• cadena[::-1] invierte la cadena.\n• Métodos útiles: .lower(), .upper(), .strip(), .replace().\n\nPráctica: Dada una frase, extrae sus primeros 4 caracteres, sus últimos 4 caracteres y muéstrala invertida.",
-            seg: null
+            titulo: "Verificación de entorno de trabajo en VS Code",
+            explicacion: "Contar con la extensión de Python activa en VS Code facilita escribir y correr scripts de forma fluida.\n\nPráctica: Abre un archivo .py en VS Code y comprueba que el editor reconoce el lenguaje Python.",
+            seg: 1433
         },
         {
-            titulo: "Funcion que calcula el area de un circulo",
-            explicacion: "Las funciones se definen con def nombre(parametros): y devuelven resultados con return, permitiendo reutilizar y modularizar código.\n\nPráctica: Importa math (math.pi) y crea una función area_circulo(radio) que valide que el radio sea positivo antes de calcular π · r².",
-            seg: null
+            titulo: "Importación de módulos y uso de math",
+            explicacion: "Los módulos permiten reutilizar funciones y constantes externas, como ocurre al importar el módulo math.\n\nPráctica: Importa el módulo math y accede a sus recursos matemáticos dentro de un archivo .py.",
+            seg: 36177
         },
         {
-            titulo: "Trabajar con Listas y metodos (.append, .pop)",
-            explicacion: "Las listas ([]) son colecciones ordenadas y mutables que almacenan múltiples elementos y ofrecen métodos para modificarlas in-place:\n\n• .append(x) agrega al final, .insert(i, x) inserta en posición, .pop() extrae el último elemento.\n\nPráctica: Crea una lista de tareas, agrega 4 elementos con append(), elimina el último con pop() e imprime la lista final.",
-            seg: null
+            titulo: "Importación selectiva con from math import pi",
+            explicacion: "Con from math import pi puedes traer directamente la constante pi sin escribir el prefijo del módulo.\n\nPráctica: Importa pi desde math e imprímelo usando print().",
+            seg: 36177
         },
         {
-            titulo: "Buscar el numero mayor en una lista",
-            explicacion: "Para encontrar el máximo de una lista de forma algorítmica se toma el primer elemento como referencia y se compara contra cada elemento restante del recorrido.\n\nPráctica: Dada la lista [14, 3, 29, 8, 42, 17], encuentra el número mayor y su índice sin usar max(), y luego verifica con max().",
-            seg: null
+            titulo: "Renombrado de importaciones con alias (as)",
+            explicacion: "La palabra clave as permite asignar un alias a un módulo o elemento importado para referenciarlo con el nombre elegido.\n\nPráctica: Importa pi desde math con un alias usando as e imprímelo con print().",
+            seg: 36177
         },
         {
-            titulo: "Eliminar duplicados de una lista con conjuntos",
-            explicacion: "Un conjunto (set) es una colección desordenada de elementos únicos, por lo que convertir una lista a set elimina automáticamente valores repetidos.\n\nPráctica: Dada una lista con nombres o números repetidos, conviértela a set y regrésala a list mostrando cuántos duplicados se eliminaron.",
-            seg: null
+            titulo: "Comparación entre importar un elemento y usar alias as",
+            explicacion: "Importar directamente con from ... import ... y renombrar con as son variantes útiles para organizar nombres en un script.\n\nPráctica: Prueba importar pi con y sin alias as en un archivo .py y observa cómo cambia su uso.",
+            seg: 36177
         },
         {
-            titulo: "Diccionarios: Contar frecuencia de palabras",
-            explicacion: "Los diccionarios ({clave: valor}) permiten búsquedas rápidas por clave; el método conteo.get(palabra, 0) + 1 simplifica el conteo de frecuencias.\n\nPráctica: Toma una oración, divídela con .split() y construye un diccionario que indique cuántas veces aparece cada palabra.",
-            seg: null
+            titulo: "Práctica de variables y tipos en nuevo archivo .py",
+            explicacion: "Crear archivos .py específicos permite probar variables str, int, bool y None de manera limpia.\n\nPráctica: Escribe un script en un archivo .py con variables de distintos tipos y revisa su salida.",
+            seg: 1889
         },
         {
-            titulo: "Lectura de archivos .txt simples",
-            explicacion: "El bloque with open('ruta.txt', 'r', encoding='utf-8') as f abre un archivo de texto y garantiza su cierre automático al finalizar la lectura.\n\nPráctica: Lee un archivo .txt línea por línea, elimina saltos de línea con .strip() y cuenta cuántas líneas tienen contenido.",
-            seg: null
+            titulo: "Diagnóstico rápido de tipos con type()",
+            explicacion: "Llamar a type() sobre variables asignadas permite confirmar en tiempo de ejecución qué tipo de dato contiene cada una.\n\nPráctica: Evalúa con type() variables de texto, enteras, booleanas y None e imprímelas.",
+            seg: 3663
         },
         {
-            titulo: "Escritura y append en archivos locales",
-            explicacion: "Al abrir archivos con open(), el modo 'w' crea o sobrescribe todo el contenido, mientras que el modo 'a' (append) añade datos al final conservando lo anterior.\n\nPráctica: Crea un script que registre entradas de bitácora con fecha/texto agregándolas al final de un archivo logs.txt.",
-            seg: null
+            titulo: "Uso de constantes importadas en cálculos básicos",
+            explicacion: "Importar pi desde math permite emplear su valor numérico en expresiones e imprimir el resultado con print().\n\nPráctica: Importa pi desde math y calcula su doble o su cuadrado mostrándolo con print().",
+            seg: 36177
         },
         {
-            titulo: "Manejo de excepciones try/except",
-            explicacion: "Las excepciones evitan cierres abruptos ante entradas inválidas o fallos operativos mediante bloques try, except (ValueError, ZeroDivisionError) y finally.\n\nPráctica: Pide dos números para dividirlos y captura tanto letras ingresadas por error como la división entre cero.",
-            seg: null
+            titulo: "Estructura inicial de un proyecto en VS Code",
+            explicacion: "Tener el entorno, la extensión de Python y archivos .py bien organizados sienta la base del curso desde cero.\n\nPráctica: Crea una carpeta de práctica con al menos dos archivos .py y ejecútalos desde VS Code.",
+            seg: 1433
         },
         {
-            titulo: "Funciones Lambda y map/filter",
-            explicacion: "Una función lambda (lambda x: expresión) define una función anónima en una sola línea, muy útil junto con filter() para seleccionar y map() para transformar elementos.\n\nPráctica: A partir de los números del 1 al 15, filtra solo los pares y obtén sus cuadrados usando filter, map y lambda.",
-            seg: null
+            titulo: "Asignación y reasignación de variables básicas",
+            explicacion: "Las variables en Python pueden recibir distintos valores (str, int, bool, None) y comprobarse con type().\n\nPráctica: Asigna un valor a una variable, imprime su valor y su tipo, y cámbiala a otro tipo.",
+            seg: 3390
         },
         {
-            titulo: "Programacion Orientada a Objetos: Clase Vehiculo",
-            explicacion: "Una clase define atributos y comportamientos de un objeto mediante el constructor __init__(self, ...) y métodos de instancia.\n\nPráctica: Implementa la clase Vehiculo con marca, modelo y velocidad (iniciando en 0), además de métodos acelerar(inc) y frenar(dec).",
-            seg: null
+            titulo: "Formato de salida en consola con print()",
+            explicacion: "print() es la función principal para mostrar mensajes, variables y resultados al ejecutar un script.\n\nPráctica: Muestra en consola el nombre, el valor y el tipo de dos variables usando print() y type().",
+            seg: 3663
         },
         {
-            titulo: "Algoritmo de ordenamiento Bubblesort manual",
-            explicacion: "Bubble Sort recorre la lista comparando pares adyacentes (lista[j] > lista[j+1]) e intercambiándolos hasta que toda la colección queda ordenada.\n\nPráctica: Ordena manualmente [64, 34, 25, 12, 22, 11, 90] de menor a mayor con dos bucles anidados.",
-            seg: null
+            titulo: "Reutilización de código mediante módulos",
+            explicacion: "El uso de módulos como math evita reescribir constantes o funciones ya disponibles en la librería.\n\nPráctica: Importa un elemento de math con alias as y utilízalo dentro de tu script.",
+            seg: 36177
         },
         {
-            titulo: "Recursividad: Resolver la Torre de Hanoi",
-            explicacion: "Una función recursiva resuelve un problema dividiéndolo en subproblemas más pequeños de la misma naturaleza hasta alcanzar un caso base (n == 1).\n\nPráctica: Implementa hanoi(n, origen, destino, auxiliar) e imprime cada movimiento para 3 discos.",
-            seg: null
+            titulo: "Repaso de fundamentos iniciales en Python",
+            explicacion: "Desde la configuración en VS Code y archivos .py hasta variables, print/type y módulos como math, cada paso consolida las bases.\n\nPráctica: Crea un archivo .py que combine variables básicas, print(), type() y una importación de math.",
+            seg: 1889
         }
     ],
 
     java: [
         {
-            titulo: "Hola Mundo y estructura de clase Main en Java",
-            explicacion: "En Java todo el código vive dentro de clases y la ejecución inicia en el método público y estático public static void main(String[] args).\n\nPráctica: Crea la clase Principal con su método main e imprime dos líneas con System.out.println().",
-            seg: 7352
+            titulo: "Instalación del JDK, compilador javac y JAVA_HOME",
+            explicacion: "Para desarrollar en Java se instala el JDK, se utiliza el compilador javac y se configura la variable de entorno JAVA_HOME.\n\nPráctica: Verifica que tienes instalado el JDK, comprueba javac y revisa la configuración de JAVA_HOME en tu sistema.",
+            seg: 2724
         },
         {
-            titulo: "Declaracion de tipos primitivos y Scanner",
-            explicacion: "Java exige declarar el tipo de cada variable (int, double, boolean, char, String) y utiliza java.util.Scanner(System.in) para leer datos del teclado.\n\nPráctica: Lee nombre, edad y promedio de un estudiante y muéstralos formateados en consola.",
-            seg: null
+            titulo: "Configuración de proyecto, IDE, plantillas y atajos",
+            explicacion: "Preparar el proyecto en el IDE y aprovechar plantillas y atajos agiliza la escritura y organización del código Java.\n\nPráctica: Crea un proyecto en tu IDE y prueba al menos una plantilla de código y un atajo de teclado habitual.",
+            seg: 3818
         },
         {
-            titulo: "Condicionales if-else y operador ternario",
-            explicacion: "Usa if / else if / else para decisiones complejas y el operador ternario (condicion ? valorVerdadero : valorFalso) para asignaciones directas.\n\nPráctica: Determina si una calificación (>= 6.0) es aprobatoria usando un bloque if-else y luego exprésalo con operador ternario.",
-            seg: null
+            titulo: "Estructura del método main y uso del punto y coma (;)",
+            explicacion: "El punto de entrada de un programa en Java es el método main, y las sentencias finalizan con punto y coma (;).\n\nPráctica: Escribe una clase con el método main e incluye sentencias terminadas con punto y coma (;).",
+            seg: 4545
         },
         {
-            titulo: "Estructura switch-case para menus",
-            explicacion: "La sentencia switch evalúa una variable discreta (int, char, String, enum) y salta al case coincidente usando break para evitar ejecución en cascada.\n\nPráctica: Crea un menú de 4 opciones (1. Saludar, 2. Sumar, 3. Información, 4. Salir) con manejo de opción inválida en default.",
-            seg: null
+            titulo: "Compilación y ejecución de un programa con main",
+            explicacion: "Una vez configurado el JDK y escrito el método main con su sintaxis y punto y coma, el programa puede compilarse y ejecutarse.\n\nPráctica: Crea una clase con método main que imprima un mensaje y compílala/ejecútala en tu entorno.",
+            seg: 4545
         },
         {
-            titulo: "Bucle for tradicional y for-each",
-            explicacion: "El bucle for tradicional controla un índice (for (int i = 0; i < n; i++)), mientras que el for-each (for (Tipo item : coleccion)) recorre elementos directamente.\n\nPráctica: Recorre un arreglo de enteros con ambos tipos de bucle y calcula la suma total.",
-            seg: null
+            titulo: "Lectura de datos con Scanner en ejercicios extra",
+            explicacion: "En los ejercicios extra del cierre del curso se utiliza Scanner para recibir entrada de datos del usuario.\n\nPráctica: Implementa un programa con Scanner que lea datos ingresados por el usuario y los muestre.",
+            seg: 31588
         },
         {
-            titulo: "Bucle while y do-while",
-            explicacion: "while evalúa la condición antes de entrar al ciclo; do-while ejecuta el bloque al menos una vez antes de evaluar la condición de continuidad.\n\nPráctica: Implementa una validación de contraseña o número positivo con do-while hasta que el usuario ingrese un dato válido.",
-            seg: null
+            titulo: "Uso de constantes con final en ejercicios extra",
+            explicacion: "La palabra clave final permite definir constantes cuyo valor no debe reasignarse durante la ejecución.\n\nPráctica: Declara una constante con final y utilízala dentro de un ejercicio práctico.",
+            seg: 31588
         },
         {
-            titulo: "Arreglos unidimensionales (Arrays) y recorrido",
-            explicacion: "Un arreglo en Java tiene longitud fija definida al instanciarse (new int[5]) y se consulta su tamaño mediante la propiedad .length.\n\nPráctica: Almacena 5 temperaturas en un arreglo double[], calcula el promedio y muestra cuántas superan la media.",
-            seg: null
+            titulo: "Generación de valores aleatorios con Random",
+            explicacion: "Dentro de los ejercicios extra finales se propone utilizar Random para generar números aleatorios.\n\nPráctica: Utiliza Random para generar un número aleatorio y mostrarlo en consola.",
+            seg: 31588
         },
         {
-            titulo: "Arreglos bidimensionales (Matrices)",
-            explicacion: "Las matrices (int[][] matriz = new int[3][3]) organizan datos en filas y columnas y se procesan mediante dos ciclos for anidados.\n\nPráctica: Rellena una matriz 3x3 con valores enteros e imprime tanto la matriz tabular como la suma de su diagonal principal.",
-            seg: null
+            titulo: "Programación Orientada a Objetos en ejercicios extra",
+            explicacion: "El curso integra POO para modelar entidades con atributos y comportamientos dentro de clases.\n\nPráctica: Define una clase con atributos y métodos en los ejercicios extra y crea una instancia para probar su comportamiento.",
+            seg: 31588
         },
         {
-            titulo: "Creacion de metodos estaticos y paso de parametros",
-            explicacion: "Los métodos dividen un programa en tareas específicas recibiendo parámetros tipados y devolviendo un resultado (o void si no retornan valor).\n\nPráctica: Crea métodos estáticos para calcular área y perímetro de un rectángulo e invócalos desde main.",
-            seg: null
+            titulo: "Depuración (debug) paso a paso del código Java",
+            explicacion: "Practicar debug permite recorrer el código y observar el comportamiento del programa durante su ejecución.\n\nPráctica: Ejecuta tu programa en modo debug y revisa el flujo de ejecución línea por línea.",
+            seg: 31588
         },
         {
-            titulo: "Programacion Orientada a Objetos: Creacion de Clases y Objetos",
-            explicacion: "Una clase define el molde (atributos y métodos) y cada objeto se crea en memoria con la palabra clave new.\n\nPráctica: Crea la clase CuentaBancaria con titular y saldo, e instancia dos cuentas realizando depósitos y consultas.",
-            seg: null
+            titulo: "Revisión de variables de entorno y compilación",
+            explicacion: "Tener bien definido JAVA_HOME y accesible javac evita errores al compilar programas Java.\n\nPráctica: Comprueba en tu terminal que javac responde correctamente y que JAVA_HOME apunta al JDK.",
+            seg: 2724
         },
         {
-            titulo: "Encapsulamiento (Getters y Setters)",
-            explicacion: "El encapsulamiento protege los atributos declarándolos private y exponiendo métodos públicos get y set que validan las modificaciones.\n\nPráctica: Haz privados los atributos de CuentaBancaria y valida en setSaldo() que nunca se asigne un monto negativo.",
-            seg: null
+            titulo: "Productividad en el IDE con plantillas y atajos",
+            explicacion: "Conocer plantillas y atajos del IDE reduce errores repetitivos al crear clases y métodos en Java.\n\nPráctica: Genera la estructura principal de una clase usando una plantilla o atajo de tu IDE.",
+            seg: 3818
         },
         {
-            titulo: "Constructores y sobrecarga de constructores",
-            explicacion: "Un constructor lleva el mismo nombre de la clase y no tiene tipo de retorno; sobrecargarlo permite crear objetos con distintos conjuntos de datos iniciales.\n\nPráctica: Implementa un constructor vacío y otro parametrizado para una clase Producto (nombre, precio, stock).",
-            seg: null
+            titulo: "Sintaxis de sentencias y punto y coma en main",
+            explicacion: "Omitir el punto y coma (;) en una sentencia en Java provoca un error de compilación o sintaxis.\n\nPráctica: Escribe varias líneas dentro de main respetando el punto y coma (;) al final de cada instrucción.",
+            seg: 4545
         },
         {
-            titulo: "Herencia y superclases en Java",
-            explicacion: "Mediante extends, una subclase hereda atributos y métodos de una superclase y puede llamar al constructor padre con super(...).\n\nPráctica: Crea la clase base Empleado y una subclase Desarrollador que añada el atributo lenguajePrincipal.",
-            seg: null
+            titulo: "Combinación de Scanner y final en un programa",
+            explicacion: "Combinar entrada con Scanner y constantes con final permite validar o comparar datos ingresados frente a un límite fijo.\n\nPráctica: Crea un programa con una constante final y lee un valor con Scanner para compararlo.",
+            seg: 31588
         },
         {
-            titulo: "Polimorfismo y sobreescritura de metodos (@Override)",
-            explicacion: "El polimorfismo permite tratar objetos de distintas subclases bajo una referencia común de la superclase ejecutando su propia versión (@Override) del método.\n\nPráctica: Sobrescribe calcularBono() en distintas subclases de Empleado y recórrelas en un arreglo polimórfico.",
-            seg: null
+            titulo: "Práctica con Random y depuración (debug)",
+            explicacion: "Generar valores con Random y ejecutar debug ayuda a observar variables cambiantes en cada prueba.\n\nPráctica: Genera un valor con Random y depura el código para inspeccionar su resultado.",
+            seg: 31588
         },
         {
-            titulo: "Clases abstractas e interfaces",
-            explicacion: "Una clase abstracta (abstract) no se instancia directamente y puede definir métodos sin cuerpo; una interfaz (interface) establece un contrato que las clases implementan (implements).\n\nPráctica: Define una interfaz Notificable con enviarMensaje(String msg) e impleméntala en Email y SMS.",
-            seg: null
+            titulo: "Modelado de clase con POO y pruebas",
+            explicacion: "Diseñar clases con POO organiza la lógica del programa y facilita probar sus métodos desde main.\n\nPráctica: Crea una clase con comportamiento propio e invoca sus métodos desde un ejercicio de práctica.",
+            seg: 31588
         },
         {
-            titulo: "Manejo de excepciones (try-catch-finally y throws)",
-            explicacion: "Java maneja errores en ejecución mediante try, catch específicos (como InputMismatchException o ArithmeticException) y bloques finally de limpieza.\n\nPráctica: Protege la lectura y conversión de números desde consola capturando errores de formato y división por cero.",
-            seg: null
+            titulo: "Organización de proyectos en el entorno de desarrollo",
+            explicacion: "Mantener el proyecto bien configurado en el IDE facilita compilar, ejecutar y depurar las clases del curso.\n\nPráctica: Organiza tus clases de práctica dentro de un proyecto en tu IDE y comprueba su ejecución.",
+            seg: 3818
         },
         {
-            titulo: "Uso de Colecciones (ArrayList y HashMap)",
-            explicacion: "ArrayList ofrece listas dinámicas sin límite fijo, mientras que HashMap asocia claves únicas con valores para acceso en tiempo constante promedio.\n\nPráctica: Administra una lista de alumnos con ArrayList<String> y sus calificaciones con HashMap<String, Double>.",
-            seg: null
+            titulo: "Punto de entrada único con el método main",
+            explicacion: "Java busca el método main para iniciar la ejecución del programa.\n\nPráctica: Implementa el método main dentro de una clase y muestra un mensaje inicial.",
+            seg: 4545
         },
         {
-            titulo: "Lectura y escritura de archivos con FileReader/FileWriter",
-            explicacion: "Las clases FileWriter, BufferedWriter, FileReader y BufferedReader permiten guardar y leer archivos de texto plano en Java.\n\nPráctica: Guarda 5 líneas en un archivo notas.txt usando try-with-resources y luego léelas para mostrarlas en consola.",
-            seg: null
+            titulo: "Resolución de ejercicios extra integradores",
+            explicacion: "Los ejercicios extra del final reúnen Scanner, final, Random, POO y debug para consolidar lo aprendido.\n\nPráctica: Resuelve un ejercicio extra que combine una clase POO y entrada con Scanner o generación con Random.",
+            seg: 31588
         },
         {
-            titulo: "Programacion funcional basica con Streams y Lambdas",
-            explicacion: "La API Stream y las expresiones lambda (x -> ...) permiten encadenar operaciones como filter(), map() y forEach() sobre colecciones.\n\nPráctica: Toma una lista de enteros, filtra los mayores a 15, multiplícalos por 2 e imprime el resultado con Streams.",
-            seg: null
+            titulo: "Comprobación del entorno JDK antes de programar",
+            explicacion: "Contar con el JDK instalado y JAVA_HOME configurado es el primer paso para compilar con javac.\n\nPráctica: Verifica la versión del JDK y de javac desde la terminal.",
+            seg: 2724
         },
         {
-            titulo: "Estructura de datos avanzada: Implementacion de Lista Enlazada propia",
-            explicacion: "Una lista enlazada almacena elementos en objetos Nodo donde cada nodo guarda un dato y una referencia al siguiente nodo (Nodo siguiente).\n\nPráctica: Crea la clase Nodo y una ListaEnlazada con métodos agregarAlFinal(int dato) e imprimirLista().",
-            seg: null
+            titulo: "Repaso general de fundamentos y POO en Java",
+            explicacion: "Desde la instalación del JDK y configuración del IDE hasta main, punto y coma y los ejercicios extra con POO y debug.\n\nPráctica: Crea una clase con método main y aplica al menos dos elementos de los ejercicios extra (Scanner, final, Random, POO o debug).",
+            seg: 31588
         }
     ],
 
     bash: [
         {
-            titulo: "Script basico con echo y variables",
-            explicacion: "Todo script de Bash comienza con el shebang #!/usr/bin/env bash, asigna variables sin espacios (NOMBRE=\"Ana\") y las expande con \"$NOMBRE\".\n\nPráctica: Crea un script ejecutable (chmod +x) que salude al usuario actual ($USER) y muestre el directorio actual ($PWD).",
-            seg: 372
+            titulo: "Diferencia entre shell y emulador de terminal",
+            explicacion: "La shell es el intérprete que procesa las órdenes y el emulador de terminal es la aplicación donde interactúas con ellas.\n\nPráctica: Explica con tus palabras la diferencia entre shell y emulador de terminal y comprueba qué shell estás usando.",
+            seg: 238
         },
         {
-            titulo: "Captura de argumentos ($1, $2)",
-            explicacion: "Los argumentos pasados al ejecutar el script se reciben en $1, $2, etc., mientras que $# indica el total de argumentos recibidos.\n\nPráctica: Crea un script que reciba nombre y entorno como $1 y $2, y valide con [ $# -lt 2 ] si faltan parámetros.",
-            seg: null
+            titulo: "Uso de Warp y configuración de WSL en Windows",
+            explicacion: "El curso emplea Warp como terminal moderna y muestra cómo trabajar con WSL en Windows para usar un entorno Linux.\n\nPráctica: Abre tu terminal (como Warp o WSL en Windows) y verifica que puedes ejecutar comandos básicos.",
+            seg: 546
         },
         {
-            titulo: "Condicional if que valida si un archivo existe",
-            explicacion: "Las expresiones de prueba [[ -f \"$ruta\" ]] y [[ -d \"$ruta\" ]] comprueban si existe un archivo regular o un directorio respectivamente.\n\nPráctica: Recibe una ruta por argumento y muestra si es un archivo, un directorio o si no existe.",
-            seg: null
+            titulo: "Navegación por directorios con cd .. y ~",
+            explicacion: "En la terminal puedes moverte entre carpetas utilizando rutas, subiendo niveles con cd .. o volviendo al directorio home con ~.\n\nPráctica: Cambia de directorio usando ~ para ir a tu carpeta home y sube de nivel con cd ..",
+            seg: 2823
         },
         {
-            titulo: "Validacion de permisos de lectura/escritura",
-            explicacion: "Los operadores -r (lectura), -w (escritura) y -x (ejecución) permiten comprobar permisos efectivos antes de operar sobre un archivo.\n\nPráctica: Verifica si un archivo dado tiene permisos de lectura y escritura para el usuario actual.",
-            seg: null
+            titulo: "Consulta de ruta actual con pwd y listado con ls -a",
+            explicacion: "pwd muestra el directorio de trabajo actual y ls -a lista los elementos incluyendo los archivos o carpetas ocultos.\n\nPráctica: Ejecuta pwd para ver tu ubicación actual y usa ls -a para listar archivos visibles y ocultos.",
+            seg: 2823
         },
         {
-            titulo: "Bucle for sobre una lista de directorios",
-            explicacion: "El bucle for dir in ...; do ... done permite recorrer rutas, patrones glob (*.log) o listas de directorios.\n\nPráctica: Recorre una lista de carpetas (ej. /etc /var /tmp) y muestra cuántos elementos contiene cada una.",
-            seg: null
+            titulo: "Visualización de archivos ocultos con ls -a",
+            explicacion: "La opción -a en ls permite ver archivos ocultos (los que comienzan con punto) que no aparecen en un listado simple.\n\nPráctica: Navega a una carpeta de trabajo y ejecuta ls -a para identificar archivos ocultos.",
+            seg: 2823
         },
         {
-            titulo: "Bucle while leedor de lineas",
-            explicacion: "La construcción while IFS= read -r linea; do ... done < archivo.txt lee archivos línea por línea sin alterar espacios ni caracteres de escape.\n\nPráctica: Lee un archivo de texto línea por línea e imprime cada línea precedida por su número.",
-            seg: null
+            titulo: "Rutas relativas y atajo de directorio home (~)",
+            explicacion: "Combinar ~ con rutas relativas o cd .. permite desplazarte rápidamente por el sistema de archivos.\n\nPráctica: Usa cd ~ y luego cd .. verificando con pwd en cada paso dónde te encuentras.",
+            seg: 2823
         },
         {
-            titulo: "Renombrar multiples archivos en lote",
-            explicacion: "Combinando bucles for con expansión de parámetros (${archivo%.txt}) se pueden renombrar lotes de archivos de forma segura.\n\nPráctica: Dentro de una carpeta de prueba, renombra todos los archivos .txt agregándoles el prefijo backup_.",
-            seg: null
+            titulo: "Entorno de trabajo en Windows con WSL",
+            explicacion: "WSL permite ejecutar un entorno Linux y su shell dentro de Windows para practicar comandos de terminal.\n\nPráctica: Si usas Windows, abre WSL y ejecuta pwd y ls -a para confirmar el entorno.",
+            seg: 546
         },
         {
-            titulo: "Uso de grep para buscar patrones en /etc/passwd",
-            explicacion: "grep filtra líneas que coinciden con texto o expresiones regulares; opciones útiles incluyen -i (ignorar mayúsculas), -v (invertir) y -E (regex extendida).\n\nPráctica: Busca en /etc/passwd qué usuarios tienen asignado /bin/bash o /usr/bin/zsh como intérprete.",
-            seg: null
+            titulo: "Flujo de trabajo en la terminal con Warp",
+            explicacion: "Warp ofrece una interfaz de terminal diseñada para escribir comandos y trabajar de forma ágil.\n\nPráctica: Prueba navegar entre carpetas en Warp y revisa tu ruta con pwd.",
+            seg: 546
         },
         {
-            titulo: "Filtrado de texto con awk y cut",
-            explicacion: "cut -d ':' -f 1 extrae columnas delimitadas, mientras que awk -F ':' '{print $1, $7}' permite filtrar y formatear campos con condiciones.\n\nPráctica: Extrae el nombre de usuario (campo 1) y su directorio home (campo 6) desde /etc/passwd.",
-            seg: null
+            titulo: "Identificación del intérprete (shell) activo",
+            explicacion: "Distinguir entre el programa de terminal y la shell ayuda a entender qué intérprete lee tus comandos.\n\nPráctica: Revisa qué shell tienes activa y explica qué rol cumple frente al emulador de terminal.",
+            seg: 238
         },
         {
-            titulo: "Creacion de un script de Backup comprimido con tar y date",
-            explicacion: "El comando tar -czf archivo.tar.gz carpeta/ empaqueta y comprime en gzip, y $(date +%Y-%m-%d) inserta la fecha actual en el nombre.\n\nPráctica: Escribe un script que respalde una carpeta de origen en un .tar.gz fechado dentro de un directorio de backups.",
-            seg: null
+            titulo: "Transición de Bash a ZSH como siguiente paso",
+            explicacion: "Al cerrar el curso se plantea ZSH como evolución y siguiente paso natural tras aprender Bash y la terminal.\n\nPráctica: Explica por qué ZSH se propone como siguiente paso tras dominar los fundamentos de Bash.",
+            seg: 20857
         },
         {
-            titulo: "Uso de sed para reemplazar texto automaticamente",
-            explicacion: "sed 's/patron/reemplazo/g' edita flujos de texto mediante expresiones regulares (con -i modifica el archivo directamente).\n\nPráctica: Toma un archivo de configuración de prueba y reemplaza todas las apariciones de DEBUG=false por DEBUG=true.",
-            seg: null
+            titulo: "Recorrido guiado de carpetas con pwd, ls -a y cd",
+            explicacion: "Practicar pwd, ls -a, cd .. y ~ en secuencia permite moverse con seguridad por el sistema de archivos.\n\nPráctica: Ejecuta pwd, lista con ls -a, entra a un subdirectorio, vuelve con cd .. y regresa a ~.",
+            seg: 2823
         },
         {
-            titulo: "Monitoreo de procesos activos con ps y kill",
-            explicacion: "ps aux (o pgrep) lista procesos con su PID, uso de CPU y memoria, mientras que kill -15 PID solicita cierre limpio y kill -9 fuerza la terminación.\n\nPráctica: Filtra procesos activos por nombre, muestra su PID y consumo de memoria, y documenta la diferencia entre SIGTERM y SIGKILL.",
-            seg: null
+            titulo: "Verificación de ubicación tras desplazarse con cd ..",
+            explicacion: "Ejecutar pwd después de usar cd .. confirma exactamente a qué directorio padre te moviste.\n\nPráctica: Baja dos niveles o entra a una carpeta, ejecuta cd .. y comprueba la ruta con pwd.",
+            seg: 2823
         },
         {
-            titulo: "Script con menu interactivo usando select",
-            explicacion: "La estructura select opcion in \"Op1\" \"Op2\" \"Salir\"; do ... done genera automáticamente un menú numerado interactivo en terminal.\n\nPráctica: Crea un menú de administración que permita ver uso de disco (df -h), memoria (free -h), fecha o salir.",
-            seg: null
+            titulo: "Exploración de archivos ocultos en el directorio home",
+            explicacion: "Ir a ~ y ejecutar ls -a permite ver configuraciones y archivos ocultos propios del usuario.\n\nPráctica: Ve a tu directorio home con ~ y ejecuta ls -a para observar los archivos ocultos presentes.",
+            seg: 2823
         },
         {
-            titulo: "Automatizacion de limpieza de logs de mas de 30 dias",
-            explicacion: "find /ruta -type f -name \"*.log\" -mtime +30 localiza archivos modificados hace más de 30 días de forma precisa.\n\nPráctica: Escribe un script que primero liste los archivos .log antiguos y pida confirmación antes de eliminarlos.",
-            seg: null
+            titulo: "Fundamentos de shell y terminal al iniciar",
+            explicacion: "Entender qué es la shell y qué es el emulador de terminal evita confusiones al abrir la consola.\n\nPráctica: Resume en dos frases qué hace la shell y qué hace el emulador de terminal.",
+            seg: 238
         },
         {
-            titulo: "Comprobar conectividad de IPs con ping en bucle",
-            explicacion: "Ejecutar ping -c 1 -W 1 \"$ip\" &> /dev/null evalúa conectividad rápidamente y permite revisar el código de salida ($? == 0).\n\nPráctica: Recorre una lista de 5 direcciones IP o dominios e imprime [ONLINE] u [OFFLINE] para cada uno.",
-            seg: null
+            titulo: "Preparación del entorno en Windows o con Warp",
+            explicacion: "Contar con Warp o WSL listo permite practicar los comandos del curso sin fricciones.\n\nPráctica: Verifica tu entorno de terminal (Warp, WSL o terminal del sistema) y ejecuta un comando de navegación.",
+            seg: 546
         },
         {
-            titulo: "Descarga y extraccion automatizada con curl y tar",
-            explicacion: "curl -fSL url -o archivo.tar.gz descarga recursos siguiendo redirecciones y fallando ante errores HTTP (-f).\n\nPráctica: Estructura un script que descargue un archivo comprimido, verifique que la descarga fue exitosa (&&) y lo extraiga en una carpeta destino.",
-            seg: null
+            titulo: "Comparación conceptual entre Bash y ZSH",
+            explicacion: "ZSH se presenta como el siguiente paso tras Bash para ampliar la experiencia en línea de comandos.\n\nPráctica: Anota qué aspectos de ZSH te gustaría explorar después de practicar Bash.",
+            seg: 20857
         },
         {
-            titulo: "Script ejecutable como servicio systemd",
-            explicacion: "Un archivo .service en /etc/systemd/system/ define las secciones [Unit], [Service] (ExecStart, Restart=always) e [Install] (WantedBy=multi-user.target).\n\nPráctica: Redacta el unit file para ejecutar un script de monitoreo como demonio y anota los comandos systemctl para habilitarlo e iniciarlo.",
-            seg: null
+            titulo: "Práctica de comandos básicos de navegación",
+            explicacion: "Los comandos ls -a, cd .., ~ y pwd son esenciales para moverse e inspeccionar carpetas en la terminal.\n\nPráctica: Realiza un recorrido de 5 comandos usando ~, pwd, ls -a y cd ..",
+            seg: 2823
         },
         {
-            titulo: "Lectura e iteracion de JSON usando jq",
-            explicacion: "jq permite consultar, filtrar y transformar estructuras JSON directamente desde la terminal (ej. jq '.usuarios[].nombre').\n\nPráctica: Dado un archivo JSON con una lista de servidores (nombre, ip, activo), filtra con jq solo los que tengan activo == true.",
-            seg: null
+            titulo: "Comprobación de rutas y carpetas en el sistema",
+            explicacion: "pwd te da certeza de tu ruta actual antes de listar o cambiar de directorio.\n\nPráctica: Muestra tu ruta con pwd, lista con ls -a y cambia de carpeta con cd.",
+            seg: 2823
         },
         {
-            titulo: "Script de auditoria de seguridad del sistema",
-            explicacion: "Un script de auditoría automatiza verificaciones clave: usuarios con UID 0, puertos en escucha (ss -tuln), permisos en archivos críticos y últimos inicios de sesión.\n\nPráctica: Crea un script que recopile estas comprobaciones y guarde un reporte limpio en reporte_auditoria.txt.",
-            seg: null
+            titulo: "Uso cotidiano de la terminal y siguientes pasos",
+            explicacion: "La práctica constante en la terminal y explorar ZSH tras Bash consolidan el trabajo en línea de comandos.\n\nPráctica: Planifica una rutina corta de comandos en terminal y revisa el paso hacia ZSH.",
+            seg: 20857
         },
         {
-            titulo: "Implementacion de una interfaz TUI usando dialog o whiptail",
-            explicacion: "Herramientas como whiptail o dialog permiten construir cuadros de mensaje (--msgbox), confirmación (--yesno) y menús (--menu) en modo texto.\n\nPráctica: Diseña un asistente en terminal con whiptail que pregunte confirmación y muestre una lista seleccionable de tareas.",
-            seg: null
+            titulo: "Repaso integral del bloque de Bash y terminal",
+            explicacion: "Integra la diferencia entre shell y terminal, el entorno (Warp/WSL), la navegación (ls -a, cd .., ~, pwd) y el paso a ZSH.\n\nPráctica: Ejecuta un flujo completo de navegación con pwd, ls -a, cd .. y ~ y anota qué sigue con ZSH.",
+            seg: 2823
         }
-    ],
-
-    ingles: [
+    ]
+ingles: [
         {
             titulo: "Verb To Be and basic greetings",
             explicacion: "El verbo To Be (am, is, are) se utiliza para identidad, origen, edad y estados, invirtiendo el orden sujeto-verbo para formar preguntas.\n\n• I am / You are / He-She-It is / We-They are.\n\nPráctica: Escribe 4 oraciones presentándote, indicando tu ocupación o estudios y formulando dos preguntas básicas.",

@@ -13,7 +13,7 @@ const VIDEOS_TEORIA = {
 };
 
 // Bloque: Informática (redes, python, java, bash) para ejercicios.js
-const bancoEjerciciosInformatica = {
+const bancoEjercicios= {
     redes: [
         {
             titulo: "Nodos, medios, dispositivos (router/switch/AP) y protocolos",
@@ -424,11 +424,7 @@ const bancoEjerciciosInformatica = {
             explicacion: "Integra la diferencia entre shell y terminal, el entorno (Warp/WSL), la navegación (ls -a, cd .., ~, pwd) y el paso a ZSH.\n\nPráctica: Ejecuta un flujo completo de navegación con pwd, ls -a, cd .. y ~ y anota qué sigue con ZSH.",
             seg: 2823
         }
-    ]
-};
-
-// Bloque: Idiomas (ingles, frances, italiano) para ejercicios.js
-const bancoEjerciciosIdiomas = {
+    ],
     ingles: [
         {
             titulo: "Sonidos de vocales, consonantes, dígrafos y estrés silábico",
@@ -736,10 +732,7 @@ const bancoEjerciciosIdiomas = {
             explicacion: "Une deseos, posibilidades y motivos en frases conversacionales (como 'voglio farlo ma è impossibile perché non posso essere qui oggi').\n\nPráctica: Construye una frase conversacional que enlace un deseo o dificultad con 'ma/però' y 'perché'.",
             seg: 4845
         }
-    ]
-};
-// Bloque: Matemáticas y lógica (aritmetica, algebra, logica) para ejercicios.js
-const bancoEjerciciosMatematicas = {
+    ],
     aritmetica: [
         {
             titulo: "Identificación de números enteros positivos, negativos y cero",
